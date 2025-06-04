@@ -26,9 +26,9 @@ def load_triplets_dict(filename):
 
 def main():
     
-    counterfact_path = './data/MQuAKE-T.json'
-    dict_filename = './data/Wikidata_triplets_dict.pkl'  # Replace this with the desired path for saving the dictionary
-    new_dict_filename = './data/Wikidata_triplets_dict_Edited_T.pkl' 
+    counterfact_path = '../data/MQuAKE-T.json'
+    dict_filename = '../data/Wikidata_triplets_dict.pkl'  # Replace this with the desired path for saving the dictionary
+    new_dict_filename = '../data/Wikidata_triplets_dict_Edited_T.pkl' 
     
     
     # Step 1: Load triplets from the file into a dictionary

@@ -69,30 +69,15 @@ def match_func(ground_truth_fact, fact_str, mode):
             exact_match_cor =1
             print(f"{mode}-->question: Exact fact match")
             
-        # test whether the pruning is working
         if mode == 'Pruned' and exact_match_cor == 1:
             redunant_detected = 0
-            fact_str = fact_str[:-1] #remove the last period
+            fact_str = fact_str[:-1]
             input_fact_list = fact_str.split('.\n')
-            #print("input_fact_list", input_fact_list)
             for fact in input_fact_list:
                 if fact not in ground_truth_fact:
                     redunant_detected = 1
             if redunant_detected >0:
                 print("Failed Pruning")
-                      
-        # if mode == 'raw':
-        #     if ext == len(ground_truth_fact) :
-        #         exact_match_cor =1
-        #         print(f"{mode}-->{i}-case-{j}-question: Exact fact match")
-        # elif mode =='prun':
-        #     fact_list = fact_str.split('.\n')
-        #     print("fact_list", fact_list)
-        #     if ext == len(ground_truth_fact) and ext == len(fact_list) :
-        #         exact_match_cor =1
-        #         print(f"{mode}-->{i}-case-{j}-question: Exact fact match")
-        #     #break
-            
         return part_match_cor, exact_match_cor
     
 
@@ -221,7 +206,6 @@ def build_relation(lines, NL_dict):
     
 
 def find_lines_by_entity(triplets_dict, entity_number):
-    # Search for lines containing the given entity number
     if entity_number in triplets_dict:
         return triplets_dict[entity_number]
     return []
@@ -238,14 +222,6 @@ def build_fact(lines):
 
 
 def build_rome_fact(lines):
-    """_summary_
-
-    Args:
-        lines (list): 
-
-    Returns:
-        prompts,  ground_truth, target_new, subjects
-    """
     
     prompts = []
     ground_truth = []
@@ -309,13 +285,7 @@ def retr_fact(input, embs, new_facts_set, fact_number, contriever, contriever_to
     
     return selected_fact 
 
-def retr_relations(facts, relation_dict):
-    
-    '''
-    retriveve all the relations within a fact list like ['Q596874\P155\Q3205815', 'Q596874\P123\Q921536', 'Q596874\P136\Q1543778']
-    return relation_id and relation_names in list format
-    '''
-    
+def retr_relations(facts, relation_dict):  
     relation_ids = set()
     relation_names = set()
     for fact in facts:
@@ -332,14 +302,12 @@ def retr_relations(facts, relation_dict):
 
 
 def get_k_candidates(model, tokenizer, input_text, new_tokens = 50,  num_candidates=10, top_k=10, temperature=1):
-    # Tokenize the input
     input_ids = tokenizer.encode(input_text, return_tensors='pt').to(args.device)
     
-    # Generate multiple answer candidates
     generated_candidates = model.generate(
         input_ids,
-        max_new_tokens=new_tokens,  # Adjust the value based on your desired length of generated answers
-        num_return_sequences=num_candidates,  # Adjust the number of answer candidates you want to generate
+        max_new_tokens=new_tokens,  
+        num_return_sequences=num_candidates, 
         do_sample=True,
         top_k=top_k,
         temperature=temperature
@@ -352,7 +320,6 @@ def get_k_candidates(model, tokenizer, input_text, new_tokens = 50,  num_candida
 def construct_examples(input_question, k, train, question_embs, contriever, contriever_tokenizer):
     
     icl_examples = ""
-    #train_ids = np.random.randint(len(train), size=k)
     train_ids = retrieve_facts(input_question, question_embs, contriever, contriever_tokenizer, k)
     for train_id in train_ids:
         line = train[train_id]
@@ -374,7 +341,6 @@ def construct_extraction_examples(input_question, k, train, question_embs, contr
     
     NL_dict = load_dataset('prompts/templates/cloze_templates_NL.json')
     icl_examples = ""
-    #train_ids = np.random.randint(len(train), size=k)
     train_ids = retrieve_facts(input_question, question_embs, contriever, contriever_tokenizer, k)
     for train_id in train_ids:
         line = train[train_id]
@@ -390,9 +356,7 @@ def construct_extraction_examples(input_question, k, train, question_embs, contr
             else:
                 new_fact = new_fact +' ' + fact
         questions = random.choice(line['questions'])
-        #target_new = line['new_answer']
         icl_examples += f'Question: {questions} Answer: {new_fact}'+'\n'
-        #icl_examples += f'Given question: {questions}. The answer is: {new_fact}.'+'\n\n'
     
     return icl_examples
 
@@ -401,7 +365,6 @@ def eval(model, tokenizer, icl_examples, targets, x):
     ppls = [] 
     for target in targets:
         tgt_len = len(tokenizer.encode(' ' + target))
-        #print(''.join(icl_examples) + f'{x}? {target}')
         encodings = tokenizer(''.join(icl_examples) + f'{x}? {target}', return_tensors='pt')
         input_ids = encodings['input_ids'].to(args.device)
         target_ids = input_ids.clone()
@@ -424,8 +387,6 @@ def sequences_prob(model, tokenizer, input_text, args):
     num = input_tokens.shape[1]
     for i, ids in enumerate(*input_tokens):
         id_probability = torch.softmax(logits[:,i,:], dim=-1)[:, ids]
-        #sentence_probability = sentence_probability*torch.pow(id_probability, -num)
-        #print("id_probability**(-num)", id_probability, num, id_probability**(1./num))
         sentence_probability = sentence_probability*(id_probability**(1./num))
     
     return sentence_probability

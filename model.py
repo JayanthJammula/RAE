@@ -15,8 +15,6 @@ class Extract:
         self.orig_triplets_dict = orig_triplets_dict
 
     def relation_prob(self, input_text, candidate_texts):
-        #print("input_text", input_text)
-        # Calculate probabilities for each candidate sequence
         candidate_probabilities = []
         if self.args.model.startswith('llama') or self.args.model.startswith('vicuna'):
             input_token = ["<s>"] + self.tokenizer.tokenize(input_text)
@@ -38,8 +36,6 @@ class Extract:
     
     def retr_fact_KG_sole_prob(self, input_text, text, entity, ent_eid, fact_needed):
 
-            #here is a big bug, required fixing
-            #eid = entity2id(entity) #get the eid e.g Q38
             eid_facts = find_lines_by_entity(self.triplets_dict, ent_eid)
             relation_names, _ = retr_relations(eid_facts, self.relation_dict)
             if relation_names == []:
@@ -62,7 +58,6 @@ class Extract:
             top_prob, index = torch.topk(new_prob, key)
             return_top_prob = return_prob[index]
             selected_relations = [relation_names[i.item()] for i in index]
-            #print('selected_relation', selected_relations)
             selected_pids = [self.revserse_dict[selected_relation] for selected_relation in selected_relations]
             
             next_rel_entities = []
@@ -85,58 +80,78 @@ class Extract:
             return (fact_set , entity_name, entity_eid, return_top_prob.to("cpu").tolist())
         
         
-    def multi_hop_search(self, input_text, input_entity, iteration, fact_needed):
-          
-        for i in range(iteration):
-            
-            new_text_list = [] 
+    def multi_hop_search(
+        self,
+        input_text: str,
+        input_entity: str,
+        iteration: int,
+        fact_needed,
+        *,
+        rounds: int = None
+    ) -> str:
+
+        num_hops = rounds if (rounds is not None) else iteration
+
+        # these will be populated by the loop
+        text_list = []
+        text_prob_list = []
+
+        for i in range(num_hops):
+            new_text_list = []
+            new_text_prob_list = []
             next_entity_list = []
             next_entites_eid_list = []
-            new_text_prob_list = []
-            
+
             if i == 0:
-                
                 ent_eid = entity2id(input_entity)
-                text_list = [input_text] 
+                text_list = [input_text]
                 entity_list = [input_entity]
                 entity_eid_list = [ent_eid]
                 text_prob_list = [1.0]
-                
+
+            # if nothing to extend, break early
+            if not text_list:
+                break
+
             for j, text in enumerate(text_list):
                 text_prob = text_prob_list[j]
-                
-                facts, next_entites, next_entites_eid, top_prob =  self.retr_fact_KG_sole_prob(input_text, text, entity_list[j], entity_eid_list[j], fact_needed)
+                facts, next_entites, next_entites_eid, top_prob = self.retr_fact_KG_sole_prob(
+                    input_text, text, entity_list[j], entity_eid_list[j], fact_needed
+                )
                 if facts is None:
                     continue
                 for k, fact in enumerate(facts):
-                    new_text = text + '\n' + fact
-                    new_text_prob = top_prob[k]*text_prob
-                    new_text_list.append(new_text)
+                    new_text_list.append(text + '\n' + fact)
                     next_entity_list.append(next_entites[k])
                     next_entites_eid_list.append(next_entites_eid[k])
-                    new_text_prob_list.append(new_text_prob)
-                    
-            text_list = new_text_list
-            #print(f"{i}-th text_list", [text[len(input_text):] for text in text_list])
-            entity_list = next_entity_list
+                    new_text_prob_list.append(top_prob[k] * text_prob)
+
+            text_list       = new_text_list
+            entity_list     = next_entity_list
             entity_eid_list = next_entites_eid_list
-            text_prob_list = new_text_prob_list
-            #print(f"{i}-th text_prob_list", text_prob_list)
-                    
-        text_prob = torch.tensor(text_prob_list)
-        
+            text_prob_list  = new_text_prob_list
+
+            if not text_prob_list:
+                break
+
+        if not text_prob_list:
+            print("======No fact chains found, returning empty======")
+            return ""
+
+        text_prob = torch.tensor(text_prob_list, device=text_list[0].__class__ is str and torch.device("cpu") or self.model.device)
         if self.args.loss == "prob_div":
             final_score = text_prob
         elif self.args.loss == "prob_div_log":
-            final_score = text_prob*torch.log2(text_prob)
-        
-        _, index = torch.topk(final_score, 1)
-        
-        
-        fact = text_list[index][len(input_text + ' '):]
+            final_score = text_prob * torch.log2(text_prob)
+        else:
+            final_score = text_prob
+
+        top_vals, indices = torch.topk(final_score, 1)
+        best_chain = text_list[indices[0].item()]
+
+        fact = best_chain[len(input_text) + 1 :] if len(best_chain) > len(input_text) else ""
         print("======Final fact=====")
         print(fact)
-            
         return fact     
 
 
@@ -156,7 +171,6 @@ class Prune:
                 input_text =  input_text  + ', ' + fact 
         input_text = "Given fact: " + input_text + ', ' + question + '\nAnswer:'
         prom_text = entropy_prompt + input_text
-        #print('prom_text', prom_text)
         
         with torch.no_grad():
             input_ids = self.tokenizer.encode(prom_text, return_tensors="pt").to(self.args.device)
@@ -169,7 +183,6 @@ class Prune:
     def facts_entropy(self, question, facts, entropy_prompt):
     
         num_inputs = len(facts)
-        #print("num_inputs", num_inputs) 
         entropy_values = [0.0] * num_inputs
         
         test_fact = []
@@ -192,7 +205,7 @@ class Prune:
         print("entropy_val:", entropy_val)
         min_index = entropy_val.index(min(entropy_val))
         
-        pruned_facts = facts[0:(min_index+1)] #need extra 1 to get the full chain
+        pruned_facts = facts[0:(min_index+1)]
         pruned_facts_str = '.\n'.join(pruned_facts) + '.'
         
         return pruned_facts_str
