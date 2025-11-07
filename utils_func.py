@@ -139,7 +139,7 @@ def ner_entity(question):
 
 def load_dataset(path):
     
-    with open(path, "r") as f:
+    with open(path, "r", encoding="utf-8") as f:
         lines = json.load(f)
     
     return lines
@@ -163,7 +163,7 @@ def load_KG(path):
 def load_train_question(path):
     
     content_list = []
-    with open(path, "r") as f:
+    with open(path, "r", encoding="utf-8") as f:
         for line in f.readlines():
             content_list.append(literal_eval(line.strip()))
             

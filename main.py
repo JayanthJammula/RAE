@@ -6,6 +6,7 @@ import numpy as np
 import logging
 import argparse
 import time
+import os
 
 from utils_func import *
 from wiki_api.strings import question_token
@@ -52,12 +53,83 @@ def log_metrics(metrics):
     logger.info(f"prun_ans_acc:         {metrics['total_prun_cor']/total:.4f}")
 
 
+def pick_existing_path(*candidates):
+    for path in candidates:
+        if path and os.path.exists(path):
+            return path
+    raise FileNotFoundError(f"None of the expected files exist: {candidates}")
+
+
+def tempalate_extractor(question, NatureL, mode, tuple_list, train, NL_dict, args):
+    icl_examples = ""
+    question_set = question_token(question)
+    score_list = [
+        len(question_set & tpl[3]) / len(question_set | tpl[3])
+        if (question_set | tpl[3]) else 0.0
+        for tpl in tuple_list
+    ]
+    order = list(np.argsort(score_list)[-20:-1])
+    order.reverse()
+    founded_tuple = [tuple_list[i] for i in order]
+
+    if mode == 'prob':
+        template_number = 0
+        question_ent_list = []
+        for tpl in founded_tuple:
+            if tpl[2] != question and tpl[1] not in question and tpl[1] not in question_ent_list:
+                template_number += 1
+                question_ent_list.append(tpl[1])
+                line = train[tpl[-1]-1]
+                new_fact = ""
+                for num, record in enumerate(line["orig"]["new_triples_labeled"]):
+                    if NatureL:
+                        relation_key = line["orig"]["new_triples"][num][1]
+                        relation_nl = NL_dict[relation_key] if NL_dict else relation_key
+                        fact = " ".join([record[0], relation_nl, record[2]]) + '.'
+                    else:
+                        fact = " ".join(record) + '.'
+                    if num == 0:
+                        new_fact += fact
+                    else:
+                        new_fact += '\n' + fact
+                questions = random.choice(line['questions'])
+                icl_examples += f'Question: {questions}\nAnswer: {new_fact}\n\n'
+                if template_number == args.template_number:
+                    break
+    elif mode == 'ans':
+        template_number = 0
+        question_ent_list = []
+        for tpl in founded_tuple:
+            if tpl[2] != question and tpl[1] not in question and tpl[1] not in question_ent_list:
+                template_number += 1
+                question_ent_list.append(tpl[1])
+                line = train[tpl[-1]-1]
+                new_fact = "Given fact: "
+                for num, record in enumerate(line["orig"]["new_triples_labeled"]):
+                    if NatureL:
+                        relation_key = line["orig"]["new_triples"][num][1]
+                        relation_nl = NL_dict[relation_key] if NL_dict else relation_key
+                        fact = " ".join([record[0], relation_nl, record[2]]) + ','
+                    else:
+                        fact = " ".join(record) + ','
+                    if num == 0:
+                        new_fact += fact
+                    else:
+                        new_fact += ' ' + fact
+                questions = random.choice(line['questions'])
+                target_new = line['new_answer']
+                icl_examples += f'{new_fact} {questions}\nAnswer: {target_new}.\n\n'
+                if template_number == args.entropy_template_number:
+                    break
+    return icl_examples
+
+
 if __name__ == '__main__':
     args = parse_args()
     set_seed(args.seed)
 
     MODEL_CONFIGS = {
-        "gpt2":   "gpt2-medium",
+        "gpt2":   "gpt2-large",
         "vicuna": "lmsys/vicuna-7b-v1.1",
         "llama2": "meta-llama/Llama-2-7b-chat-hf",
         "falcon": "tiiuae/falcon-7b",
@@ -65,20 +137,38 @@ if __name__ == '__main__':
     model = AutoModelForCausalLM.from_pretrained(MODEL_CONFIGS[args.model]).to(args.device)
     tokenizer = AutoTokenizer.from_pretrained(MODEL_CONFIGS[args.model])
     model.eval()
+    disable_attn_viz = os.getenv("RAE_DISABLE_ATTN_VIZ") == "1"
+    if hasattr(model, "set_attn_implementation"):
+        model.set_attn_implementation("eager")
+    model.config.attn_implementation = "eager"
     logger.info("Loaded model")
+    attn_supported = (not disable_attn_viz) and getattr(model.config, "attn_implementation", "eager") != "sdpa"
 
     lines      = load_dataset(f"data/{args.dataset}.json")
     train      = load_dataset("data/MQuAKE-CF.json")
     tuple_list = load_train_question("data/train_question_tuple.txt")
-    edit_list  = build_fact(lines)
+    edit_triplets_list = build_fact(lines)
     rel_lines  = load_dataset(args.relation_path)
+    NL_dict = None
     if args.NatureL:
         NL_dict = load_dataset("data/cloze_templates_NL.json")
         relation_dict, revserse_dict = build_relation(rel_lines, NL_dict)
     else:
         relation_dict, revserse_dict = build_relation(rel_lines, None)
-    triplets_dict      = load_triplets_dict("data/Wikidata_triplets_dict_MQuAKE-T.pkl")
-    orig_triplets_dict = load_triplets_dict("data/Wikidata_triplets_dict_Edited_T.pkl")
+
+    triplet_candidates = [
+        f"data/Wikidata_triplets_dict_{args.dataset}.pkl",
+    ]
+    if "MQuAKE-T" in args.dataset:
+        triplet_candidates.append("data/Wikidata_triplets_dict_MQuAKE-T.pkl")
+    triplet_candidates.append("data/Wikidata_triplets_dict.pkl")
+    triplets_dict = load_triplets_dict(pick_existing_path(*triplet_candidates))
+
+    orig_candidates = []
+    if "MQuAKE-T" in args.dataset:
+        orig_candidates.append("data/Wikidata_triplets_dict_Edited_T.pkl")
+    orig_candidates.append("data/Wikidata_triplets_dict.pkl")
+    orig_triplets_dict = load_triplets_dict(pick_existing_path(*orig_candidates))
 
     extractor = Extract(model, tokenizer,
                         triplets_dict, relation_dict,
@@ -113,12 +203,29 @@ if __name__ == '__main__':
 
             # build prompts
             if args.template:
-                prob_ex = tempalate_extractor(question, args.NatureL, 'prob')
+                prob_ex = tempalate_extractor(
+                    question, args.NatureL, 'prob',
+                    tuple_list, train, NL_dict, args
+                )
                 prom_questions = prob_ex + f"Question: {question}\nAnswer:"
-                ans_prompt     = tempalate_extractor(question, args.NatureL, 'ans')
+                ans_prompt = tempalate_extractor(
+                    question, args.NatureL, 'ans',
+                    tuple_list, train, NL_dict, args
+                )
             else:
                 prom_questions = question
                 ans_prompt     = question
+
+            fact_needed = []
+            if args.correctConflict:
+                total_triples = line["orig"]['new_triples']
+                edited_triples = line["orig"]['edit_triples']
+                should_not_edit = [triple for triple in total_triples if triple not in edited_triples]
+                for triple in should_not_edit:
+                    key = (triple[0], triple[1])
+                    if key in edit_triplets_list:
+                        logger.info("Dataset Self-confliction detected!")
+                        fact_needed.append(key)
 
             # adaptive retrieval
             raw_ent = ner_entity(question)
@@ -126,7 +233,7 @@ if __name__ == '__main__':
             for rnd in range(1, args.max_retrieval_rounds+1):
                 retrieved = extractor.multi_hop_search(
                     prom_questions, raw_ent,
-                    len(ground)+2, [], rounds=rnd
+                    len(ground)+2, fact_needed, rounds=rnd
                 )
                 conf = retrieval_confidence(retrieved, ground)
                 logger.info(f"Case{i+1} Q{j} round{rnd} conf={conf:.2f}")
@@ -144,7 +251,7 @@ if __name__ == '__main__':
             is_correct = prun_cor > 0
 
             # collect attentions once if needed
-            if (is_correct and correct_viz < 5) or (not is_correct and wrong_viz < 5):
+            if attn_supported and ((is_correct and correct_viz < 5) or (not is_correct and wrong_viz < 5)):
                 inputs = tokenizer(prom_questions, return_tensors="pt").to(args.device)
                 model.config.output_attentions = True
                 gen_out = model.generate(
@@ -183,6 +290,7 @@ if __name__ == '__main__':
 
                 if is_correct: correct_viz += 1
                 else:          wrong_viz   += 1
+                model.config.output_attentions = False
 
             # QA raw & matching for metrics
             raw_ans, raw_cor = QA_func(
