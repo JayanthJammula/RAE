@@ -1,0 +1,19 @@
+# Bytecode / environments
+__pycache__/
+*.py[cod]
+.venv/
+.env
+
+# Logs & local artifacts
+logs/
+*.log
+
+# Office docs or other large references
+*.docx
+
+# Limit uploaded dataset slices to the public test split
+data/slices/*.json
+!data/slices/MQuAKE-CF_slice01_300.json
+
+# Huge knowledge-graph dumps stay local
+data/Wikidata_triplets_dict*.pkl
