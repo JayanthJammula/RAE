@@ -84,19 +84,27 @@ def match_func(ground_truth_fact, fact_str, mode):
 def QA_func(model, tokenizer, line, input_fact, question, ans_prompt, mode):
     
     correct_ans = 0
-    if input_fact == '':
-        input_fact_str = input_fact
-    else:
-        input_fact = input_fact[:-1] #remove the last period
-        input_fact_list = input_fact.split('.\n') # turn the str into a list
-        input_fact_str = ', '.join(input_fact_list) # add the comma in the sentences 
-    prom_text = ans_prompt + "Given fact: " + input_fact_str + ', '+ question + '\nAnswer:'
-    #print("prom_text", prom_text)
+    fact_lines = []
+    if input_fact:
+        fact_lines = [
+            fact.strip()
+            for fact in input_fact.rstrip('.').split('.\n')
+            if fact.strip()
+        ]
+    fact_block = "\n".join(f"- {fact}" for fact in fact_lines) if fact_lines else "None."
+    prom_text = (
+        ans_prompt.strip()
+        + "\nFacts:\n"
+        + fact_block
+        + "\n\nQuestion: "
+        + question.strip()
+        + "\nAnswer:"
+    )
     input_ids = tokenizer.encode(prom_text, return_tensors="pt").to(args.device)
     output = model.generate(input_ids, num_beams=args.num_beams, max_new_tokens=args.max_new_tokens, temperature=args.temp, pad_token_id=tokenizer.eos_token_id)
-    ans = tokenizer.decode(output[0, input_ids.shape[1]:], skip_special_tokens=True).replace("\n", ", ")
-    simple_ground_ans = re.sub(r"[^a-zA-Z ]+", '', line['new_answer']).lower()
-    simple_ans = re.sub(r"[^a-zA-Z ]+", '', ans).lower()
+    ans = tokenizer.decode(output[0, input_ids.shape[1]:], skip_special_tokens=True).strip()
+    simple_ground_ans = re.sub(r"[^a-zA-Z ]+", "", line['new_answer']).lower()
+    simple_ans = re.sub(r"[^a-zA-Z ]+", "", ans).lower()
     if simple_ground_ans in simple_ans:
         correct_ans = 1
     else: 

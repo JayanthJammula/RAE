@@ -131,8 +131,9 @@ if __name__ == '__main__':
     MODEL_CONFIGS = {
         "gpt2":   "gpt2-large",
         "vicuna": "lmsys/vicuna-7b-v1.1",
+        "neo": "EleutherAI/gpt-neo-2.7B",
         "llama2": "meta-llama/Llama-2-7b-chat-hf",
-        "falcon": "tiiuae/falcon-7b",
+        "falcon": "tiiuae/falcon-1b",
     }
     model = AutoModelForCausalLM.from_pretrained(MODEL_CONFIGS[args.model]).to(args.device)
     tokenizer = AutoTokenizer.from_pretrained(MODEL_CONFIGS[args.model])
