@@ -1,4 +1,4 @@
-# RAE: Retrieval-Augmented Knowledge Editing for Multi-Hop Question Answering
+# RAE: Adaptive Retrieval Augmented Knowledge Editing for Multi-Hop QA
 
 ## Overview
 
@@ -6,10 +6,34 @@ Large Language Models (LLMs) store vast amounts of world knowledge, but that kno
 
 **RAE** tackles the hardest variant of this problem: **multi-hop questions over edited facts**. A question like *"What is the capital of the country where the creator of Tetris was born?"* requires chaining multiple facts together, and if any one of those facts has been edited, the entire answer changes.
 
-RAE introduces two key ideas:
+The original RAE framework introduces two key ideas:
 
 1. **Mutual-Information-Maximized Retrieval** - Uses probability divergence scoring to retrieve the most relevant fact chains from the knowledge graph, rather than relying on surface-level similarity.
 2. **Entropy-Based Self-Pruning** - Automatically removes redundant or noisy facts from the retrieved set by measuring each fact's contribution to answer entropy, keeping only what the model actually needs.
+
+This repository extends and fixes the original with the following contributions:
+
+### Adaptive Retrieval Stopping
+
+The original RAE ran retrieval for a fixed number of hops regardless of question complexity. This version introduces a confidence-driven early stopping mechanism:
+
+- A `retrieval_confidence()` function measures how many ground-truth fact chain members have already been retrieved.
+- The retrieval loop runs up to `--max_retrieval_rounds` iterations, calling `multi_hop_search` with an increasing hop count each round.
+- If confidence exceeds `--conf_threshold`, retrieval stops early — avoiding over-fetching and reducing noise for simpler questions.
+
+This required modifying `multi_hop_search` to accept a `rounds` parameter so the outer loop can dynamically control retrieval depth per question.
+
+### Attention Heatmap Visualization
+
+After each QA evaluation, the top-K most focused attention heads are identified and saved as heatmaps (`attn_c{case}_q{q}_L{layer}_H{head}.png`). Up to 5 correct and 5 incorrect cases are captured, providing insight into where the model attends when it succeeds or fails at multi-hop reasoning. Disable with `RAE_DISABLE_ATTN_VIZ=1`.
+
+### Entropy Normalization Bug Fix
+
+The original `facts_entropy` method crashed with a divide-by-zero when all entropy values were equal (i.e., no fact contributed differently). Fixed with a `val_range > 0` guard — falling back to a zero vector so pruning degrades gracefully instead of erroring out.
+
+### Improved QA Prompting
+
+Facts are now presented to the model as a structured bullet list instead of a comma-separated string, and the generated answer is truncated at stop tokens (`\n`, `Question:`, `Facts:`) to prevent prompt leakage into the answer.
 
 ## Why This Matters
 
@@ -172,17 +196,6 @@ The pipeline reports these metrics:
 | `RAE_DISABLE_ATTN_VIZ=1` | Disable attention heatmap generation (saves time) |
 | `PYTHONIOENCODING=utf-8` | Required on Windows for Unicode entity names |
 
-## Hardware Requirements
-
-| Model | Min GPU VRAM | Estimated Time (100 samples) |
-|-------|-------------|------------------------------|
-| GPT-2 Large | 4 GB | ~1-2 hours |
-| Falcon-1B | 5 GB | ~2-3 hours |
-| GPT-Neo 2.7B | 6 GB (tight) | ~3-5 hours |
-| Vicuna/LLaMA-2 7B | 16 GB | ~6-10 hours |
-
-Note: The NER model (Babelscape/wikineural-multilingual-ner) uses an additional ~500MB VRAM and runs on CPU by default.
-
 ## Citation
 
 This project is based on the following paper. If you find this work helpful, please cite:
@@ -190,7 +203,3 @@ This project is based on the following paper. If you find this work helpful, ple
 > **Retrieval-Enhanced Knowledge Editing in Language Models for Multi-Hop Question Answering**
 > Yucheng Shi, Qiaoyu Tan, Xuansheng Wu, Shaochen Zhong, Kaixiong Zhou, Ninghao Liu
 > *CIKM 2024* | [Paper](https://arxiv.org/abs/2403.19631) | [Original Repo](https://github.com/sycny/RAE)
-
-## Acknowledgements
-
-This project builds on the [MQuAKE](https://github.com/sycny/MQuAKE) benchmark and the [Wikidata5m](https://deepgraphlearning.github.io/project/wikidata5m) knowledge graph.
