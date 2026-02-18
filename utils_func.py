@@ -32,12 +32,12 @@ def parse_args():
     parser.add_argument('--beam_width', type=int, default=2)
     parser.add_argument('--loss', type=str, default='prob_div_log')
     parser.add_argument('--mode', type=str, default='beam')
-    parser.add_argument('--template', type=bool, default=True)
-    parser.add_argument('--NatureL', type=bool, default=True)
-    parser.add_argument('--correctConflict', type=bool, default=True)
+    parser.add_argument('--template', action='store_true')
+    parser.add_argument('--NatureL', action='store_true')
+    parser.add_argument('--correctConflict', action='store_true')
     parser.add_argument('--template_number', type=int, default=3)
     parser.add_argument('--entropy_template_number', type=int, default=6)
-    args = parser.parse_args()
+    args, _ = parser.parse_known_args()
 
     return args
 
@@ -49,36 +49,35 @@ nlp = pipeline("ner", model=ner_model, tokenizer=ner_tokenizer, aggregation_stra
 
 
 def match_func(ground_truth_fact, fact_str, mode):
-    
-    
-        if fact_str == '':
-            return 0,0
 
-        part_match_cor, exact_match_cor = 0,0
-        for fact in ground_truth_fact:
-            if fact in fact_str:
-                part_match_cor =1
-                print(f"{mode}-->question: Part fact match")
-                break
-        
-        ext = 0    
-        for fact in ground_truth_fact:
-            if fact in fact_str:
-                ext+=1 
-        if ext == len(ground_truth_fact) :
-            exact_match_cor =1
-            print(f"{mode}-->question: Exact fact match")
-            
-        if mode == 'Pruned' and exact_match_cor == 1:
-            redunant_detected = 0
-            fact_str = fact_str[:-1]
-            input_fact_list = fact_str.split('.\n')
-            for fact in input_fact_list:
-                if fact not in ground_truth_fact:
-                    redunant_detected = 1
-            if redunant_detected >0:
-                print("Failed Pruning")
-        return part_match_cor, exact_match_cor
+    if fact_str == '':
+        return 0, 0
+
+    part_match_cor, exact_match_cor = 0, 0
+    for fact in ground_truth_fact:
+        if fact in fact_str:
+            part_match_cor = 1
+            print(f"{mode}-->question: Part fact match")
+            break
+
+    ext = 0
+    for fact in ground_truth_fact:
+        if fact in fact_str:
+            ext += 1
+    if ext == len(ground_truth_fact):
+        exact_match_cor = 1
+        print(f"{mode}-->question: Exact fact match")
+
+    if mode == 'Pruned' and exact_match_cor == 1:
+        redunant_detected = 0
+        fact_str = fact_str[:-1]
+        input_fact_list = fact_str.split('.\n')
+        for fact in input_fact_list:
+            if fact not in ground_truth_fact:
+                redunant_detected = 1
+        if redunant_detected > 0:
+            print("Failed Pruning")
+    return part_match_cor, exact_match_cor
     
 
 def QA_func(model, tokenizer, line, input_fact, question, ans_prompt, mode):
@@ -103,6 +102,12 @@ def QA_func(model, tokenizer, line, input_fact, question, ans_prompt, mode):
     input_ids = tokenizer.encode(prom_text, return_tensors="pt").to(args.device)
     output = model.generate(input_ids, num_beams=args.num_beams, max_new_tokens=args.max_new_tokens, temperature=args.temp, pad_token_id=tokenizer.eos_token_id)
     ans = tokenizer.decode(output[0, input_ids.shape[1]:], skip_special_tokens=True).strip()
+    # Truncate at first newline or prompt-like boundary to avoid answer leaking
+    for stop_tok in ["\n", "Question:", "Facts:"]:
+        if stop_tok in ans:
+            ans = ans[:ans.index(stop_tok)].strip()
+    # Strip trailing period for cleaner matching
+    ans = ans.rstrip('.')
     simple_ground_ans = re.sub(r"[^a-zA-Z ]+", "", line['new_answer']).lower()
     simple_ans = re.sub(r"[^a-zA-Z ]+", "", ans).lower()
     if simple_ground_ans in simple_ans:
@@ -112,7 +117,7 @@ def QA_func(model, tokenizer, line, input_fact, question, ans_prompt, mode):
             simple_alias = re.sub(r"[^a-zA-Z ]+", '', alias).lower()
             if simple_alias in simple_ans:
                 correct_ans = 1
-            break
+                break
     print(f"{mode}:{correct_ans}-->Edited Ans:'{line['new_answer']}/{simple_ground_ans}', Our Ans:'{ans}/{simple_ans}'")
     
     return simple_ans, correct_ans

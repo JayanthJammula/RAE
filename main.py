@@ -135,6 +135,9 @@ if __name__ == '__main__':
         "llama2": "meta-llama/Llama-2-7b-chat-hf",
         "falcon": "tiiuae/falcon-1b",
     }
+    if args.model not in MODEL_CONFIGS:
+        logger.error(f"Unknown model '{args.model}'. Supported models: {list(MODEL_CONFIGS.keys())}")
+        raise SystemExit(1)
     model = AutoModelForCausalLM.from_pretrained(MODEL_CONFIGS[args.model]).to(args.device)
     tokenizer = AutoTokenizer.from_pretrained(MODEL_CONFIGS[args.model])
     model.eval()

@@ -45,7 +45,7 @@ def main():
             lines_containing_entity = find_lines_by_entity(triplets_dict, head_e)
             
             if len(lines_containing_entity) ==0:
-                triplets_dict[head_e] = [f"{head_ent}\t{relation}\t{tail_e}"]
+                triplets_dict[head_e] = [f"{head_e}\t{rel}\t{tail_e}"]
             else:
                 new_lines_containing_entity = [fact for fact in lines_containing_entity]
                 for i, existing_line in enumerate(lines_containing_entity):
@@ -54,7 +54,7 @@ def main():
                         new_lines_containing_entity.remove(existing_line) ##remove all the facts with this relatino
                 new_lines_containing_entity.append(f"{head_ent}\t{rel}\t{tail_e}") # only keep the edited verison
                 triplets_dict[head_e] = new_lines_containing_entity
-                
+
         for edit_fact in line["orig"]["new_triples"]:
             head_e, rel, tail_e = edit_fact
             if (head_e, rel) in edit_fact_list: # if the fact appears in the edited fact, pass
@@ -62,7 +62,7 @@ def main():
             else:
                 lines_containing_entity = find_lines_by_entity(triplets_dict, head_e)
                 if len(lines_containing_entity) ==0:     # if the head entitiy has no facts, append this one
-                    triplets_dict[head_e] = [f"{head_ent}\t{relation}\t{tail_e}"]
+                    triplets_dict[head_e] = [f"{head_e}\t{rel}\t{tail_e}"]
                 else:
                     new_lines_containing_entity = [fact for fact in lines_containing_entity]
                     for i, existing_line in enumerate(lines_containing_entity):

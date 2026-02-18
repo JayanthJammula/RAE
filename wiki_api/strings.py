@@ -2,13 +2,10 @@ import re
 import difflib
 from collections import Counter, defaultdict
 import nltk
-nltk.download('wordnet')
-nltk.download('word_tokenize')
-nltk.download('pos_tag')
-nltk.download('PorterStemmer')
-nltk.download('stopwords')
-nltk.download('punkt_tab')
-nltk.download('averaged_perceptron_tagger_eng')
+nltk.download('wordnet', quiet=True)
+nltk.download('punkt_tab', quiet=True)
+nltk.download('averaged_perceptron_tagger_eng', quiet=True)
+nltk.download('stopwords', quiet=True)
 
 class LemmaTokenizer:
     def __init__(self):
@@ -27,7 +24,6 @@ class LemmaTokenizer:
         lemmas = []
         for word, tag in self._tagging(self._tokenize(text)):
             tag = self._tagmaps.get(tag[:2], self._wordnet.NOUN)
-            tag = self._wordnet.VERB
             word = self._lemmatize(word, tag)
             flag = word[0] == word[0].upper()
             word = self._stemmer.stem(word)

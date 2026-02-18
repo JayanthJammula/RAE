@@ -44,11 +44,11 @@ class Extract:
             prob1 = self.relation_prob(text + '\n' + entity , relation_names)
             prob2 = self.relation_prob(text[len(input_text):] + '\n' + entity , relation_names)
              
-            return_prob = prob1/prob2
+            raw_prob = prob1 / prob2  # unweighted ratio, returned to caller
             if self.args.loss == "prob_div":
-                new_prob = (prob1/prob2)
+                new_prob = raw_prob
             elif self.args.loss == "prob_div_log":
-                new_prob = (prob1/prob2)*torch.log2(prob1/prob2)
+                new_prob = raw_prob * torch.log2(raw_prob)
                 
             if new_prob.shape[0]>self.args.beam_width:
                 key = self.args.beam_width
@@ -56,7 +56,7 @@ class Extract:
                 key=new_prob.shape[0]
                 
             top_prob, index = torch.topk(new_prob, key)
-            return_top_prob = return_prob[index]
+            return_top_prob = raw_prob[index]
             selected_relations = [relation_names[i.item()] for i in index]
             selected_pids = [self.revserse_dict[selected_relation] for selected_relation in selected_relations]
             
@@ -193,8 +193,12 @@ class Prune:
             entropy_values[i] = ans_h
         
         entropy_values = torch.tensor(entropy_values)
-        entropy_values = (entropy_values-torch.min(entropy_values))/(torch.max(entropy_values)-torch.min(entropy_values))
-        
+        val_range = torch.max(entropy_values) - torch.min(entropy_values)
+        if val_range > 0:
+            entropy_values = (entropy_values - torch.min(entropy_values)) / val_range
+        else:
+            entropy_values = torch.zeros_like(entropy_values)
+
         return entropy_values.tolist()
     
     def prune_fact(self, question, facts_str, entropy_prompt):
