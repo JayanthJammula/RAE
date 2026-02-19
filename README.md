@@ -27,6 +27,10 @@ This required modifying `multi_hop_search` to accept a `rounds` parameter so the
 
 After each QA evaluation, the top-K most focused attention heads are identified and saved as heatmaps (`attn_c{case}_q{q}_L{layer}_H{head}.png`). Up to 5 correct and 5 incorrect cases are captured, providing insight into where the model attends when it succeeds or fails at multi-hop reasoning. Disable with `RAE_DISABLE_ATTN_VIZ=1`.
 
+### Entropy Normalization Bug Fix
+
+The original `facts_entropy` method crashed with a divide-by-zero when all entropy values were equal (i.e., no fact contributed differently). Fixed with a `val_range > 0` guard — falling back to a zero vector so pruning degrades gracefully instead of erroring out.
+
 ### Improved QA Prompting
 
 Facts are now presented to the model as a structured bullet list instead of a comma-separated string, and the generated answer is truncated at stop tokens (`\n`, `Question:`, `Facts:`) to prevent prompt leakage into the answer.

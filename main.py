@@ -322,9 +322,9 @@ if __name__ == '__main__':
             logger.info(f"Progress {i+1}")
             log_metrics(metrics)
 
-        if correct_viz>=5 and wrong_viz>=5:
-            logger.info("Collected 5 correct & 5 wrong attentions; stopping.")
-            break
+        if attn_supported and correct_viz>=5 and wrong_viz>=5:
+            logger.info("Collected 5 correct & 5 wrong attentions; stopping attention collection.")
+            attn_supported = False   # stop collecting, but keep evaluating
 
     t1 = time.time()
     logger.info(f"Total runtime: {(t1-t0):.1f}s")

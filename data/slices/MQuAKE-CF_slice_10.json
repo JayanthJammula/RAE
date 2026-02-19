@@ -1,0 +1,1814 @@
+[
+  {
+    "case_id": 1,
+    "requested_rewrite": [
+      {
+        "prompt": "{} is a citizen of",
+        "relation_id": "P27",
+        "target_new": {
+          "str": "Croatia",
+          "id": "Q224"
+        },
+        "target_true": {
+          "str": "United States of America",
+          "id": "Q30"
+        },
+        "subject": "Ellie Kemper",
+        "question": "What is the country of citizenship of Ellie Kemper?"
+      }
+    ],
+    "questions": [
+      "Who is the head of state of the country where Ellie Kemper holds a citizenship?",
+      "What is the name of the head of state of the country that Ellie Kemper is a citizen of?",
+      "Who holds the highest position in the government of the country that Ellie Kemper is a citizen of?"
+    ],
+    "answer": "Donald Trump",
+    "answer_alias": [
+      "@realDonaldTrump",
+      "David Dennison",
+      "DJT",
+      "Donald J Trump",
+      "Donald J. Trump",
+      "Individual 1",
+      "Mr Trump",
+      "POTUS 45",
+      "President Donald J Trump",
+      "President Donald J. Trump",
+      "President Donald John Trump",
+      "President Donald Trump",
+      "President Trump",
+      "The Donald",
+      "John Miller",
+      "Trump",
+      "John Barron",
+      "Donald John Trump"
+    ],
+    "new_answer": "Kolinda Grabar-Kitarovi\u0107",
+    "new_answer_alias": [
+      "Grabar-Kitarovi\u0107"
+    ],
+    "single_hops": [
+      {
+        "question": "What is the country of citizenship of Ellie Kemper?",
+        "cloze": "Ellie Kemper is a citizen of",
+        "answer": "United States of America",
+        "answer_alias": [
+          "the States",
+          "the U.S.",
+          "the United States",
+          "the United States of America",
+          "the US",
+          "the USA",
+          "U. S.",
+          "U. S. A.",
+          "U.S.",
+          "U.S.A.",
+          "US of A",
+          "USA",
+          "America",
+          "United States",
+          "US",
+          "the U.S. of A",
+          "the U.S. of America",
+          "the U.S.A.",
+          "the US of A",
+          "the US of America",
+          "U.S. of America",
+          "US of America"
+        ]
+      },
+      {
+        "question": "What is the name of the current head of state in United States of America?",
+        "cloze": "The name of the current head of state in United States of America is",
+        "answer": "Donald Trump",
+        "answer_alias": [
+          "@realDonaldTrump",
+          "David Dennison",
+          "DJT",
+          "Donald J Trump",
+          "Donald J. Trump",
+          "Individual 1",
+          "Mr Trump",
+          "POTUS 45",
+          "President Donald J Trump",
+          "President Donald J. Trump",
+          "President Donald John Trump",
+          "President Donald Trump",
+          "President Trump",
+          "The Donald",
+          "John Miller",
+          "Trump",
+          "John Barron",
+          "Donald John Trump"
+        ]
+      }
+    ],
+    "new_single_hops": [
+      {
+        "question": "What is the country of citizenship of Ellie Kemper?",
+        "cloze": "Ellie Kemper is a citizen of",
+        "answer": "Croatia",
+        "answer_alias": [
+          "CRO",
+          "RH",
+          "HRV",
+          "HR",
+          "Republic of Croatia"
+        ]
+      },
+      {
+        "question": "What is the name of the current head of state in Croatia?",
+        "cloze": "The name of the current head of state in Croatia is",
+        "answer": "Kolinda Grabar-Kitarovi\u0107",
+        "answer_alias": [
+          "Grabar-Kitarovi\u0107"
+        ]
+      }
+    ],
+    "orig": {
+      "triples": [
+        [
+          "Q72077",
+          "P27",
+          "Q30"
+        ],
+        [
+          "Q30",
+          "P35",
+          "Q22686"
+        ]
+      ],
+      "triples_labeled": [
+        [
+          "Ellie Kemper",
+          "country of citizenship",
+          "United States of America"
+        ],
+        [
+          "United States of America",
+          "head of state",
+          "Donald Trump"
+        ]
+      ],
+      "new_triples": [
+        [
+          "Q72077",
+          "P27",
+          "Q224"
+        ],
+        [
+          "Q224",
+          "P35",
+          "Q3176299"
+        ]
+      ],
+      "new_triples_labeled": [
+        [
+          "Ellie Kemper",
+          "country of citizenship",
+          "Croatia"
+        ],
+        [
+          "Croatia",
+          "head of state",
+          "Kolinda Grabar-Kitarovi\u0107"
+        ]
+      ],
+      "edit_triples": [
+        [
+          "Q72077",
+          "P27",
+          "Q224"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": 2,
+    "requested_rewrite": [
+      {
+        "prompt": "The author of {} is",
+        "relation_id": "P50",
+        "target_new": {
+          "str": "Richard Dawkins",
+          "id": "Q44461"
+        },
+        "target_true": {
+          "str": "Stephen King",
+          "id": "Q39829"
+        },
+        "subject": "Misery",
+        "question": "Who is the author of Misery?"
+      }
+    ],
+    "questions": [
+      "Which writer's country of citizenship is the same as the author of \"Misery\"?",
+      "What country does the author of \"Misery\" and another writer share their citizenship?",
+      "What is the nationality of the author of \"Misery\"?"
+    ],
+    "answer": "United States of America",
+    "answer_alias": [
+      "the States",
+      "the U.S.",
+      "the United States",
+      "the United States of America",
+      "the US",
+      "the USA",
+      "U. S.",
+      "U. S. A.",
+      "U.S.",
+      "U.S.A.",
+      "US of A",
+      "USA",
+      "America",
+      "United States",
+      "US",
+      "the U.S. of A",
+      "the U.S. of America",
+      "the U.S.A.",
+      "the US of A",
+      "the US of America",
+      "U.S. of America",
+      "US of America"
+    ],
+    "new_answer": "United Kingdom",
+    "new_answer_alias": [
+      "Britain",
+      "UK",
+      "G. B.",
+      "GBR",
+      "Great Britain",
+      "GB",
+      "G.B.",
+      "United Kingdom of Great Britain and Northern Ireland",
+      "G B",
+      "G B R",
+      "G.B.R.",
+      "\ud83c\uddec\ud83c\udde7",
+      "Great Britain and Northern Ireland",
+      "The UK",
+      "The United Kingdom of Great Britain and Northern Ireland",
+      "U K",
+      "U. K.",
+      "U.K."
+    ],
+    "single_hops": [
+      {
+        "question": "Who is the author of Misery?",
+        "cloze": "The author of Misery is",
+        "answer": "Stephen King",
+        "answer_alias": [
+          "Richard Bachman",
+          "John Swithen",
+          "Stephen Edwin King"
+        ]
+      },
+      {
+        "question": "What is the country of citizenship of Stephen King?",
+        "cloze": "Stephen King is a citizen of",
+        "answer": "United States of America",
+        "answer_alias": [
+          "the States",
+          "the U.S.",
+          "the United States",
+          "the United States of America",
+          "the US",
+          "the USA",
+          "U. S.",
+          "U. S. A.",
+          "U.S.",
+          "U.S.A.",
+          "US of A",
+          "USA",
+          "America",
+          "United States",
+          "US",
+          "the U.S. of A",
+          "the U.S. of America",
+          "the U.S.A.",
+          "the US of A",
+          "the US of America",
+          "U.S. of America",
+          "US of America"
+        ]
+      }
+    ],
+    "new_single_hops": [
+      {
+        "question": "Who is the author of Misery?",
+        "cloze": "The author of Misery is",
+        "answer": "Richard Dawkins",
+        "answer_alias": [
+          "Clinton Dawkins",
+          "C. Dawkins",
+          "C. Richard Dawkins",
+          "Clinton Richard Dawkins",
+          "CR Dawkins",
+          "R. Dawkins"
+        ]
+      },
+      {
+        "question": "What is the country of citizenship of Richard Dawkins?",
+        "cloze": "Richard Dawkins is a citizen of",
+        "answer": "United Kingdom",
+        "answer_alias": [
+          "Britain",
+          "UK",
+          "G. B.",
+          "GBR",
+          "Great Britain",
+          "GB",
+          "G.B.",
+          "United Kingdom of Great Britain and Northern Ireland",
+          "G B",
+          "G B R",
+          "G.B.R.",
+          "\ud83c\uddec\ud83c\udde7",
+          "Great Britain and Northern Ireland",
+          "The UK",
+          "The United Kingdom of Great Britain and Northern Ireland",
+          "U K",
+          "U. K.",
+          "U.K."
+        ]
+      }
+    ],
+    "orig": {
+      "triples": [
+        [
+          "Q596874",
+          "P50",
+          "Q39829"
+        ],
+        [
+          "Q39829",
+          "P27",
+          "Q30"
+        ]
+      ],
+      "triples_labeled": [
+        [
+          "Misery",
+          "author",
+          "Stephen King"
+        ],
+        [
+          "Stephen King",
+          "country of citizenship",
+          "United States of America"
+        ]
+      ],
+      "new_triples": [
+        [
+          "Q596874",
+          "P50",
+          "Q44461"
+        ],
+        [
+          "Q44461",
+          "P27",
+          "Q145"
+        ]
+      ],
+      "new_triples_labeled": [
+        [
+          "Misery",
+          "author",
+          "Richard Dawkins"
+        ],
+        [
+          "Richard Dawkins",
+          "country of citizenship",
+          "United Kingdom"
+        ]
+      ],
+      "edit_triples": [
+        [
+          "Q596874",
+          "P50",
+          "Q44461"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": 3,
+    "requested_rewrite": [
+      {
+        "prompt": "The capital of {} is",
+        "relation_id": "P36",
+        "target_new": {
+          "str": "El Campu",
+          "id": "Q3775140"
+        },
+        "target_true": {
+          "str": "Washington, D.C.",
+          "id": "Q61"
+        },
+        "subject": "United States of America",
+        "question": "What is the capital of United States of America?"
+      }
+    ],
+    "questions": [
+      "What is the capital city of the country that Michael Feinstein is a citizen of?",
+      "Which city serves as the capital of the country to which Michael Feinstein belongs?",
+      "What is the name of the capital city of the country of which Michael Feinstein has citizenship?"
+    ],
+    "answer": "Washington, D.C.",
+    "answer_alias": [
+      "Washington",
+      "The District",
+      "D.C.",
+      "DC",
+      "District of Columbia",
+      "Washington D.C.",
+      "Washington, DC",
+      "US-DC",
+      "Washington DC",
+      "Washington, D.C., U.S.",
+      "Washington, District of Columbia"
+    ],
+    "new_answer": "El Campu",
+    "new_answer_alias": [],
+    "single_hops": [
+      {
+        "question": "What is the country of citizenship of Michael Feinstein?",
+        "cloze": "Michael Feinstein is a citizen of",
+        "answer": "United States of America",
+        "answer_alias": [
+          "the States",
+          "the U.S.",
+          "the United States",
+          "the United States of America",
+          "the US",
+          "the USA",
+          "U. S.",
+          "U. S. A.",
+          "U.S.",
+          "U.S.A.",
+          "US of A",
+          "USA",
+          "America",
+          "United States",
+          "US",
+          "the U.S. of A",
+          "the U.S. of America",
+          "the U.S.A.",
+          "the US of A",
+          "the US of America",
+          "U.S. of America",
+          "US of America"
+        ]
+      },
+      {
+        "question": "What is the capital of United States of America?",
+        "cloze": "The capital of United States of America is",
+        "answer": "Washington, D.C.",
+        "answer_alias": [
+          "Washington",
+          "The District",
+          "D.C.",
+          "DC",
+          "District of Columbia",
+          "Washington D.C.",
+          "Washington, DC",
+          "US-DC",
+          "Washington DC",
+          "Washington, D.C., U.S.",
+          "Washington, District of Columbia"
+        ]
+      }
+    ],
+    "new_single_hops": [
+      {
+        "question": "What is the country of citizenship of Michael Feinstein?",
+        "cloze": "Michael Feinstein is a citizen of",
+        "answer": "United States of America",
+        "answer_alias": [
+          "the States",
+          "the U.S.",
+          "the United States",
+          "the United States of America",
+          "the US",
+          "the USA",
+          "U. S.",
+          "U. S. A.",
+          "U.S.",
+          "U.S.A.",
+          "US of A",
+          "USA",
+          "America",
+          "United States",
+          "US",
+          "the U.S. of A",
+          "the U.S. of America",
+          "the U.S.A.",
+          "the US of A",
+          "the US of America",
+          "U.S. of America",
+          "US of America"
+        ]
+      },
+      {
+        "question": "What is the capital of United States of America?",
+        "cloze": "The capital of United States of America is",
+        "answer": "El Campu",
+        "answer_alias": []
+      }
+    ],
+    "orig": {
+      "triples": [
+        [
+          "Q454353",
+          "P27",
+          "Q30"
+        ],
+        [
+          "Q30",
+          "P36",
+          "Q61"
+        ]
+      ],
+      "triples_labeled": [
+        [
+          "Michael Feinstein",
+          "country of citizenship",
+          "United States of America"
+        ],
+        [
+          "United States of America",
+          "capital",
+          "Washington, D.C."
+        ]
+      ],
+      "new_triples": [
+        [
+          "Q454353",
+          "P27",
+          "Q30"
+        ],
+        [
+          "Q30",
+          "P36",
+          "Q3775140"
+        ]
+      ],
+      "new_triples_labeled": [
+        [
+          "Michael Feinstein",
+          "country of citizenship",
+          "United States of America"
+        ],
+        [
+          "United States of America",
+          "capital",
+          "El Campu"
+        ]
+      ],
+      "edit_triples": [
+        [
+          "Q30",
+          "P36",
+          "Q3775140"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": 4,
+    "requested_rewrite": [
+      {
+        "prompt": "{} is a citizen of",
+        "relation_id": "P27",
+        "target_new": {
+          "str": "India",
+          "id": "Q668"
+        },
+        "target_true": {
+          "str": "United States of America",
+          "id": "Q30"
+        },
+        "subject": "Lou Pearlman",
+        "question": "What is the country of citizenship of Lou Pearlman?"
+      },
+      {
+        "prompt": "The capital of {} is",
+        "relation_id": "P36",
+        "target_new": {
+          "str": "Taloga",
+          "id": "Q2729568"
+        },
+        "target_true": {
+          "str": "New Delhi",
+          "id": "Q987"
+        },
+        "subject": "India",
+        "question": "What is the capital of India?"
+      }
+    ],
+    "questions": [
+      "What is the capital of the country to which Lou Pearlman belonged?",
+      "Which city serves as the capital of the country where Lou Pearlman was a citizen?",
+      "In which city is the capital of the country where Lou Pearlman had citizenship?"
+    ],
+    "answer": "Washington, D.C.",
+    "answer_alias": [
+      "Washington",
+      "The District",
+      "D.C.",
+      "DC",
+      "District of Columbia",
+      "Washington D.C.",
+      "Washington, DC",
+      "US-DC",
+      "Washington DC",
+      "Washington, D.C., U.S.",
+      "Washington, District of Columbia"
+    ],
+    "new_answer": "Taloga",
+    "new_answer_alias": [
+      "Taloga, OK",
+      "Taloga, Oklahoma"
+    ],
+    "single_hops": [
+      {
+        "question": "What is the country of citizenship of Lou Pearlman?",
+        "cloze": "Lou Pearlman is a citizen of",
+        "answer": "United States of America",
+        "answer_alias": [
+          "the States",
+          "the U.S.",
+          "the United States",
+          "the United States of America",
+          "the US",
+          "the USA",
+          "U. S.",
+          "U. S. A.",
+          "U.S.",
+          "U.S.A.",
+          "US of A",
+          "USA",
+          "America",
+          "United States",
+          "US",
+          "the U.S. of A",
+          "the U.S. of America",
+          "the U.S.A.",
+          "the US of A",
+          "the US of America",
+          "U.S. of America",
+          "US of America"
+        ]
+      },
+      {
+        "question": "What is the capital of United States of America?",
+        "cloze": "The capital of United States of America is",
+        "answer": "Washington, D.C.",
+        "answer_alias": [
+          "Washington",
+          "The District",
+          "D.C.",
+          "DC",
+          "District of Columbia",
+          "Washington D.C.",
+          "Washington, DC",
+          "US-DC",
+          "Washington DC",
+          "Washington, D.C., U.S.",
+          "Washington, District of Columbia"
+        ]
+      }
+    ],
+    "new_single_hops": [
+      {
+        "question": "What is the country of citizenship of Lou Pearlman?",
+        "cloze": "Lou Pearlman is a citizen of",
+        "answer": "India",
+        "answer_alias": [
+          "Bharat Ganarajya",
+          "IND",
+          "IN",
+          "Bharat",
+          "Bharata",
+          "Bharatvarsh",
+          "Hindoostan",
+          "Hindustan",
+          "\ud83c\uddee\ud83c\uddf3",
+          "Indostan",
+          "Republic of India"
+        ]
+      },
+      {
+        "question": "What is the capital of India?",
+        "cloze": "The capital of India is",
+        "answer": "Taloga",
+        "answer_alias": [
+          "Taloga, OK",
+          "Taloga, Oklahoma"
+        ]
+      }
+    ],
+    "orig": {
+      "triples": [
+        [
+          "Q730887",
+          "P27",
+          "Q30"
+        ],
+        [
+          "Q30",
+          "P36",
+          "Q61"
+        ]
+      ],
+      "triples_labeled": [
+        [
+          "Lou Pearlman",
+          "country of citizenship",
+          "United States of America"
+        ],
+        [
+          "United States of America",
+          "capital",
+          "Washington, D.C."
+        ]
+      ],
+      "new_triples": [
+        [
+          "Q730887",
+          "P27",
+          "Q668"
+        ],
+        [
+          "Q668",
+          "P36",
+          "Q2729568"
+        ]
+      ],
+      "new_triples_labeled": [
+        [
+          "Lou Pearlman",
+          "country of citizenship",
+          "India"
+        ],
+        [
+          "India",
+          "capital",
+          "Taloga"
+        ]
+      ],
+      "edit_triples": [
+        [
+          "Q730887",
+          "P27",
+          "Q668"
+        ],
+        [
+          "Q668",
+          "P36",
+          "Q2729568"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": 5,
+    "requested_rewrite": [
+      {
+        "prompt": "{} is located in the continent of",
+        "relation_id": "P30",
+        "target_new": {
+          "str": "Asia",
+          "id": "Q48"
+        },
+        "target_true": {
+          "str": "Europe",
+          "id": "Q46"
+        },
+        "subject": "United Kingdom",
+        "question": "Which continent is United Kingdom located in?"
+      }
+    ],
+    "questions": [
+      "Which continent does Emma Bunton's country of citizenship belong to?",
+      "To which continent does the country Emma Bunton holds citizenship pertain to?",
+      "In which continent is the country that Emma Bunton is a citizen of located?"
+    ],
+    "answer": "Europe",
+    "answer_alias": [
+      "European continent",
+      "Old Continent"
+    ],
+    "new_answer": "Asia",
+    "new_answer_alias": [
+      "Asian continent"
+    ],
+    "single_hops": [
+      {
+        "question": "What is the country of citizenship of Emma Bunton?",
+        "cloze": "Emma Bunton is a citizen of",
+        "answer": "United Kingdom",
+        "answer_alias": [
+          "Britain",
+          "UK",
+          "G. B.",
+          "GBR",
+          "Great Britain",
+          "GB",
+          "G.B.",
+          "United Kingdom of Great Britain and Northern Ireland",
+          "G B",
+          "G B R",
+          "G.B.R.",
+          "\ud83c\uddec\ud83c\udde7",
+          "Great Britain and Northern Ireland",
+          "The UK",
+          "The United Kingdom of Great Britain and Northern Ireland",
+          "U K",
+          "U. K.",
+          "U.K."
+        ]
+      },
+      {
+        "question": "Which continent is United Kingdom located in?",
+        "cloze": "United Kingdom is located in the continent of",
+        "answer": "Europe",
+        "answer_alias": [
+          "European continent",
+          "Old Continent"
+        ]
+      }
+    ],
+    "new_single_hops": [
+      {
+        "question": "What is the country of citizenship of Emma Bunton?",
+        "cloze": "Emma Bunton is a citizen of",
+        "answer": "United Kingdom",
+        "answer_alias": [
+          "Britain",
+          "UK",
+          "G. B.",
+          "GBR",
+          "Great Britain",
+          "GB",
+          "G.B.",
+          "United Kingdom of Great Britain and Northern Ireland",
+          "G B",
+          "G B R",
+          "G.B.R.",
+          "\ud83c\uddec\ud83c\udde7",
+          "Great Britain and Northern Ireland",
+          "The UK",
+          "The United Kingdom of Great Britain and Northern Ireland",
+          "U K",
+          "U. K.",
+          "U.K."
+        ]
+      },
+      {
+        "question": "Which continent is United Kingdom located in?",
+        "cloze": "United Kingdom is located in the continent of",
+        "answer": "Asia",
+        "answer_alias": [
+          "Asian continent"
+        ]
+      }
+    ],
+    "orig": {
+      "triples": [
+        [
+          "Q219878",
+          "P27",
+          "Q145"
+        ],
+        [
+          "Q145",
+          "P30",
+          "Q46"
+        ]
+      ],
+      "triples_labeled": [
+        [
+          "Emma Bunton",
+          "country of citizenship",
+          "United Kingdom"
+        ],
+        [
+          "United Kingdom",
+          "continent",
+          "Europe"
+        ]
+      ],
+      "new_triples": [
+        [
+          "Q219878",
+          "P27",
+          "Q145"
+        ],
+        [
+          "Q145",
+          "P30",
+          "Q48"
+        ]
+      ],
+      "new_triples_labeled": [
+        [
+          "Emma Bunton",
+          "country of citizenship",
+          "United Kingdom"
+        ],
+        [
+          "United Kingdom",
+          "continent",
+          "Asia"
+        ]
+      ],
+      "edit_triples": [
+        [
+          "Q145",
+          "P30",
+          "Q48"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": 6,
+    "requested_rewrite": [
+      {
+        "prompt": "{} was created by",
+        "relation_id": "P170",
+        "target_new": {
+          "str": "Mark Burnett",
+          "id": "Q3294019"
+        },
+        "target_true": {
+          "str": "Alexey Pajitnov",
+          "id": "Q92600"
+        },
+        "subject": "Tetris",
+        "question": "Who was Tetris created by?"
+      },
+      {
+        "prompt": "{} was born in the city of",
+        "relation_id": "P19",
+        "target_new": {
+          "str": "Manila",
+          "id": "Q1461"
+        },
+        "target_true": {
+          "str": "London",
+          "id": "Q84"
+        },
+        "subject": "Mark Burnett",
+        "question": "Which city was Mark Burnett born in?"
+      }
+    ],
+    "questions": [
+      "Where was the creator of Tetris born?",
+      "What is the birthplace of the person who created Tetris?",
+      "In which city was the creator of Tetris born?"
+    ],
+    "answer": "Moscow",
+    "answer_alias": [
+      "Moskva",
+      "Moscow, Russia",
+      "City of Moscow",
+      "Moscow, Russian Federation",
+      "Moscow, Russian SFSR",
+      "Moscow, Soviet Union",
+      "Moscow, USSR",
+      "Moskva Federal City, Russia",
+      "Moskva, Rossiya",
+      "Moskva, Russia",
+      "\u041c\u043e\u0441\u043a\u0432\u0430",
+      "Moskov\u012d",
+      "Moskve",
+      "Moskv\u00eb",
+      "Moskvi",
+      "Mosky"
+    ],
+    "new_answer": "Manila",
+    "new_answer_alias": [
+      "Pearl of the Orient",
+      "City of Manila",
+      "Queen City of the Pacific and others"
+    ],
+    "single_hops": [
+      {
+        "question": "Who was Tetris created by?",
+        "cloze": "Tetris was created by",
+        "answer": "Alexey Pajitnov",
+        "answer_alias": [
+          "Alexey Leonidovich Pajitnov"
+        ]
+      },
+      {
+        "question": "Which city was Alexey Pajitnov born in?",
+        "cloze": "Alexey Pajitnov was born in the city of",
+        "answer": "Moscow",
+        "answer_alias": [
+          "Moskva",
+          "Moscow, Russia",
+          "City of Moscow",
+          "Moscow, Russian Federation",
+          "Moscow, Russian SFSR",
+          "Moscow, Soviet Union",
+          "Moscow, USSR",
+          "Moskva Federal City, Russia",
+          "Moskva, Rossiya",
+          "Moskva, Russia",
+          "\u041c\u043e\u0441\u043a\u0432\u0430",
+          "Moskov\u012d",
+          "Moskve",
+          "Moskv\u00eb",
+          "Moskvi",
+          "Mosky"
+        ]
+      }
+    ],
+    "new_single_hops": [
+      {
+        "question": "Who was Tetris created by?",
+        "cloze": "Tetris was created by",
+        "answer": "Mark Burnett",
+        "answer_alias": []
+      },
+      {
+        "question": "Which city was Mark Burnett born in?",
+        "cloze": "Mark Burnett was born in the city of",
+        "answer": "Manila",
+        "answer_alias": [
+          "Pearl of the Orient",
+          "City of Manila",
+          "Queen City of the Pacific and others"
+        ]
+      }
+    ],
+    "orig": {
+      "triples": [
+        [
+          "Q71910",
+          "P170",
+          "Q92600"
+        ],
+        [
+          "Q92600",
+          "P19",
+          "Q649"
+        ]
+      ],
+      "triples_labeled": [
+        [
+          "Tetris",
+          "creator",
+          "Alexey Pajitnov"
+        ],
+        [
+          "Alexey Pajitnov",
+          "place of birth",
+          "Moscow"
+        ]
+      ],
+      "new_triples": [
+        [
+          "Q71910",
+          "P170",
+          "Q3294019"
+        ],
+        [
+          "Q3294019",
+          "P19",
+          "Q1461"
+        ]
+      ],
+      "new_triples_labeled": [
+        [
+          "Tetris",
+          "creator",
+          "Mark Burnett"
+        ],
+        [
+          "Mark Burnett",
+          "place of birth",
+          "Manila"
+        ]
+      ],
+      "edit_triples": [
+        [
+          "Q71910",
+          "P170",
+          "Q3294019"
+        ],
+        [
+          "Q3294019",
+          "P19",
+          "Q1461"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": 7,
+    "requested_rewrite": [
+      {
+        "prompt": "{} is associated with the sport of",
+        "relation_id": "P641",
+        "target_new": {
+          "str": "association football",
+          "id": "Q2736"
+        },
+        "target_true": {
+          "str": "basketball",
+          "id": "Q5372"
+        },
+        "subject": "Cincinnati Gardens",
+        "question": "Which sport is Cincinnati Gardens associated with?"
+      },
+      {
+        "prompt": "{} was created in the country of",
+        "relation_id": "P495",
+        "target_new": {
+          "str": "Hong Kong",
+          "id": "Q8646"
+        },
+        "target_true": {
+          "str": "England",
+          "id": "Q21"
+        },
+        "subject": "association football",
+        "question": "Which country was association football created in?"
+      }
+    ],
+    "questions": [
+      "What country is the home to the Cincinnati Gardens' sport?",
+      "In which country was the sport associated with Cincinnati Gardens first established?",
+      "From which country did the sport of Cincinnati Gardens originate?"
+    ],
+    "answer": "United States of America",
+    "answer_alias": [
+      "the States",
+      "the U.S.",
+      "the United States",
+      "the United States of America",
+      "the US",
+      "the USA",
+      "U. S.",
+      "U. S. A.",
+      "U.S.",
+      "U.S.A.",
+      "US of A",
+      "USA",
+      "America",
+      "United States",
+      "US",
+      "the U.S. of A",
+      "the U.S. of America",
+      "the U.S.A.",
+      "the US of A",
+      "the US of America",
+      "U.S. of America",
+      "US of America"
+    ],
+    "new_answer": "Hong Kong",
+    "new_answer_alias": [
+      "HKG",
+      "HK",
+      "Hongkong",
+      "hk",
+      "\ud83c\udded\ud83c\uddf0",
+      "China Hong Kong",
+      "HKSAR",
+      "Hong Kong SAR",
+      "Hong Kong SAR, China",
+      "Hong Kong Special Administrative Region",
+      "Hong Kong, China",
+      "xiang gang"
+    ],
+    "single_hops": [
+      {
+        "question": "Which sport is Cincinnati Gardens associated with?",
+        "cloze": "Cincinnati Gardens is associated with the sport of",
+        "answer": "basketball",
+        "answer_alias": [
+          "BB",
+          "Basketball",
+          "basket ball",
+          "b-ball",
+          "hoops"
+        ]
+      },
+      {
+        "question": "Which country was basketball created in?",
+        "cloze": "basketball was created in the country of",
+        "answer": "United States of America",
+        "answer_alias": [
+          "the States",
+          "the U.S.",
+          "the United States",
+          "the United States of America",
+          "the US",
+          "the USA",
+          "U. S.",
+          "U. S. A.",
+          "U.S.",
+          "U.S.A.",
+          "US of A",
+          "USA",
+          "America",
+          "United States",
+          "US",
+          "the U.S. of A",
+          "the U.S. of America",
+          "the U.S.A.",
+          "the US of A",
+          "the US of America",
+          "U.S. of America",
+          "US of America"
+        ]
+      }
+    ],
+    "new_single_hops": [
+      {
+        "question": "Which sport is Cincinnati Gardens associated with?",
+        "cloze": "Cincinnati Gardens is associated with the sport of",
+        "answer": "association football",
+        "answer_alias": [
+          "football",
+          "association soccer",
+          "footie",
+          "footy",
+          "futbol",
+          "futebol",
+          "soccer"
+        ]
+      },
+      {
+        "question": "Which country was association football created in?",
+        "cloze": "association football was created in the country of",
+        "answer": "Hong Kong",
+        "answer_alias": [
+          "HKG",
+          "HK",
+          "Hongkong",
+          "hk",
+          "\ud83c\udded\ud83c\uddf0",
+          "China Hong Kong",
+          "HKSAR",
+          "Hong Kong SAR",
+          "Hong Kong SAR, China",
+          "Hong Kong Special Administrative Region",
+          "Hong Kong, China",
+          "xiang gang"
+        ]
+      }
+    ],
+    "orig": {
+      "triples": [
+        [
+          "Q1092220",
+          "P641",
+          "Q5372"
+        ],
+        [
+          "Q5372",
+          "P495",
+          "Q30"
+        ]
+      ],
+      "triples_labeled": [
+        [
+          "Cincinnati Gardens",
+          "sport",
+          "basketball"
+        ],
+        [
+          "basketball",
+          "country of origin",
+          "United States of America"
+        ]
+      ],
+      "new_triples": [
+        [
+          "Q1092220",
+          "P641",
+          "Q2736"
+        ],
+        [
+          "Q2736",
+          "P495",
+          "Q8646"
+        ]
+      ],
+      "new_triples_labeled": [
+        [
+          "Cincinnati Gardens",
+          "sport",
+          "association football"
+        ],
+        [
+          "association football",
+          "country of origin",
+          "Hong Kong"
+        ]
+      ],
+      "edit_triples": [
+        [
+          "Q1092220",
+          "P641",
+          "Q2736"
+        ],
+        [
+          "Q2736",
+          "P495",
+          "Q8646"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": 8,
+    "requested_rewrite": [
+      {
+        "prompt": "{} is a citizen of",
+        "relation_id": "P27",
+        "target_new": {
+          "str": "Indonesia",
+          "id": "Q252"
+        },
+        "target_true": {
+          "str": "United States of America",
+          "id": "Q30"
+        },
+        "subject": "William Gillette",
+        "question": "What is the country of citizenship of William Gillette?"
+      },
+      {
+        "prompt": "The official language of {} is",
+        "relation_id": "P37",
+        "target_new": {
+          "str": "German",
+          "id": "Q188"
+        },
+        "target_true": {
+          "str": "Indonesian",
+          "id": "Q9240"
+        },
+        "subject": "Indonesia",
+        "question": "What is the official language of Indonesia?"
+      }
+    ],
+    "questions": [
+      "What is the official language of the country that William Gillette was a citizen of?",
+      "Which language is the official language of William Gillette's country of citizenship?",
+      "What is the language that is used officially in the country of citizenship of William Gillette?"
+    ],
+    "answer": "American English",
+    "answer_alias": [
+      "AmE",
+      "en_us",
+      "en_US",
+      "en-us",
+      "en-US",
+      "English (United States)",
+      "U.S. English",
+      "United States English",
+      "US English"
+    ],
+    "new_answer": "German",
+    "new_answer_alias": [
+      "de",
+      "German language"
+    ],
+    "single_hops": [
+      {
+        "question": "What is the country of citizenship of William Gillette?",
+        "cloze": "William Gillette is a citizen of",
+        "answer": "United States of America",
+        "answer_alias": [
+          "the States",
+          "the U.S.",
+          "the United States",
+          "the United States of America",
+          "the US",
+          "the USA",
+          "U. S.",
+          "U. S. A.",
+          "U.S.",
+          "U.S.A.",
+          "US of A",
+          "USA",
+          "America",
+          "United States",
+          "US",
+          "the U.S. of A",
+          "the U.S. of America",
+          "the U.S.A.",
+          "the US of A",
+          "the US of America",
+          "U.S. of America",
+          "US of America"
+        ]
+      },
+      {
+        "question": "What is the official language of United States of America?",
+        "cloze": "The official language of United States of America is",
+        "answer": "American English",
+        "answer_alias": [
+          "AmE",
+          "en_us",
+          "en_US",
+          "en-us",
+          "en-US",
+          "English (United States)",
+          "U.S. English",
+          "United States English",
+          "US English"
+        ]
+      }
+    ],
+    "new_single_hops": [
+      {
+        "question": "What is the country of citizenship of William Gillette?",
+        "cloze": "William Gillette is a citizen of",
+        "answer": "Indonesia",
+        "answer_alias": [
+          "INA",
+          "ID",
+          "id",
+          "IDN",
+          "Republic of Indonesia"
+        ]
+      },
+      {
+        "question": "What is the official language of Indonesia?",
+        "cloze": "The official language of Indonesia is",
+        "answer": "German",
+        "answer_alias": [
+          "de",
+          "German language"
+        ]
+      }
+    ],
+    "orig": {
+      "triples": [
+        [
+          "Q983339",
+          "P27",
+          "Q30"
+        ],
+        [
+          "Q30",
+          "P37",
+          "Q7976"
+        ]
+      ],
+      "triples_labeled": [
+        [
+          "William Gillette",
+          "country of citizenship",
+          "United States of America"
+        ],
+        [
+          "United States of America",
+          "official language",
+          "American English"
+        ]
+      ],
+      "new_triples": [
+        [
+          "Q983339",
+          "P27",
+          "Q252"
+        ],
+        [
+          "Q252",
+          "P37",
+          "Q188"
+        ]
+      ],
+      "new_triples_labeled": [
+        [
+          "William Gillette",
+          "country of citizenship",
+          "Indonesia"
+        ],
+        [
+          "Indonesia",
+          "official language",
+          "German"
+        ]
+      ],
+      "edit_triples": [
+        [
+          "Q983339",
+          "P27",
+          "Q252"
+        ],
+        [
+          "Q252",
+          "P37",
+          "Q188"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": 9,
+    "requested_rewrite": [
+      {
+        "prompt": "{} is married to",
+        "relation_id": "P26",
+        "target_new": {
+          "str": "Louis X of France",
+          "id": "Q8384"
+        },
+        "target_true": {
+          "str": "Helen Herron Taft",
+          "id": "Q255115"
+        },
+        "subject": "William Howard Taft",
+        "question": "Who is William Howard Taft married to?"
+      },
+      {
+        "prompt": "{} was born in the city of",
+        "relation_id": "P19",
+        "target_new": {
+          "str": "Denison",
+          "id": "Q534669"
+        },
+        "target_true": {
+          "str": "Paris",
+          "id": "Q90"
+        },
+        "subject": "Louis X of France",
+        "question": "Which city was Louis X of France born in?"
+      }
+    ],
+    "questions": [
+      "What is the birthplace of the spouse of William Howard Taft?",
+      "Where did the partner of William Howard Taft come from?",
+      "In which city was the partner of William Howard Taft born?"
+    ],
+    "answer": "Cincinnati",
+    "answer_alias": [
+      "Cin City",
+      "Cincinnati, OH",
+      "Cincinnati, Ohio",
+      "Cincy",
+      "Cinti"
+    ],
+    "new_answer": "Denison",
+    "new_answer_alias": [
+      "Denison, Texas",
+      "Denison, TX"
+    ],
+    "single_hops": [
+      {
+        "question": "Who is William Howard Taft married to?",
+        "cloze": "William Howard Taft is married to",
+        "answer": "Helen Herron Taft",
+        "answer_alias": [
+          "Helen Herron",
+          "Helen Louise Herron",
+          "Helen Louise Taft",
+          "Helen Taft",
+          "Nellie Herron",
+          "Nellie Taft"
+        ]
+      },
+      {
+        "question": "Which city was Helen Herron Taft born in?",
+        "cloze": "Helen Herron Taft was born in the city of",
+        "answer": "Cincinnati",
+        "answer_alias": [
+          "Cin City",
+          "Cincinnati, OH",
+          "Cincinnati, Ohio",
+          "Cincy",
+          "Cinti"
+        ]
+      }
+    ],
+    "new_single_hops": [
+      {
+        "question": "Who is William Howard Taft married to?",
+        "cloze": "William Howard Taft is married to",
+        "answer": "Louis X of France",
+        "answer_alias": [
+          "the Headstrong",
+          "the Quarreler",
+          "the Stubborn"
+        ]
+      },
+      {
+        "question": "Which city was Louis X of France born in?",
+        "cloze": "Louis X of France was born in the city of",
+        "answer": "Denison",
+        "answer_alias": [
+          "Denison, Texas",
+          "Denison, TX"
+        ]
+      }
+    ],
+    "orig": {
+      "triples": [
+        [
+          "Q35648",
+          "P26",
+          "Q255115"
+        ],
+        [
+          "Q255115",
+          "P19",
+          "Q43196"
+        ]
+      ],
+      "triples_labeled": [
+        [
+          "William Howard Taft",
+          "spouse",
+          "Helen Herron Taft"
+        ],
+        [
+          "Helen Herron Taft",
+          "place of birth",
+          "Cincinnati"
+        ]
+      ],
+      "new_triples": [
+        [
+          "Q35648",
+          "P26",
+          "Q8384"
+        ],
+        [
+          "Q8384",
+          "P19",
+          "Q534669"
+        ]
+      ],
+      "new_triples_labeled": [
+        [
+          "William Howard Taft",
+          "spouse",
+          "Louis X of France"
+        ],
+        [
+          "Louis X of France",
+          "place of birth",
+          "Denison"
+        ]
+      ],
+      "edit_triples": [
+        [
+          "Q35648",
+          "P26",
+          "Q8384"
+        ],
+        [
+          "Q8384",
+          "P19",
+          "Q534669"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": 10,
+    "requested_rewrite": [
+      {
+        "prompt": "{} was founded by",
+        "relation_id": "P112",
+        "target_new": {
+          "str": "Alexander I of Russia",
+          "id": "Q15193"
+        },
+        "target_true": {
+          "str": "Guru Nanak",
+          "id": "Q83322"
+        },
+        "subject": "Sikhism",
+        "question": "Who founded Sikhism?"
+      }
+    ],
+    "questions": [
+      "Who founded the group or organization associated with the Khalistan movement's religion?",
+      "By whom was the organization corresponding to the religion followed by the Khalistan movement created?",
+      "Who established the religion followed by the Khalistan movement?"
+    ],
+    "answer": "Guru Nanak",
+    "answer_alias": [
+      "Guru Nanak Dev Ji",
+      "Nanak Dev",
+      "Nanak Guru Nanak Dev"
+    ],
+    "new_answer": "Alexander I of Russia",
+    "new_answer_alias": [
+      "Alexander I",
+      "Alexander the Blessed"
+    ],
+    "single_hops": [
+      {
+        "question": "Which religion is Khalistan movement affiliated with?",
+        "cloze": "Khalistan movement is affiliated with the religion of",
+        "answer": "Sikhism",
+        "answer_alias": [
+          "Sikh",
+          "Sikhi",
+          "Gurmat",
+          "Nanakism"
+        ]
+      },
+      {
+        "question": "Who founded Sikhism?",
+        "cloze": "Sikhism was founded by",
+        "answer": "Guru Nanak",
+        "answer_alias": [
+          "Guru Nanak Dev Ji",
+          "Nanak Dev",
+          "Nanak Guru Nanak Dev"
+        ]
+      }
+    ],
+    "new_single_hops": [
+      {
+        "question": "Which religion is Khalistan movement affiliated with?",
+        "cloze": "Khalistan movement is affiliated with the religion of",
+        "answer": "Sikhism",
+        "answer_alias": [
+          "Sikh",
+          "Sikhi",
+          "Gurmat",
+          "Nanakism"
+        ]
+      },
+      {
+        "question": "Who founded Sikhism?",
+        "cloze": "Sikhism was founded by",
+        "answer": "Alexander I of Russia",
+        "answer_alias": [
+          "Alexander I",
+          "Alexander the Blessed"
+        ]
+      }
+    ],
+    "orig": {
+      "triples": [
+        [
+          "Q902020",
+          "P140",
+          "Q9316"
+        ],
+        [
+          "Q9316",
+          "P112",
+          "Q83322"
+        ]
+      ],
+      "triples_labeled": [
+        [
+          "Khalistan movement",
+          "religion or worldview",
+          "Sikhism"
+        ],
+        [
+          "Sikhism",
+          "founded by",
+          "Guru Nanak"
+        ]
+      ],
+      "new_triples": [
+        [
+          "Q902020",
+          "P140",
+          "Q9316"
+        ],
+        [
+          "Q9316",
+          "P112",
+          "Q15193"
+        ]
+      ],
+      "new_triples_labeled": [
+        [
+          "Khalistan movement",
+          "religion or worldview",
+          "Sikhism"
+        ],
+        [
+          "Sikhism",
+          "founded by",
+          "Alexander I of Russia"
+        ]
+      ],
+      "edit_triples": [
+        [
+          "Q9316",
+          "P112",
+          "Q15193"
+        ]
+      ]
+    }
+  }
+]

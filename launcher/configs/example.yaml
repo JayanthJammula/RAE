@@ -1,0 +1,40 @@
+# =========================================================
+# RAE Launcher - Example Configuration
+# =========================================================
+# Copy this file and edit to create your own run config.
+# Usage: python run.py --config configs/my_run.yaml
+# =========================================================
+
+# --- Required ---
+model: gpt2                     # gpt2 | falcon | neo | vicuna | llama2
+dataset: 10 samples             # "10 samples" | "100 samples" | "3k benchmark" | raw path like MQuAKE-CF-3k
+
+# --- Device ---
+# device: cuda                  # cuda (default if GPU found) | cpu
+
+# --- Retrieval ---
+loss: prob_div                  # prob_div | prob_div_log
+beam_width: 5                   # beam width for fact chain search (default: 5)
+max_retrieval_rounds: 3         # adaptive retrieval max rounds (default: 3)
+conf_threshold: 0.7             # stop retrieval early when confidence >= this (default: 0.7)
+
+# --- Generation ---
+num_beams: 1                    # beam search size for answer generation (default: 1)
+max_new_tokens: 50              # max tokens to generate (default: 50)
+temp: 1.0                       # generation temperature (default: 1.0)
+
+# --- Features ---
+NatureL: true                   # convert KG triples to natural language (recommended)
+template: true                  # use ICL examples (recommended)
+correctConflict: true           # handle MQuAKE-CF editing conflicts
+
+# --- ICL ---
+# template_number: 5            # number of ICL examples for retrieval (default: 5)
+# entropy_template_number: 5    # number of ICL examples for pruning (default: 5)
+
+# --- Visualization ---
+disable_attn_viz: true          # set to false to save attention heatmaps
+
+# --- Misc ---
+seed: 42                        # random seed for reproducibility
+# starting_line: 0              # resume from case N

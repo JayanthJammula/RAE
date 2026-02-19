@@ -46,9 +46,9 @@ def entity2id(q):
 		if len(ans) > 0:
 			return ans[0]["id"]
 		else:
-			return 'not applicable'
-	except:
-		pass
+			return None
+	except Exception:
+		return None
 
 
 
@@ -79,8 +79,8 @@ def id2entity(q):
 		else:
 			# Some outliers : Salvador Domingo Felipe Jacinto Dali i Domenech - Q5577
 			return "Not Applicable"
-	except:
-		return 'xxxxxxxx'
+	except Exception:
+		return "Not Applicable"
 
 def getp(p):
 	# Get property name given property id
@@ -103,7 +103,7 @@ def Related(name):
 	# Return a list of dicts, each dict contains (pid, property, eid, entity)
 	# Fail to fetch eid would result in empty list
 	query = entity2id(name)
-	if query == "Not Applicable": return []
+	if query is None: return []
 	ans = []
 	url = "https://www.wikidata.org/w/api.php?action=wbgetentities&ids="+query+"&format=json&languages=en"
 	response = _safe_json_get(url)
