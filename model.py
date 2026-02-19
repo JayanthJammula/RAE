@@ -27,7 +27,7 @@ class Extract:
                 else:
                     cand_token = self.tokenizer.tokenize(' ' + cand_text)
                 prompt = torch.tensor([self.tokenizer.convert_tokens_to_ids(input_token + cand_token)])
-                probas = torch.softmax(self.model(prompt.to(self.model.device)).logits, -1).squeeze()
+                probas = torch.softmax(self.model(prompt.to(self.model.device)).logits.float(), -1).squeeze()
                 cand_token_ids = self.tokenizer.convert_tokens_to_ids(cand_token)
                 cand_token_prob = probas[torch.arange(len(input_token)-1, prompt.shape[1]-1), torch.tensor(cand_token_ids).long()]
                 candidate_probabilities.append(torch.cumprod(cand_token_prob, 0).tolist()[-1] ** (1. / len(cand_token_ids)))
@@ -174,9 +174,9 @@ class Prune:
         
         with torch.no_grad():
             input_ids = self.tokenizer.encode(prom_text, return_tensors="pt").to(self.args.device)
-            beam0_logits = self.model(input_ids).logits[:, -1, :]
+            beam0_logits = self.model(input_ids).logits[:, -1, :].float()
             beam0_prob = torch.softmax(beam0_logits, dim=-1)
-            ans_h = -(beam0_prob * torch.log(beam0_prob)).sum()
+            ans_h = -(beam0_prob * torch.log(beam0_prob + 1e-10)).sum()
         
         return ans_h 
     
