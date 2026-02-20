@@ -25,7 +25,7 @@ This required modifying `multi_hop_search` to accept a `rounds` parameter so the
 
 ### Attention Heatmap Visualization
 
-After each QA evaluation, the top-K most focused attention heads are identified and saved as heatmaps (`attn_c{case}_q{q}_L{layer}_H{head}.png`). Up to 5 correct and 5 incorrect cases are captured, providing insight into where the model attends when it succeeds or fails at multi-hop reasoning. Disable with `RAE_DISABLE_ATTN_VIZ=1`.
+After each QA evaluation, the top-K most focused attention heads are identified and saved as heatmaps. Up to 5 correct and 5 incorrect cases are captured, providing insight into where the model attends when it succeeds or fails at multi-hop reasoning. Disable with `RAE_DISABLE_ATTN_VIZ=1`.
 
 ### Entropy Normalization Bug Fix
 
