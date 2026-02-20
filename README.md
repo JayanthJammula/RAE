@@ -113,14 +113,14 @@ python preprocess/edit_KG.py
 
 ## Supported Models
 
-| Model Key | Model | Parameters | Min VRAM (FP16) |
-|-----------|-------|------------|-----------------|
-| `gpt2` | GPT-2 Large | 774M | ~1.5 GB |
-| `gpt2xl` | GPT-2 XL | 1.5B | ~3 GB |
-| `falcon` | Falcon-1B | 1.3B | ~2.6 GB |
-| `neo` | GPT-Neo 2.7B | 2.7B | ~5.5 GB |
-| `vicuna` | Vicuna-7B | 7B | ~14 GB |
-| `llama2` | LLaMA-2-7B Chat | 7B | ~14 GB |
+| Model Key | Model | Parameters |
+|-----------|-------|------------|
+| `gpt2` | GPT-2 Large | 774M |
+| `gpt2xl` | GPT-2 XL | 1.5B |
+| `falcon` | Falcon-1B | 1.3B |
+| `neo` | GPT-Neo 2.7B | 2.7B |
+| `vicuna` | Vicuna-7B | 7B |
+| `llama2` | LLaMA-2-7B Chat | 7B |
 
 ## Usage
 
@@ -178,7 +178,7 @@ python create_dataset_slices.py
 
 - **`--template`**: Builds "question + fact chain" ICL examples from the MQuAKE-CF training set (~9k examples) to help the LLM understand the retrieval and QA tasks.
 
-- **`--correctConflict`**: Handles a subtle issue in MQuAKE-CF-3k where both the original and edited versions of a fact are needed to answer different questions in the same case. See [DeepEdit](https://arxiv.org/abs/2401.10471) for details.
+- **`--correctConflict`**: Handles a subtle issue in MQuAKE-CF-3k where both the original and edited versions of a fact are needed to answer different questions in the same case.
 
 - **`--loss`**: Controls how fact chains are scored. `prob_div` uses raw probability divergence; `prob_div_log` weights it by log probability, emphasizing high-confidence retrievals.
 
