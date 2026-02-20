@@ -19,7 +19,7 @@ The original RAE ran retrieval for a fixed number of hops regardless of question
 
 - A `retrieval_confidence()` function measures how many ground-truth fact chain members have already been retrieved.
 - The retrieval loop runs up to `--max_retrieval_rounds` iterations, calling `multi_hop_search` with an increasing hop count each round.
-- If confidence exceeds `--conf_threshold`, retrieval stops early — avoiding over-fetching and reducing noise for simpler questions.
+- If confidence exceeds `--conf_threshold`, retrieval stops early, avoiding over-fetching and reducing noise for simpler questions.
 
 This required modifying `multi_hop_search` to accept a `rounds` parameter so the outer loop can dynamically control retrieval depth per question.
 
@@ -29,11 +29,15 @@ After each QA evaluation, the top-K most focused attention heads are identified 
 
 ### Entropy Normalization Bug Fix
 
-The original `facts_entropy` method crashed with a divide-by-zero when all entropy values were equal (i.e., no fact contributed differently). Fixed with a `val_range > 0` guard — falling back to a zero vector so pruning degrades gracefully instead of erroring out.
+The original `facts_entropy` method crashed with a divide-by-zero when all entropy values were equal (i.e., no fact contributed differently). Fixed with a `val_range > 0` guard, falling back to a zero vector so pruning degrades gracefully instead of erroring out.
 
 ### Improved QA Prompting
 
 Facts are now presented to the model as a structured bullet list instead of a comma-separated string, and the generated answer is truncated at stop tokens (`\n`, `Question:`, `Facts:`) to prevent prompt leakage into the answer.
+
+### Expanded Model Support
+
+Added `gpt2xl` (GPT-2 XL, 1.5B) as a supported model key. Also added `--load_8bit` to load any supported model in INT8 quantization via bitsandbytes, halving VRAM requirements for larger models like Vicuna and LLaMA-2. Large models (`vicuna`, `llama2`) are automatically loaded in FP16 when a GPU is available.
 
 ## Why This Matters
 
@@ -112,6 +116,7 @@ python preprocess/edit_KG.py
 | Model Key | Model | Parameters | Min VRAM (FP16) |
 |-----------|-------|------------|-----------------|
 | `gpt2` | GPT-2 Large | 774M | ~1.5 GB |
+| `gpt2xl` | GPT-2 XL | 1.5B | ~3 GB |
 | `falcon` | Falcon-1B | 1.3B | ~2.6 GB |
 | `neo` | GPT-Neo 2.7B | 2.7B | ~5.5 GB |
 | `vicuna` | Vicuna-7B | 7B | ~14 GB |
@@ -165,6 +170,7 @@ python create_dataset_slices.py
 | `--temp` | Generation temperature | 1.0 |
 | `--starting_line` | Resume evaluation from case N | 0 |
 | `--seed` | Random seed for reproducibility | 42 |
+| `--load_8bit` | Load model in INT8 quantization via bitsandbytes (reduces VRAM usage) | off |
 
 ### Key Arguments Explained
 
