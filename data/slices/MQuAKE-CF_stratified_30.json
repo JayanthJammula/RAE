@@ -1,0 +1,6730 @@
+[
+  {
+    "case_id": 777,
+    "requested_rewrite": [
+      {
+        "prompt": "{} is a citizen of",
+        "relation_id": "P27",
+        "target_new": {
+          "str": "France",
+          "id": "Q142"
+        },
+        "target_true": {
+          "str": "United States of America",
+          "id": "Q30"
+        },
+        "subject": "Peter Schiff",
+        "question": "What is the country of citizenship of Peter Schiff?"
+      },
+      {
+        "prompt": "The capital of {} is",
+        "relation_id": "P36",
+        "target_new": {
+          "str": "Palermo",
+          "id": "Q2656"
+        },
+        "target_true": {
+          "str": "Paris",
+          "id": "Q90"
+        },
+        "subject": "France",
+        "question": "What is the capital of France?"
+      }
+    ],
+    "questions": [
+      "What is the capital of the country to which Peter Schiff belongs?",
+      "Which city serves as the capital of the country where Peter Schiff holds citizenship?",
+      "In which city is the seat of government located for the country of which Peter Schiff is a citizen?"
+    ],
+    "answer": "Washington, D.C.",
+    "answer_alias": [
+      "Washington",
+      "The District",
+      "D.C.",
+      "DC",
+      "District of Columbia",
+      "Washington D.C.",
+      "Washington, DC",
+      "US-DC",
+      "Washington DC",
+      "Washington, D.C., U.S.",
+      "Washington, District of Columbia"
+    ],
+    "new_answer": "Palermo",
+    "new_answer_alias": [
+      "Palermo, Italy"
+    ],
+    "single_hops": [
+      {
+        "question": "What is the country of citizenship of Peter Schiff?",
+        "cloze": "Peter Schiff is a citizen of",
+        "answer": "United States of America",
+        "answer_alias": [
+          "the States",
+          "the U.S.",
+          "the United States",
+          "the United States of America",
+          "the US",
+          "the USA",
+          "U. S.",
+          "U. S. A.",
+          "U.S.",
+          "U.S.A.",
+          "US of A",
+          "USA",
+          "America",
+          "United States",
+          "US",
+          "the U.S. of A",
+          "the U.S. of America",
+          "the U.S.A.",
+          "the US of A",
+          "the US of America",
+          "U.S. of America",
+          "US of America"
+        ]
+      },
+      {
+        "question": "What is the capital of United States of America?",
+        "cloze": "The capital of United States of America is",
+        "answer": "Washington, D.C.",
+        "answer_alias": [
+          "Washington",
+          "The District",
+          "D.C.",
+          "DC",
+          "District of Columbia",
+          "Washington D.C.",
+          "Washington, DC",
+          "US-DC",
+          "Washington DC",
+          "Washington, D.C., U.S.",
+          "Washington, District of Columbia"
+        ]
+      }
+    ],
+    "new_single_hops": [
+      {
+        "question": "What is the country of citizenship of Peter Schiff?",
+        "cloze": "Peter Schiff is a citizen of",
+        "answer": "France",
+        "answer_alias": [
+          "Republic of France",
+          "République française",
+          "the Hexagon",
+          "La France",
+          "French Republic",
+          "FRA",
+          "fr",
+          "FR"
+        ]
+      },
+      {
+        "question": "What is the capital of France?",
+        "cloze": "The capital of France is",
+        "answer": "Palermo",
+        "answer_alias": [
+          "Palermo, Italy"
+        ]
+      }
+    ],
+    "orig": {
+      "triples": [
+        [
+          "Q512741",
+          "P27",
+          "Q30"
+        ],
+        [
+          "Q30",
+          "P36",
+          "Q61"
+        ]
+      ],
+      "triples_labeled": [
+        [
+          "Peter Schiff",
+          "country of citizenship",
+          "United States of America"
+        ],
+        [
+          "United States of America",
+          "capital",
+          "Washington, D.C."
+        ]
+      ],
+      "new_triples": [
+        [
+          "Q512741",
+          "P27",
+          "Q142"
+        ],
+        [
+          "Q142",
+          "P36",
+          "Q2656"
+        ]
+      ],
+      "new_triples_labeled": [
+        [
+          "Peter Schiff",
+          "country of citizenship",
+          "France"
+        ],
+        [
+          "France",
+          "capital",
+          "Palermo"
+        ]
+      ],
+      "edit_triples": [
+        [
+          "Q512741",
+          "P27",
+          "Q142"
+        ],
+        [
+          "Q142",
+          "P36",
+          "Q2656"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": 508,
+    "requested_rewrite": [
+      {
+        "prompt": "{} was created in the country of",
+        "relation_id": "P495",
+        "target_new": {
+          "str": "France",
+          "id": "Q142"
+        },
+        "target_true": {
+          "str": "United States of America",
+          "id": "Q30"
+        },
+        "subject": "Asteroids",
+        "question": "Which country was Asteroids created in?"
+      },
+      {
+        "prompt": "The name of the current head of state in {} is",
+        "relation_id": "P35",
+        "target_new": {
+          "str": "Hans-Adam II, Prince of Liechtenstein",
+          "id": "Q57454"
+        },
+        "target_true": {
+          "str": "Emmanuel Macron",
+          "id": "Q3052772"
+        },
+        "subject": "France",
+        "question": "What is the name of the current head of state in France?"
+      }
+    ],
+    "questions": [
+      "Who is the head of state of the country where \"Asteroids\" was created?",
+      "What is the name of the current head of state of the country where \"Asteroids\" originated?",
+      "Which politician holds the position of head of state in the country of origin of \"Asteroids\"?"
+    ],
+    "answer": "Donald Trump",
+    "answer_alias": [
+      "@realDonaldTrump",
+      "David Dennison",
+      "DJT",
+      "Donald J Trump",
+      "Donald J. Trump",
+      "Individual 1",
+      "Mr Trump",
+      "POTUS 45",
+      "President Donald J Trump",
+      "President Donald J. Trump",
+      "President Donald John Trump",
+      "President Donald Trump",
+      "President Trump",
+      "The Donald",
+      "John Miller",
+      "Trump",
+      "John Barron",
+      "Donald John Trump"
+    ],
+    "new_answer": "Hans-Adam II, Prince of Liechtenstein",
+    "new_answer_alias": [
+      "Hans Adam II",
+      "Hans-Adam II",
+      "Hans-Adam II Fürst von und zu Liechtenstein",
+      "John-Adam II"
+    ],
+    "single_hops": [
+      {
+        "question": "Which country was Asteroids created in?",
+        "cloze": "Asteroids was created in the country of",
+        "answer": "United States of America",
+        "answer_alias": [
+          "the States",
+          "the U.S.",
+          "the United States",
+          "the United States of America",
+          "the US",
+          "the USA",
+          "U. S.",
+          "U. S. A.",
+          "U.S.",
+          "U.S.A.",
+          "US of A",
+          "USA",
+          "America",
+          "United States",
+          "US",
+          "the U.S. of A",
+          "the U.S. of America",
+          "the U.S.A.",
+          "the US of A",
+          "the US of America",
+          "U.S. of America",
+          "US of America"
+        ]
+      },
+      {
+        "question": "What is the name of the current head of state in United States of America?",
+        "cloze": "The name of the current head of state in United States of America is",
+        "answer": "Donald Trump",
+        "answer_alias": [
+          "@realDonaldTrump",
+          "David Dennison",
+          "DJT",
+          "Donald J Trump",
+          "Donald J. Trump",
+          "Individual 1",
+          "Mr Trump",
+          "POTUS 45",
+          "President Donald J Trump",
+          "President Donald J. Trump",
+          "President Donald John Trump",
+          "President Donald Trump",
+          "President Trump",
+          "The Donald",
+          "John Miller",
+          "Trump",
+          "John Barron",
+          "Donald John Trump"
+        ]
+      }
+    ],
+    "new_single_hops": [
+      {
+        "question": "Which country was Asteroids created in?",
+        "cloze": "Asteroids was created in the country of",
+        "answer": "France",
+        "answer_alias": [
+          "Republic of France",
+          "République française",
+          "the Hexagon",
+          "La France",
+          "French Republic",
+          "FRA",
+          "fr",
+          "FR"
+        ]
+      },
+      {
+        "question": "What is the name of the current head of state in France?",
+        "cloze": "The name of the current head of state in France is",
+        "answer": "Hans-Adam II, Prince of Liechtenstein",
+        "answer_alias": [
+          "Hans Adam II",
+          "Hans-Adam II",
+          "Hans-Adam II Fürst von und zu Liechtenstein",
+          "John-Adam II"
+        ]
+      }
+    ],
+    "orig": {
+      "triples": [
+        [
+          "Q748890",
+          "P495",
+          "Q30"
+        ],
+        [
+          "Q30",
+          "P35",
+          "Q22686"
+        ]
+      ],
+      "triples_labeled": [
+        [
+          "Asteroids",
+          "country of origin",
+          "United States of America"
+        ],
+        [
+          "United States of America",
+          "head of state",
+          "Donald Trump"
+        ]
+      ],
+      "new_triples": [
+        [
+          "Q748890",
+          "P495",
+          "Q142"
+        ],
+        [
+          "Q142",
+          "P35",
+          "Q57454"
+        ]
+      ],
+      "new_triples_labeled": [
+        [
+          "Asteroids",
+          "country of origin",
+          "France"
+        ],
+        [
+          "France",
+          "head of state",
+          "Hans-Adam II, Prince of Liechtenstein"
+        ]
+      ],
+      "edit_triples": [
+        [
+          "Q748890",
+          "P495",
+          "Q142"
+        ],
+        [
+          "Q142",
+          "P35",
+          "Q57454"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": 896,
+    "requested_rewrite": [
+      {
+        "prompt": "The name of the current head of the {} government is",
+        "relation_id": "P6",
+        "target_new": {
+          "str": "Asa Hutchinson",
+          "id": "Q720121"
+        },
+        "target_true": {
+          "str": "Gina Raimondo",
+          "id": "Q5562913"
+        },
+        "subject": "Rhode Island",
+        "question": "What is the name of the current head of the Rhode Island government?"
+      },
+      {
+        "prompt": "{} speaks the language of",
+        "relation_id": "P1412",
+        "target_new": {
+          "str": "French",
+          "id": "Q150"
+        },
+        "target_true": {
+          "str": "English",
+          "id": "Q1860"
+        },
+        "subject": "Asa Hutchinson",
+        "question": "What language does Asa Hutchinson speak?"
+      }
+    ],
+    "questions": [
+      "Which languages are spoken, written, or signed in Rhode Island as the head of government there?",
+      "What are the official languages used for communication by the head of government in Rhode Island?",
+      "What languages does the head of government in Rhode Island utilize for communication?"
+    ],
+    "answer": "English",
+    "answer_alias": [
+      "en",
+      "eng",
+      "English language"
+    ],
+    "new_answer": "French",
+    "new_answer_alias": [
+      "fra",
+      "fr",
+      "French language",
+      "(fr)"
+    ],
+    "single_hops": [
+      {
+        "question": "What is the name of the current head of the Rhode Island government?",
+        "cloze": "The name of the current head of the Rhode Island government is",
+        "answer": "Gina Raimondo",
+        "answer_alias": [
+          "Gina Marie Raimondo"
+        ]
+      },
+      {
+        "question": "What language does Gina Raimondo speak?",
+        "cloze": "Gina Raimondo speaks the language of",
+        "answer": "English",
+        "answer_alias": [
+          "en",
+          "eng",
+          "English language"
+        ]
+      }
+    ],
+    "new_single_hops": [
+      {
+        "question": "What is the name of the current head of the Rhode Island government?",
+        "cloze": "The name of the current head of the Rhode Island government is",
+        "answer": "Asa Hutchinson",
+        "answer_alias": [
+          "William Asa Hutchinson II"
+        ]
+      },
+      {
+        "question": "What language does Asa Hutchinson speak?",
+        "cloze": "Asa Hutchinson speaks the language of",
+        "answer": "French",
+        "answer_alias": [
+          "fra",
+          "fr",
+          "French language",
+          "(fr)"
+        ]
+      }
+    ],
+    "orig": {
+      "triples": [
+        [
+          "Q1387",
+          "P6",
+          "Q5562913"
+        ],
+        [
+          "Q5562913",
+          "P1412",
+          "Q1860"
+        ]
+      ],
+      "triples_labeled": [
+        [
+          "Rhode Island",
+          "head of government",
+          "Gina Raimondo"
+        ],
+        [
+          "Gina Raimondo",
+          "languages spoken, written or signed",
+          "English"
+        ]
+      ],
+      "new_triples": [
+        [
+          "Q1387",
+          "P6",
+          "Q720121"
+        ],
+        [
+          "Q720121",
+          "P1412",
+          "Q150"
+        ]
+      ],
+      "new_triples_labeled": [
+        [
+          "Rhode Island",
+          "head of government",
+          "Asa Hutchinson"
+        ],
+        [
+          "Asa Hutchinson",
+          "languages spoken, written or signed",
+          "French"
+        ]
+      ],
+      "edit_triples": [
+        [
+          "Q1387",
+          "P6",
+          "Q720121"
+        ],
+        [
+          "Q720121",
+          "P1412",
+          "Q150"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": 923,
+    "requested_rewrite": [
+      {
+        "prompt": "The univeristy where {} was educated is",
+        "relation_id": "P69",
+        "target_new": {
+          "str": "Yale University",
+          "id": "Q49112"
+        },
+        "target_true": {
+          "str": "Harvard University",
+          "id": "Q13371"
+        },
+        "subject": "C. Douglas Dillon",
+        "question": "Which university was C. Douglas Dillon educated at?"
+      }
+    ],
+    "questions": [
+      "Who is the chairperson of the institution where C. Douglas Dillon was educated?",
+      "What is the name of the chairperson of the institution where C. Douglas Dillon studied? ",
+      "Who holds the chairperson position at the institution where C. Douglas Dillon attended?"
+    ],
+    "answer": "Lawrence S. Bacow",
+    "answer_alias": [
+      "Larry Bacow",
+      "Lawrence Bacow",
+      "Lawrence Seldon Bacow"
+    ],
+    "new_answer": "Peter Salovey",
+    "new_answer_alias": [],
+    "single_hops": [
+      {
+        "question": "Which university was C. Douglas Dillon educated at?",
+        "cloze": "The univeristy where C. Douglas Dillon was educated is",
+        "answer": "Harvard University",
+        "answer_alias": [
+          "Harvard",
+          "Harvard Graduate School",
+          "harvard.edu",
+          "University of Harvard"
+        ]
+      },
+      {
+        "question": "Who is the chairperson of Harvard University?",
+        "cloze": "The chairperson of Harvard University is",
+        "answer": "Lawrence S. Bacow",
+        "answer_alias": [
+          "Larry Bacow",
+          "Lawrence Bacow",
+          "Lawrence Seldon Bacow"
+        ]
+      }
+    ],
+    "new_single_hops": [
+      {
+        "question": "Which university was C. Douglas Dillon educated at?",
+        "cloze": "The univeristy where C. Douglas Dillon was educated is",
+        "answer": "Yale University",
+        "answer_alias": [
+          "Yale",
+          "Collegiate School",
+          "Yale College",
+          "yale.edu"
+        ]
+      },
+      {
+        "question": "Who is the chairperson of Yale University?",
+        "cloze": "The chairperson of Yale University is",
+        "answer": "Peter Salovey",
+        "answer_alias": []
+      }
+    ],
+    "orig": {
+      "triples": [
+        [
+          "Q509225",
+          "P69",
+          "Q13371"
+        ],
+        [
+          "Q13371",
+          "P488",
+          "Q6504550"
+        ]
+      ],
+      "triples_labeled": [
+        [
+          "C. Douglas Dillon",
+          "educated at",
+          "Harvard University"
+        ],
+        [
+          "Harvard University",
+          "chairperson",
+          "Lawrence S. Bacow"
+        ]
+      ],
+      "new_triples": [
+        [
+          "Q509225",
+          "P69",
+          "Q49112"
+        ],
+        [
+          "Q49112",
+          "P488",
+          "Q2077999"
+        ]
+      ],
+      "new_triples_labeled": [
+        [
+          "C. Douglas Dillon",
+          "educated at",
+          "Yale University"
+        ],
+        [
+          "Yale University",
+          "chairperson",
+          "Peter Salovey"
+        ]
+      ],
+      "edit_triples": [
+        [
+          "Q509225",
+          "P69",
+          "Q49112"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": 34,
+    "requested_rewrite": [
+      {
+        "prompt": "{} is a citizen of",
+        "relation_id": "P27",
+        "target_new": {
+          "str": "Finland",
+          "id": "Q33"
+        },
+        "target_true": {
+          "str": "United States of America",
+          "id": "Q30"
+        },
+        "subject": "Jerry Rivers",
+        "question": "What is the country of citizenship of Jerry Rivers?"
+      }
+    ],
+    "questions": [
+      "Who is the head of state of the country whose citizen is Jerry Rivers?",
+      "What is the name of the current head of state of the country where Jerry Rivers holds citizenship?",
+      "Who is currently leading the country to which Jerry Rivers belongs?"
+    ],
+    "answer": "Donald Trump",
+    "answer_alias": [
+      "@realDonaldTrump",
+      "David Dennison",
+      "DJT",
+      "Donald J Trump",
+      "Donald J. Trump",
+      "Individual 1",
+      "Mr Trump",
+      "POTUS 45",
+      "President Donald J Trump",
+      "President Donald J. Trump",
+      "President Donald John Trump",
+      "President Donald Trump",
+      "President Trump",
+      "The Donald",
+      "John Miller",
+      "Trump",
+      "John Barron",
+      "Donald John Trump"
+    ],
+    "new_answer": "Sauli Niinistö",
+    "new_answer_alias": [
+      "Sauli Niinisto",
+      "Sauli Väinämö Niinistö"
+    ],
+    "single_hops": [
+      {
+        "question": "What is the country of citizenship of Jerry Rivers?",
+        "cloze": "Jerry Rivers is a citizen of",
+        "answer": "United States of America",
+        "answer_alias": [
+          "the States",
+          "the U.S.",
+          "the United States",
+          "the United States of America",
+          "the US",
+          "the USA",
+          "U. S.",
+          "U. S. A.",
+          "U.S.",
+          "U.S.A.",
+          "US of A",
+          "USA",
+          "America",
+          "United States",
+          "US",
+          "the U.S. of A",
+          "the U.S. of America",
+          "the U.S.A.",
+          "the US of A",
+          "the US of America",
+          "U.S. of America",
+          "US of America"
+        ]
+      },
+      {
+        "question": "What is the name of the current head of state in United States of America?",
+        "cloze": "The name of the current head of state in United States of America is",
+        "answer": "Donald Trump",
+        "answer_alias": [
+          "@realDonaldTrump",
+          "David Dennison",
+          "DJT",
+          "Donald J Trump",
+          "Donald J. Trump",
+          "Individual 1",
+          "Mr Trump",
+          "POTUS 45",
+          "President Donald J Trump",
+          "President Donald J. Trump",
+          "President Donald John Trump",
+          "President Donald Trump",
+          "President Trump",
+          "The Donald",
+          "John Miller",
+          "Trump",
+          "John Barron",
+          "Donald John Trump"
+        ]
+      }
+    ],
+    "new_single_hops": [
+      {
+        "question": "What is the country of citizenship of Jerry Rivers?",
+        "cloze": "Jerry Rivers is a citizen of",
+        "answer": "Finland",
+        "answer_alias": [
+          "Suomi",
+          "FIN",
+          "fi",
+          "🇫🇮",
+          "Finnia",
+          "Land of Thousand Lakes",
+          "Republic of Finland",
+          "Republiken Finland",
+          "Suomen tasavalta",
+          "Šuomi"
+        ]
+      },
+      {
+        "question": "What is the name of the current head of state in Finland?",
+        "cloze": "The name of the current head of state in Finland is",
+        "answer": "Sauli Niinistö",
+        "answer_alias": [
+          "Sauli Niinisto",
+          "Sauli Väinämö Niinistö"
+        ]
+      }
+    ],
+    "orig": {
+      "triples": [
+        [
+          "Q6184327",
+          "P27",
+          "Q30"
+        ],
+        [
+          "Q30",
+          "P35",
+          "Q22686"
+        ]
+      ],
+      "triples_labeled": [
+        [
+          "Jerry Rivers",
+          "country of citizenship",
+          "United States of America"
+        ],
+        [
+          "United States of America",
+          "head of state",
+          "Donald Trump"
+        ]
+      ],
+      "new_triples": [
+        [
+          "Q6184327",
+          "P27",
+          "Q33"
+        ],
+        [
+          "Q33",
+          "P35",
+          "Q29207"
+        ]
+      ],
+      "new_triples_labeled": [
+        [
+          "Jerry Rivers",
+          "country of citizenship",
+          "Finland"
+        ],
+        [
+          "Finland",
+          "head of state",
+          "Sauli Niinistö"
+        ]
+      ],
+      "edit_triples": [
+        [
+          "Q6184327",
+          "P27",
+          "Q33"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": 484,
+    "requested_rewrite": [
+      {
+        "prompt": "The company that produced {} is",
+        "relation_id": "P176",
+        "target_new": {
+          "str": "Toyota",
+          "id": "Q53268"
+        },
+        "target_true": {
+          "str": "Jaguar Cars",
+          "id": "Q30055"
+        },
+        "subject": "Jaguar XK",
+        "question": "Which company is Jaguar XK produced by?"
+      },
+      {
+        "prompt": "{} was founded by",
+        "relation_id": "P112",
+        "target_new": {
+          "str": "Anwar Ibrahim",
+          "id": "Q299574"
+        },
+        "target_true": {
+          "str": "Kiichiro Toyoda",
+          "id": "Q358556"
+        },
+        "subject": "Toyota",
+        "question": "Who founded Toyota?"
+      }
+    ],
+    "questions": [
+      "Who founded the company that created Jaguar XK?",
+      "What is the name of the person or entity that founded the company that manufactured Jaguar XK?",
+      "Who was responsible for the establishment of the company that developed Jaguar XK?"
+    ],
+    "answer": "William Lyons",
+    "answer_alias": [
+      "Sir William Lyons"
+    ],
+    "new_answer": "Anwar Ibrahim",
+    "new_answer_alias": [],
+    "single_hops": [
+      {
+        "question": "Which company is Jaguar XK produced by?",
+        "cloze": "The company that produced Jaguar XK is",
+        "answer": "Jaguar Cars",
+        "answer_alias": [
+          "Jaguar"
+        ]
+      },
+      {
+        "question": "Who founded Jaguar Cars?",
+        "cloze": "Jaguar Cars was founded by",
+        "answer": "William Lyons",
+        "answer_alias": [
+          "Sir William Lyons"
+        ]
+      }
+    ],
+    "new_single_hops": [
+      {
+        "question": "Which company is Jaguar XK produced by?",
+        "cloze": "The company that produced Jaguar XK is",
+        "answer": "Toyota",
+        "answer_alias": [
+          "TOYOTA",
+          "Toyota Jidōsha",
+          "Toyota Jidosha KK",
+          "Toyota Motor Corporation",
+          "TOYOTA JIDOSHA KABUSHIKI KAISHA",
+          "TOYOTA JIDOSHA KABUSHIKI KAISHA (Toyota)"
+        ]
+      },
+      {
+        "question": "Who founded Toyota?",
+        "cloze": "Toyota was founded by",
+        "answer": "Anwar Ibrahim",
+        "answer_alias": []
+      }
+    ],
+    "orig": {
+      "triples": [
+        [
+          "Q965952",
+          "P176",
+          "Q30055"
+        ],
+        [
+          "Q30055",
+          "P112",
+          "Q1347549"
+        ]
+      ],
+      "triples_labeled": [
+        [
+          "Jaguar XK",
+          "manufacturer",
+          "Jaguar Cars"
+        ],
+        [
+          "Jaguar Cars",
+          "founded by",
+          "William Lyons"
+        ]
+      ],
+      "new_triples": [
+        [
+          "Q965952",
+          "P176",
+          "Q53268"
+        ],
+        [
+          "Q53268",
+          "P112",
+          "Q299574"
+        ]
+      ],
+      "new_triples_labeled": [
+        [
+          "Jaguar XK",
+          "manufacturer",
+          "Toyota"
+        ],
+        [
+          "Toyota",
+          "founded by",
+          "Anwar Ibrahim"
+        ]
+      ],
+      "edit_triples": [
+        [
+          "Q965952",
+          "P176",
+          "Q53268"
+        ],
+        [
+          "Q53268",
+          "P112",
+          "Q299574"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": 86,
+    "requested_rewrite": [
+      {
+        "prompt": "{} is a citizen of",
+        "relation_id": "P27",
+        "target_new": {
+          "str": "United Kingdom of Great Britain and Ireland",
+          "id": "Q174193"
+        },
+        "target_true": {
+          "str": "Japan",
+          "id": "Q17"
+        },
+        "subject": "Tomoyasu Hotei",
+        "question": "What is the country of citizenship of Tomoyasu Hotei?"
+      },
+      {
+        "prompt": "{} is located in the continent of",
+        "relation_id": "P30",
+        "target_new": {
+          "str": "Antarctica",
+          "id": "Q51"
+        },
+        "target_true": {
+          "str": "Europe",
+          "id": "Q46"
+        },
+        "subject": "United Kingdom of Great Britain and Ireland",
+        "question": "Which continent is United Kingdom of Great Britain and Ireland located in?"
+      }
+    ],
+    "questions": [
+      "In which continent is Tomoyasu Hotei's country of citizenship located?",
+      "What is the continent where the country of citizenship of Tomoyasu Hotei situated?",
+      "Which continent does the citizenship country of Tomoyasu Hotei belong to?"
+    ],
+    "answer": "Asia",
+    "answer_alias": [
+      "Asian continent"
+    ],
+    "new_answer": "Antarctica",
+    "new_answer_alias": [
+      "Antarctic Selection"
+    ],
+    "single_hops": [
+      {
+        "question": "What is the country of citizenship of Tomoyasu Hotei?",
+        "cloze": "Tomoyasu Hotei is a citizen of",
+        "answer": "Japan",
+        "answer_alias": [
+          "Iapan",
+          "Iapon",
+          "🇯🇵",
+          "Jap",
+          "JAP",
+          "JP",
+          "jp",
+          "JA",
+          "JPN",
+          "Ja",
+          "Land of the Rising Sun",
+          "Nippon",
+          "Nihon",
+          "Nihon-koku",
+          "Nippon-koku",
+          "State of Japan"
+        ]
+      },
+      {
+        "question": "Which continent is Japan located in?",
+        "cloze": "Japan is located in the continent of",
+        "answer": "Asia",
+        "answer_alias": [
+          "Asian continent"
+        ]
+      }
+    ],
+    "new_single_hops": [
+      {
+        "question": "What is the country of citizenship of Tomoyasu Hotei?",
+        "cloze": "Tomoyasu Hotei is a citizen of",
+        "answer": "United Kingdom of Great Britain and Ireland",
+        "answer_alias": [
+          "Britain",
+          "United Kingdom",
+          "UK",
+          "GB",
+          "Great Britain and Ireland",
+          "the United Kingdom",
+          "UKGBI"
+        ]
+      },
+      {
+        "question": "Which continent is United Kingdom of Great Britain and Ireland located in?",
+        "cloze": "United Kingdom of Great Britain and Ireland is located in the continent of",
+        "answer": "Antarctica",
+        "answer_alias": [
+          "Antarctic Selection"
+        ]
+      }
+    ],
+    "orig": {
+      "triples": [
+        [
+          "Q699757",
+          "P27",
+          "Q17"
+        ],
+        [
+          "Q17",
+          "P30",
+          "Q48"
+        ]
+      ],
+      "triples_labeled": [
+        [
+          "Tomoyasu Hotei",
+          "country of citizenship",
+          "Japan"
+        ],
+        [
+          "Japan",
+          "continent",
+          "Asia"
+        ]
+      ],
+      "new_triples": [
+        [
+          "Q699757",
+          "P27",
+          "Q174193"
+        ],
+        [
+          "Q174193",
+          "P30",
+          "Q51"
+        ]
+      ],
+      "new_triples_labeled": [
+        [
+          "Tomoyasu Hotei",
+          "country of citizenship",
+          "United Kingdom of Great Britain and Ireland"
+        ],
+        [
+          "United Kingdom of Great Britain and Ireland",
+          "continent",
+          "Antarctica"
+        ]
+      ],
+      "edit_triples": [
+        [
+          "Q699757",
+          "P27",
+          "Q174193"
+        ],
+        [
+          "Q174193",
+          "P30",
+          "Q51"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": 751,
+    "requested_rewrite": [
+      {
+        "prompt": "{} plays the position of",
+        "relation_id": "P413",
+        "target_new": {
+          "str": "relief pitcher",
+          "id": "Q1198553"
+        },
+        "target_true": {
+          "str": "defensive end",
+          "id": "Q903354"
+        },
+        "subject": "Osi Umenyiora",
+        "question": "What position does Osi Umenyiora play?"
+      },
+      {
+        "prompt": "{} is associated with the sport of",
+        "relation_id": "P641",
+        "target_new": {
+          "str": "rugby",
+          "id": "Q5378"
+        },
+        "target_true": {
+          "str": "baseball",
+          "id": "Q5369"
+        },
+        "subject": "relief pitcher",
+        "question": "Which sport is relief pitcher associated with?"
+      }
+    ],
+    "questions": [
+      "What sport was Osi Umenyiora involved in?",
+      "Which athletic discipline is associated with Osi Umenyiora?",
+      "In what sport did Osi Umenyiora participate?"
+    ],
+    "answer": "American football",
+    "answer_alias": [
+      "🏈",
+      "American rules football",
+      "football",
+      "gridiron football"
+    ],
+    "new_answer": "rugby",
+    "new_answer_alias": [
+      "rugby football"
+    ],
+    "single_hops": [
+      {
+        "question": "What position does Osi Umenyiora play?",
+        "cloze": "Osi Umenyiora plays the position of",
+        "answer": "defensive end",
+        "answer_alias": [
+          "DE"
+        ]
+      },
+      {
+        "question": "Which sport is defensive end associated with?",
+        "cloze": "defensive end is associated with the sport of",
+        "answer": "American football",
+        "answer_alias": [
+          "🏈",
+          "American rules football",
+          "football",
+          "gridiron football"
+        ]
+      }
+    ],
+    "new_single_hops": [
+      {
+        "question": "What position does Osi Umenyiora play?",
+        "cloze": "Osi Umenyiora plays the position of",
+        "answer": "relief pitcher",
+        "answer_alias": [
+          "reliever",
+          "RP"
+        ]
+      },
+      {
+        "question": "Which sport is relief pitcher associated with?",
+        "cloze": "relief pitcher is associated with the sport of",
+        "answer": "rugby",
+        "answer_alias": [
+          "rugby football"
+        ]
+      }
+    ],
+    "orig": {
+      "triples": [
+        [
+          "Q2698914",
+          "P413",
+          "Q903354"
+        ],
+        [
+          "Q903354",
+          "P641",
+          "Q41323"
+        ]
+      ],
+      "triples_labeled": [
+        [
+          "Osi Umenyiora",
+          "position played on team / speciality",
+          "defensive end"
+        ],
+        [
+          "defensive end",
+          "sport",
+          "American football"
+        ]
+      ],
+      "new_triples": [
+        [
+          "Q2698914",
+          "P413",
+          "Q1198553"
+        ],
+        [
+          "Q1198553",
+          "P641",
+          "Q5378"
+        ]
+      ],
+      "new_triples_labeled": [
+        [
+          "Osi Umenyiora",
+          "position played on team / speciality",
+          "relief pitcher"
+        ],
+        [
+          "relief pitcher",
+          "sport",
+          "rugby"
+        ]
+      ],
+      "edit_triples": [
+        [
+          "Q2698914",
+          "P413",
+          "Q1198553"
+        ],
+        [
+          "Q1198553",
+          "P641",
+          "Q5378"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": 355,
+    "requested_rewrite": [
+      {
+        "prompt": "{} is a citizen of",
+        "relation_id": "P27",
+        "target_new": {
+          "str": "United Kingdom",
+          "id": "Q145"
+        },
+        "target_true": {
+          "str": "United States of America",
+          "id": "Q30"
+        },
+        "subject": "Dina Meyer",
+        "question": "What is the country of citizenship of Dina Meyer?"
+      },
+      {
+        "prompt": "The official language of {} is",
+        "relation_id": "P37",
+        "target_new": {
+          "str": "Italian",
+          "id": "Q652"
+        },
+        "target_true": {
+          "str": "English",
+          "id": "Q1860"
+        },
+        "subject": "United Kingdom",
+        "question": "What is the official language of United Kingdom?"
+      }
+    ],
+    "questions": [
+      "What is the official language of the country to which Dina Meyer belongs?",
+      "In which language do government officials communicate in Dina Meyer's country of citizenship?",
+      "What language is considered the official language of Dina Meyer's country of citizenship?"
+    ],
+    "answer": "American English",
+    "answer_alias": [
+      "AmE",
+      "en_us",
+      "en_US",
+      "en-us",
+      "en-US",
+      "English (United States)",
+      "U.S. English",
+      "United States English",
+      "US English"
+    ],
+    "new_answer": "Italian",
+    "new_answer_alias": [
+      "it",
+      "Italiano",
+      "Italian language"
+    ],
+    "single_hops": [
+      {
+        "question": "What is the country of citizenship of Dina Meyer?",
+        "cloze": "Dina Meyer is a citizen of",
+        "answer": "United States of America",
+        "answer_alias": [
+          "the States",
+          "the U.S.",
+          "the United States",
+          "the United States of America",
+          "the US",
+          "the USA",
+          "U. S.",
+          "U. S. A.",
+          "U.S.",
+          "U.S.A.",
+          "US of A",
+          "USA",
+          "America",
+          "United States",
+          "US",
+          "the U.S. of A",
+          "the U.S. of America",
+          "the U.S.A.",
+          "the US of A",
+          "the US of America",
+          "U.S. of America",
+          "US of America"
+        ]
+      },
+      {
+        "question": "What is the official language of United States of America?",
+        "cloze": "The official language of United States of America is",
+        "answer": "American English",
+        "answer_alias": [
+          "AmE",
+          "en_us",
+          "en_US",
+          "en-us",
+          "en-US",
+          "English (United States)",
+          "U.S. English",
+          "United States English",
+          "US English"
+        ]
+      }
+    ],
+    "new_single_hops": [
+      {
+        "question": "What is the country of citizenship of Dina Meyer?",
+        "cloze": "Dina Meyer is a citizen of",
+        "answer": "United Kingdom",
+        "answer_alias": [
+          "Britain",
+          "UK",
+          "G. B.",
+          "GBR",
+          "Great Britain",
+          "GB",
+          "G.B.",
+          "United Kingdom of Great Britain and Northern Ireland",
+          "G B",
+          "G B R",
+          "G.B.R.",
+          "🇬🇧",
+          "Great Britain and Northern Ireland",
+          "The UK",
+          "The United Kingdom of Great Britain and Northern Ireland",
+          "U K",
+          "U. K.",
+          "U.K."
+        ]
+      },
+      {
+        "question": "What is the official language of United Kingdom?",
+        "cloze": "The official language of United Kingdom is",
+        "answer": "Italian",
+        "answer_alias": [
+          "it",
+          "Italiano",
+          "Italian language"
+        ]
+      }
+    ],
+    "orig": {
+      "triples": [
+        [
+          "Q231438",
+          "P27",
+          "Q30"
+        ],
+        [
+          "Q30",
+          "P37",
+          "Q7976"
+        ]
+      ],
+      "triples_labeled": [
+        [
+          "Dina Meyer",
+          "country of citizenship",
+          "United States of America"
+        ],
+        [
+          "United States of America",
+          "official language",
+          "American English"
+        ]
+      ],
+      "new_triples": [
+        [
+          "Q231438",
+          "P27",
+          "Q145"
+        ],
+        [
+          "Q145",
+          "P37",
+          "Q652"
+        ]
+      ],
+      "new_triples_labeled": [
+        [
+          "Dina Meyer",
+          "country of citizenship",
+          "United Kingdom"
+        ],
+        [
+          "United Kingdom",
+          "official language",
+          "Italian"
+        ]
+      ],
+      "edit_triples": [
+        [
+          "Q231438",
+          "P27",
+          "Q145"
+        ],
+        [
+          "Q145",
+          "P37",
+          "Q652"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": 524,
+    "requested_rewrite": [
+      {
+        "prompt": "{} speaks the language of",
+        "relation_id": "P1412",
+        "target_new": {
+          "str": "French",
+          "id": "Q150"
+        },
+        "target_true": {
+          "str": "English",
+          "id": "Q1860"
+        },
+        "subject": "Dr. Seuss",
+        "question": "What language does Dr. Seuss speak?"
+      }
+    ],
+    "questions": [
+      "What languages can the author of \"The Lorax\" speak, write, or sign in?",
+      "Which language is the author of \"The Lorax\" proficient in speaking, writing, or signing?",
+      "In what languages is the author of \"The Lorax\" fluent in speaking, writing, or signing?"
+    ],
+    "answer": "English",
+    "answer_alias": [
+      "en",
+      "eng",
+      "English language"
+    ],
+    "new_answer": "French",
+    "new_answer_alias": [
+      "fra",
+      "fr",
+      "French language",
+      "(fr)"
+    ],
+    "single_hops": [
+      {
+        "question": "Who is the author of The Lorax?",
+        "cloze": "The author of The Lorax is",
+        "answer": "Dr. Seuss",
+        "answer_alias": [
+          "Seuss",
+          "Doctor Seuss",
+          "Dr Seuss",
+          "Dr. Theophrastus Seuss",
+          "Theo LeSieg",
+          "Theodor Geisel",
+          "Theodor Seuss Geisel",
+          "Theodore Geisel",
+          "Theodore Seuss Geisel",
+          "Theophrastus Seuss"
+        ]
+      },
+      {
+        "question": "What language does Dr. Seuss speak?",
+        "cloze": "Dr. Seuss speaks the language of",
+        "answer": "English",
+        "answer_alias": [
+          "en",
+          "eng",
+          "English language"
+        ]
+      }
+    ],
+    "new_single_hops": [
+      {
+        "question": "Who is the author of The Lorax?",
+        "cloze": "The author of The Lorax is",
+        "answer": "Dr. Seuss",
+        "answer_alias": [
+          "Seuss",
+          "Doctor Seuss",
+          "Dr Seuss",
+          "Dr. Theophrastus Seuss",
+          "Theo LeSieg",
+          "Theodor Geisel",
+          "Theodor Seuss Geisel",
+          "Theodore Geisel",
+          "Theodore Seuss Geisel",
+          "Theophrastus Seuss"
+        ]
+      },
+      {
+        "question": "What language does Dr. Seuss speak?",
+        "cloze": "Dr. Seuss speaks the language of",
+        "answer": "French",
+        "answer_alias": [
+          "fra",
+          "fr",
+          "French language",
+          "(fr)"
+        ]
+      }
+    ],
+    "orig": {
+      "triples": [
+        [
+          "Q786594",
+          "P50",
+          "Q298685"
+        ],
+        [
+          "Q298685",
+          "P1412",
+          "Q1860"
+        ]
+      ],
+      "triples_labeled": [
+        [
+          "The Lorax",
+          "author",
+          "Dr. Seuss"
+        ],
+        [
+          "Dr. Seuss",
+          "languages spoken, written or signed",
+          "English"
+        ]
+      ],
+      "new_triples": [
+        [
+          "Q786594",
+          "P50",
+          "Q298685"
+        ],
+        [
+          "Q298685",
+          "P1412",
+          "Q150"
+        ]
+      ],
+      "new_triples_labeled": [
+        [
+          "The Lorax",
+          "author",
+          "Dr. Seuss"
+        ],
+        [
+          "Dr. Seuss",
+          "languages spoken, written or signed",
+          "French"
+        ]
+      ],
+      "edit_triples": [
+        [
+          "Q298685",
+          "P1412",
+          "Q150"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": 1607,
+    "requested_rewrite": [
+      {
+        "prompt": "The type of music that {} plays is",
+        "relation_id": "P136",
+        "target_new": {
+          "str": "grime",
+          "id": "Q1166726"
+        },
+        "target_true": {
+          "str": "jazz",
+          "id": "Q8341"
+        },
+        "subject": "Don Lusher",
+        "question": "What type of music does Don Lusher play?"
+      },
+      {
+        "prompt": "The capital of {} is",
+        "relation_id": "P36",
+        "target_new": {
+          "str": "Angri",
+          "id": "Q30022233"
+        },
+        "target_true": {
+          "str": "London",
+          "id": "Q84"
+        },
+        "subject": "United Kingdom",
+        "question": "What is the capital of United Kingdom?"
+      }
+    ],
+    "questions": [
+      "What is the capital of the country from which the genre of music associated with Don Lusher originates?",
+      "In which city can the country of origin of the music genre associated with Don Lusher be found?",
+      "What city serves as the capital of the country where the musical genre associated with Don Lusher comes from?"
+    ],
+    "answer": "Washington, D.C.",
+    "answer_alias": [
+      "Washington",
+      "The District",
+      "D.C.",
+      "DC",
+      "District of Columbia",
+      "Washington D.C.",
+      "Washington, DC",
+      "US-DC",
+      "Washington DC",
+      "Washington, D.C., U.S.",
+      "Washington, District of Columbia"
+    ],
+    "new_answer": "Angri",
+    "new_answer_alias": [],
+    "single_hops": [
+      {
+        "question": "What type of music does Don Lusher play?",
+        "cloze": "The type of music that Don Lusher plays is",
+        "answer": "jazz",
+        "answer_alias": [
+          "jas",
+          "jass",
+          "jaz",
+          "jazz music"
+        ]
+      },
+      {
+        "question": "Which country was jazz created in?",
+        "cloze": "jazz was created in the country of",
+        "answer": "United States of America",
+        "answer_alias": [
+          "the States",
+          "the U.S.",
+          "the United States",
+          "the United States of America",
+          "the US",
+          "the USA",
+          "U. S.",
+          "U. S. A.",
+          "U.S.",
+          "U.S.A.",
+          "US of A",
+          "USA",
+          "America",
+          "United States",
+          "US",
+          "the U.S. of A",
+          "the U.S. of America",
+          "the U.S.A.",
+          "the US of A",
+          "the US of America",
+          "U.S. of America",
+          "US of America"
+        ]
+      },
+      {
+        "question": "What is the capital of United States of America?",
+        "cloze": "The capital of United States of America is",
+        "answer": "Washington, D.C.",
+        "answer_alias": [
+          "Washington",
+          "The District",
+          "D.C.",
+          "DC",
+          "District of Columbia",
+          "Washington D.C.",
+          "Washington, DC",
+          "US-DC",
+          "Washington DC",
+          "Washington, D.C., U.S.",
+          "Washington, District of Columbia"
+        ]
+      }
+    ],
+    "new_single_hops": [
+      {
+        "question": "What type of music does Don Lusher play?",
+        "cloze": "The type of music that Don Lusher plays is",
+        "answer": "grime",
+        "answer_alias": [
+          "eskibeat",
+          "grime music",
+          "sublow",
+          "UK grime"
+        ]
+      },
+      {
+        "question": "Which country was grime created in?",
+        "cloze": "grime was created in the country of",
+        "answer": "United Kingdom",
+        "answer_alias": [
+          "Britain",
+          "UK",
+          "G. B.",
+          "GBR",
+          "Great Britain",
+          "GB",
+          "G.B.",
+          "United Kingdom of Great Britain and Northern Ireland",
+          "G B",
+          "G B R",
+          "G.B.R.",
+          "🇬🇧",
+          "Great Britain and Northern Ireland",
+          "The UK",
+          "The United Kingdom of Great Britain and Northern Ireland",
+          "U K",
+          "U. K.",
+          "U.K."
+        ]
+      },
+      {
+        "question": "What is the capital of United Kingdom?",
+        "cloze": "The capital of United Kingdom is",
+        "answer": "Angri",
+        "answer_alias": []
+      }
+    ],
+    "orig": {
+      "triples": [
+        [
+          "Q562609",
+          "P136",
+          "Q8341"
+        ],
+        [
+          "Q8341",
+          "P495",
+          "Q30"
+        ],
+        [
+          "Q30",
+          "P36",
+          "Q61"
+        ]
+      ],
+      "triples_labeled": [
+        [
+          "Don Lusher",
+          "genre",
+          "jazz"
+        ],
+        [
+          "jazz",
+          "country of origin",
+          "United States of America"
+        ],
+        [
+          "United States of America",
+          "capital",
+          "Washington, D.C."
+        ]
+      ],
+      "new_triples": [
+        [
+          "Q562609",
+          "P136",
+          "Q1166726"
+        ],
+        [
+          "Q1166726",
+          "P495",
+          "Q145"
+        ],
+        [
+          "Q145",
+          "P36",
+          "Q30022233"
+        ]
+      ],
+      "new_triples_labeled": [
+        [
+          "Don Lusher",
+          "genre",
+          "grime"
+        ],
+        [
+          "grime",
+          "country of origin",
+          "United Kingdom"
+        ],
+        [
+          "United Kingdom",
+          "capital",
+          "Angri"
+        ]
+      ],
+      "edit_triples": [
+        [
+          "Q562609",
+          "P136",
+          "Q1166726"
+        ],
+        [
+          "Q145",
+          "P36",
+          "Q30022233"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": 1999,
+    "requested_rewrite": [
+      {
+        "prompt": "The author of {} is",
+        "relation_id": "P50",
+        "target_new": {
+          "str": "Sigmund Freud",
+          "id": "Q9215"
+        },
+        "target_true": {
+          "str": "James Dashner",
+          "id": "Q6132354"
+        },
+        "subject": "The Maze Runner",
+        "question": "Who is the author of The Maze Runner?"
+      },
+      {
+        "prompt": "The univeristy where {} was educated is",
+        "relation_id": "P69",
+        "target_new": {
+          "str": "Stanford University",
+          "id": "Q41506"
+        },
+        "target_true": {
+          "str": "University of Vienna",
+          "id": "Q165980"
+        },
+        "subject": "Sigmund Freud",
+        "question": "Which university was Sigmund Freud educated at?"
+      },
+      {
+        "prompt": "The headquarters of {} is located in the city of",
+        "relation_id": "P159",
+        "target_new": {
+          "str": "Brussels",
+          "id": "Q239"
+        },
+        "target_true": {
+          "str": "Stanford",
+          "id": "Q173813"
+        },
+        "subject": "Stanford University",
+        "question": "Which city is the headquarter of Stanford University located in?"
+      }
+    ],
+    "questions": [
+      "What is the location of the headquarters of the institution where the author of \"The Maze Runner\" was educated?",
+      "Where is the institution located where the author of the book \"The Maze Runner\" received education?",
+      "In what city is the institution where the author of \"The Maze Runner\" was educated located?"
+    ],
+    "answer": "Provo",
+    "answer_alias": [
+      "Provo, Utah",
+      "Provo, UT"
+    ],
+    "new_answer": "Brussels",
+    "new_answer_alias": [
+      "Bru",
+      "Brussels, Belgium",
+      "Brussels",
+      "Ville de Bruxelles",
+      "Brussel",
+      "Bruxelles",
+      "BXL",
+      "02",
+      "Brussels (municipality)",
+      "Brussels City",
+      "Stad Brussel"
+    ],
+    "single_hops": [
+      {
+        "question": "Who is the author of The Maze Runner?",
+        "cloze": "The author of The Maze Runner is",
+        "answer": "James Dashner",
+        "answer_alias": [
+          "James Smith Dashner"
+        ]
+      },
+      {
+        "question": "Which university was James Dashner educated at?",
+        "cloze": "The univeristy where James Dashner was educated is",
+        "answer": "Brigham Young University",
+        "answer_alias": [
+          "The Y",
+          "BYU"
+        ]
+      },
+      {
+        "question": "Which city is the headquarter of Brigham Young University located in?",
+        "cloze": "The headquarters of Brigham Young University is located in the city of",
+        "answer": "Provo",
+        "answer_alias": [
+          "Provo, Utah",
+          "Provo, UT"
+        ]
+      }
+    ],
+    "new_single_hops": [
+      {
+        "question": "Who is the author of The Maze Runner?",
+        "cloze": "The author of The Maze Runner is",
+        "answer": "Sigmund Freud",
+        "answer_alias": [
+          "Freud",
+          "Sigismund Schlomo Freud",
+          "Sigmund Schlomo Freud",
+          "Sigismund Freud"
+        ]
+      },
+      {
+        "question": "Which university was Sigmund Freud educated at?",
+        "cloze": "The univeristy where Sigmund Freud was educated is",
+        "answer": "Stanford University",
+        "answer_alias": [
+          "The Farm",
+          "Stanford",
+          "Leland Stanford Jr. University",
+          "Leland Stanford Junior University",
+          "stanford.edu",
+          "University of Stanford"
+        ]
+      },
+      {
+        "question": "Which city is the headquarter of Stanford University located in?",
+        "cloze": "The headquarters of Stanford University is located in the city of",
+        "answer": "Brussels",
+        "answer_alias": [
+          "Bru",
+          "Brussels, Belgium",
+          "Brussels",
+          "Ville de Bruxelles",
+          "Brussel",
+          "Bruxelles",
+          "BXL",
+          "02",
+          "Brussels (municipality)",
+          "Brussels City",
+          "Stad Brussel"
+        ]
+      }
+    ],
+    "orig": {
+      "triples": [
+        [
+          "Q4080576",
+          "P50",
+          "Q6132354"
+        ],
+        [
+          "Q6132354",
+          "P69",
+          "Q332498"
+        ],
+        [
+          "Q332498",
+          "P159",
+          "Q23443"
+        ]
+      ],
+      "triples_labeled": [
+        [
+          "The Maze Runner",
+          "author",
+          "James Dashner"
+        ],
+        [
+          "James Dashner",
+          "educated at",
+          "Brigham Young University"
+        ],
+        [
+          "Brigham Young University",
+          "headquarters location",
+          "Provo"
+        ]
+      ],
+      "new_triples": [
+        [
+          "Q4080576",
+          "P50",
+          "Q9215"
+        ],
+        [
+          "Q9215",
+          "P69",
+          "Q41506"
+        ],
+        [
+          "Q41506",
+          "P159",
+          "Q239"
+        ]
+      ],
+      "new_triples_labeled": [
+        [
+          "The Maze Runner",
+          "author",
+          "Sigmund Freud"
+        ],
+        [
+          "Sigmund Freud",
+          "educated at",
+          "Stanford University"
+        ],
+        [
+          "Stanford University",
+          "headquarters location",
+          "Brussels"
+        ]
+      ],
+      "edit_triples": [
+        [
+          "Q4080576",
+          "P50",
+          "Q9215"
+        ],
+        [
+          "Q9215",
+          "P69",
+          "Q41506"
+        ],
+        [
+          "Q41506",
+          "P159",
+          "Q239"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": 1472,
+    "requested_rewrite": [
+      {
+        "prompt": "{} was created in the country of",
+        "relation_id": "P495",
+        "target_new": {
+          "str": "Australia",
+          "id": "Q408"
+        },
+        "target_true": {
+          "str": "United States of America",
+          "id": "Q30"
+        },
+        "subject": "The King in Yellow",
+        "question": "Which country was The King in Yellow created in?"
+      }
+    ],
+    "questions": [
+      "Who is the head of government of the country where Robert W. Chambers' notable work originates?",
+      "In what country, the country of origin of Robert W. Chambers' notable work, is the head of government?",
+      "What is the name of the current head of government in the country where the notable work of Robert W. Chambers comes from?"
+    ],
+    "answer": "Donald Trump",
+    "answer_alias": [
+      "@realDonaldTrump",
+      "David Dennison",
+      "DJT",
+      "Donald J Trump",
+      "Donald J. Trump",
+      "Individual 1",
+      "Mr Trump",
+      "POTUS 45",
+      "President Donald J Trump",
+      "President Donald J. Trump",
+      "President Donald John Trump",
+      "President Donald Trump",
+      "President Trump",
+      "The Donald",
+      "John Miller",
+      "Trump",
+      "John Barron",
+      "Donald John Trump"
+    ],
+    "new_answer": "Scott Morrison",
+    "new_answer_alias": [
+      "Scomo",
+      "ScoMo",
+      "Scott John Morrison"
+    ],
+    "single_hops": [
+      {
+        "question": "What is Robert W. Chambers famous for?",
+        "cloze": "Robert W. Chambers is famous for",
+        "answer": "The King in Yellow",
+        "answer_alias": [
+          "King in Yellow"
+        ]
+      },
+      {
+        "question": "Which country was The King in Yellow created in?",
+        "cloze": "The King in Yellow was created in the country of",
+        "answer": "United States of America",
+        "answer_alias": [
+          "the States",
+          "the U.S.",
+          "the United States",
+          "the United States of America",
+          "the US",
+          "the USA",
+          "U. S.",
+          "U. S. A.",
+          "U.S.",
+          "U.S.A.",
+          "US of A",
+          "USA",
+          "America",
+          "United States",
+          "US",
+          "the U.S. of A",
+          "the U.S. of America",
+          "the U.S.A.",
+          "the US of A",
+          "the US of America",
+          "U.S. of America",
+          "US of America"
+        ]
+      },
+      {
+        "question": "What is the name of the current head of the United States of America government?",
+        "cloze": "The name of the current head of the United States of America government is",
+        "answer": "Donald Trump",
+        "answer_alias": [
+          "@realDonaldTrump",
+          "David Dennison",
+          "DJT",
+          "Donald J Trump",
+          "Donald J. Trump",
+          "Individual 1",
+          "Mr Trump",
+          "POTUS 45",
+          "President Donald J Trump",
+          "President Donald J. Trump",
+          "President Donald John Trump",
+          "President Donald Trump",
+          "President Trump",
+          "The Donald",
+          "John Miller",
+          "Trump",
+          "John Barron",
+          "Donald John Trump"
+        ]
+      }
+    ],
+    "new_single_hops": [
+      {
+        "question": "What is Robert W. Chambers famous for?",
+        "cloze": "Robert W. Chambers is famous for",
+        "answer": "The King in Yellow",
+        "answer_alias": [
+          "King in Yellow"
+        ]
+      },
+      {
+        "question": "Which country was The King in Yellow created in?",
+        "cloze": "The King in Yellow was created in the country of",
+        "answer": "Australia",
+        "answer_alias": [
+          "Stralia",
+          "Nova Hollandia",
+          "Oz",
+          "AU",
+          "New Holland",
+          "au",
+          "AUS",
+          "Commonwealth of Australia",
+          "Ꜷ",
+          "Aussieland",
+          "Straya",
+          "New Hollandia"
+        ]
+      },
+      {
+        "question": "What is the name of the current head of the Australia government?",
+        "cloze": "The name of the current head of the Australia government is",
+        "answer": "Scott Morrison",
+        "answer_alias": [
+          "Scomo",
+          "ScoMo",
+          "Scott John Morrison"
+        ]
+      }
+    ],
+    "orig": {
+      "triples": [
+        [
+          "Q1349144",
+          "P800",
+          "Q1195112"
+        ],
+        [
+          "Q1195112",
+          "P495",
+          "Q30"
+        ],
+        [
+          "Q30",
+          "P6",
+          "Q22686"
+        ]
+      ],
+      "triples_labeled": [
+        [
+          "Robert W. Chambers",
+          "notable work",
+          "The King in Yellow"
+        ],
+        [
+          "The King in Yellow",
+          "country of origin",
+          "United States of America"
+        ],
+        [
+          "United States of America",
+          "head of government",
+          "Donald Trump"
+        ]
+      ],
+      "new_triples": [
+        [
+          "Q1349144",
+          "P800",
+          "Q1195112"
+        ],
+        [
+          "Q1195112",
+          "P495",
+          "Q408"
+        ],
+        [
+          "Q408",
+          "P6",
+          "Q7436908"
+        ]
+      ],
+      "new_triples_labeled": [
+        [
+          "Robert W. Chambers",
+          "notable work",
+          "The King in Yellow"
+        ],
+        [
+          "The King in Yellow",
+          "country of origin",
+          "Australia"
+        ],
+        [
+          "Australia",
+          "head of government",
+          "Scott Morrison"
+        ]
+      ],
+      "edit_triples": [
+        [
+          "Q1195112",
+          "P495",
+          "Q408"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": 1700,
+    "requested_rewrite": [
+      {
+        "prompt": "{} was created in the country of",
+        "relation_id": "P495",
+        "target_new": {
+          "str": "Indonesia",
+          "id": "Q252"
+        },
+        "target_true": {
+          "str": "United States of America",
+          "id": "Q30"
+        },
+        "subject": "jazz",
+        "question": "Which country was jazz created in?"
+      }
+    ],
+    "questions": [
+      "What is the official language of the country where the genre of Gigi Gryce originated?",
+      "In which language are official documents written in the country where Gigi Gryce's music genre originated?",
+      "Which language is the legally recognized language in the country where the music genre associated with Gigi Gryce originated?"
+    ],
+    "answer": "American English",
+    "answer_alias": [
+      "AmE",
+      "en_us",
+      "en_US",
+      "en-us",
+      "en-US",
+      "English (United States)",
+      "U.S. English",
+      "United States English",
+      "US English"
+    ],
+    "new_answer": "Indonesian",
+    "new_answer_alias": [
+      "id",
+      "Bahasa",
+      "bahasa Indonesia",
+      "ind",
+      "Indonesian language"
+    ],
+    "single_hops": [
+      {
+        "question": "What type of music does Gigi Gryce play?",
+        "cloze": "The type of music that Gigi Gryce plays is",
+        "answer": "jazz",
+        "answer_alias": [
+          "jas",
+          "jass",
+          "jaz",
+          "jazz music"
+        ]
+      },
+      {
+        "question": "Which country was jazz created in?",
+        "cloze": "jazz was created in the country of",
+        "answer": "United States of America",
+        "answer_alias": [
+          "the States",
+          "the U.S.",
+          "the United States",
+          "the United States of America",
+          "the US",
+          "the USA",
+          "U. S.",
+          "U. S. A.",
+          "U.S.",
+          "U.S.A.",
+          "US of A",
+          "USA",
+          "America",
+          "United States",
+          "US",
+          "the U.S. of A",
+          "the U.S. of America",
+          "the U.S.A.",
+          "the US of A",
+          "the US of America",
+          "U.S. of America",
+          "US of America"
+        ]
+      },
+      {
+        "question": "What is the official language of United States of America?",
+        "cloze": "The official language of United States of America is",
+        "answer": "American English",
+        "answer_alias": [
+          "AmE",
+          "en_us",
+          "en_US",
+          "en-us",
+          "en-US",
+          "English (United States)",
+          "U.S. English",
+          "United States English",
+          "US English"
+        ]
+      }
+    ],
+    "new_single_hops": [
+      {
+        "question": "What type of music does Gigi Gryce play?",
+        "cloze": "The type of music that Gigi Gryce plays is",
+        "answer": "jazz",
+        "answer_alias": [
+          "jas",
+          "jass",
+          "jaz",
+          "jazz music"
+        ]
+      },
+      {
+        "question": "Which country was jazz created in?",
+        "cloze": "jazz was created in the country of",
+        "answer": "Indonesia",
+        "answer_alias": [
+          "INA",
+          "ID",
+          "id",
+          "IDN",
+          "Republic of Indonesia"
+        ]
+      },
+      {
+        "question": "What is the official language of Indonesia?",
+        "cloze": "The official language of Indonesia is",
+        "answer": "Indonesian",
+        "answer_alias": [
+          "id",
+          "Bahasa",
+          "bahasa Indonesia",
+          "ind",
+          "Indonesian language"
+        ]
+      }
+    ],
+    "orig": {
+      "triples": [
+        [
+          "Q563275",
+          "P136",
+          "Q8341"
+        ],
+        [
+          "Q8341",
+          "P495",
+          "Q30"
+        ],
+        [
+          "Q30",
+          "P37",
+          "Q7976"
+        ]
+      ],
+      "triples_labeled": [
+        [
+          "Gigi Gryce",
+          "genre",
+          "jazz"
+        ],
+        [
+          "jazz",
+          "country of origin",
+          "United States of America"
+        ],
+        [
+          "United States of America",
+          "official language",
+          "American English"
+        ]
+      ],
+      "new_triples": [
+        [
+          "Q563275",
+          "P136",
+          "Q8341"
+        ],
+        [
+          "Q8341",
+          "P495",
+          "Q252"
+        ],
+        [
+          "Q252",
+          "P37",
+          "Q9240"
+        ]
+      ],
+      "new_triples_labeled": [
+        [
+          "Gigi Gryce",
+          "genre",
+          "jazz"
+        ],
+        [
+          "jazz",
+          "country of origin",
+          "Indonesia"
+        ],
+        [
+          "Indonesia",
+          "official language",
+          "Indonesian"
+        ]
+      ],
+      "edit_triples": [
+        [
+          "Q8341",
+          "P495",
+          "Q252"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": 1702,
+    "requested_rewrite": [
+      {
+        "prompt": "{} is associated with the sport of",
+        "relation_id": "P641",
+        "target_new": {
+          "str": "baseball",
+          "id": "Q5369"
+        },
+        "target_true": {
+          "str": "association football",
+          "id": "Q2736"
+        },
+        "subject": "Hertfordshire Senior County League",
+        "question": "Which sport is Hertfordshire Senior County League associated with?"
+      },
+      {
+        "prompt": "{} was created in the country of",
+        "relation_id": "P495",
+        "target_new": {
+          "str": "United Kingdom",
+          "id": "Q145"
+        },
+        "target_true": {
+          "str": "United States of America",
+          "id": "Q30"
+        },
+        "subject": "baseball",
+        "question": "Which country was baseball created in?"
+      },
+      {
+        "prompt": "The name of the current head of state in {} is",
+        "relation_id": "P35",
+        "target_new": {
+          "str": "Klaus Iohannis",
+          "id": "Q701484"
+        },
+        "target_true": {
+          "str": "Elizabeth II",
+          "id": "Q9682"
+        },
+        "subject": "United Kingdom",
+        "question": "What is the name of the current head of state in United Kingdom?"
+      }
+    ],
+    "questions": [
+      "Who is the head of state of the country where the Hertfordshire Senior County League originated from?",
+      "What is the name of the leader of the country where the sport associated with Hertfordshire Senior County League was first played?",
+      "In which country is the head of state of the sport Hertfordshire Senior County League's country of origin located?"
+    ],
+    "answer": "Elizabeth II",
+    "answer_alias": [
+      "Queen Elizabeth",
+      "The Queen",
+      "Queen Elizabeth II",
+      "Lilibet",
+      "Queen of England",
+      "HM Queen Elizabeth II",
+      "E.R. II",
+      "E2R",
+      "EIIR",
+      "Elizabeth Alexandra Mary",
+      "Elizabeth Alexandra Mary Windsor",
+      "Elizabeth II of the United Kingdom",
+      "Elizabeth the second",
+      "Elizabeth Windsor",
+      "ER II",
+      "ERII",
+      "Her Royal Highness Princess Elizabeth of York",
+      "Her Royal Highness The Princess Elizabeth of the United Kingdom",
+      "Her Royal Highness The Princess Elizabeth, Duchess of Edinburgh",
+      "Princess Elizabeth of York",
+      "Princess Elizabeth, Duchess of Edinburgh",
+      "QE2",
+      "QEII",
+      "Queen Elizabeth II of the United Kingdom"
+    ],
+    "new_answer": "Klaus Iohannis",
+    "new_answer_alias": [
+      "Klaus Werner Iohannis",
+      "Klaus-Werner Iohannis"
+    ],
+    "single_hops": [
+      {
+        "question": "Which sport is Hertfordshire Senior County League associated with?",
+        "cloze": "Hertfordshire Senior County League is associated with the sport of",
+        "answer": "association football",
+        "answer_alias": [
+          "football",
+          "association soccer",
+          "footie",
+          "footy",
+          "futbol",
+          "futebol",
+          "soccer"
+        ]
+      },
+      {
+        "question": "Which country was association football created in?",
+        "cloze": "association football was created in the country of",
+        "answer": "England",
+        "answer_alias": [
+          "ENG"
+        ]
+      },
+      {
+        "question": "What is the name of the current head of state in England?",
+        "cloze": "The name of the current head of state in England is",
+        "answer": "Elizabeth II",
+        "answer_alias": [
+          "Queen Elizabeth",
+          "The Queen",
+          "Queen Elizabeth II",
+          "Lilibet",
+          "Queen of England",
+          "HM Queen Elizabeth II",
+          "E.R. II",
+          "E2R",
+          "EIIR",
+          "Elizabeth Alexandra Mary",
+          "Elizabeth Alexandra Mary Windsor",
+          "Elizabeth II of the United Kingdom",
+          "Elizabeth the second",
+          "Elizabeth Windsor",
+          "ER II",
+          "ERII",
+          "Her Royal Highness Princess Elizabeth of York",
+          "Her Royal Highness The Princess Elizabeth of the United Kingdom",
+          "Her Royal Highness The Princess Elizabeth, Duchess of Edinburgh",
+          "Princess Elizabeth of York",
+          "Princess Elizabeth, Duchess of Edinburgh",
+          "QE2",
+          "QEII",
+          "Queen Elizabeth II of the United Kingdom"
+        ]
+      }
+    ],
+    "new_single_hops": [
+      {
+        "question": "Which sport is Hertfordshire Senior County League associated with?",
+        "cloze": "Hertfordshire Senior County League is associated with the sport of",
+        "answer": "baseball",
+        "answer_alias": [
+          "⚾",
+          "America's pastime"
+        ]
+      },
+      {
+        "question": "Which country was baseball created in?",
+        "cloze": "baseball was created in the country of",
+        "answer": "United Kingdom",
+        "answer_alias": [
+          "Britain",
+          "UK",
+          "G. B.",
+          "GBR",
+          "Great Britain",
+          "GB",
+          "G.B.",
+          "United Kingdom of Great Britain and Northern Ireland",
+          "G B",
+          "G B R",
+          "G.B.R.",
+          "🇬🇧",
+          "Great Britain and Northern Ireland",
+          "The UK",
+          "The United Kingdom of Great Britain and Northern Ireland",
+          "U K",
+          "U. K.",
+          "U.K."
+        ]
+      },
+      {
+        "question": "What is the name of the current head of state in United Kingdom?",
+        "cloze": "The name of the current head of state in United Kingdom is",
+        "answer": "Klaus Iohannis",
+        "answer_alias": [
+          "Klaus Werner Iohannis",
+          "Klaus-Werner Iohannis"
+        ]
+      }
+    ],
+    "orig": {
+      "triples": [
+        [
+          "Q2299489",
+          "P641",
+          "Q2736"
+        ],
+        [
+          "Q2736",
+          "P495",
+          "Q21"
+        ],
+        [
+          "Q21",
+          "P35",
+          "Q9682"
+        ]
+      ],
+      "triples_labeled": [
+        [
+          "Hertfordshire Senior County League",
+          "sport",
+          "association football"
+        ],
+        [
+          "association football",
+          "country of origin",
+          "England"
+        ],
+        [
+          "England",
+          "head of state",
+          "Elizabeth II"
+        ]
+      ],
+      "new_triples": [
+        [
+          "Q2299489",
+          "P641",
+          "Q5369"
+        ],
+        [
+          "Q5369",
+          "P495",
+          "Q145"
+        ],
+        [
+          "Q145",
+          "P35",
+          "Q701484"
+        ]
+      ],
+      "new_triples_labeled": [
+        [
+          "Hertfordshire Senior County League",
+          "sport",
+          "baseball"
+        ],
+        [
+          "baseball",
+          "country of origin",
+          "United Kingdom"
+        ],
+        [
+          "United Kingdom",
+          "head of state",
+          "Klaus Iohannis"
+        ]
+      ],
+      "edit_triples": [
+        [
+          "Q2299489",
+          "P641",
+          "Q5369"
+        ],
+        [
+          "Q5369",
+          "P495",
+          "Q145"
+        ],
+        [
+          "Q145",
+          "P35",
+          "Q701484"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": 1092,
+    "requested_rewrite": [
+      {
+        "prompt": "{} was created in the country of",
+        "relation_id": "P495",
+        "target_new": {
+          "str": "Netherlands",
+          "id": "Q55"
+        },
+        "target_true": {
+          "str": "England",
+          "id": "Q21"
+        },
+        "subject": "cricket",
+        "question": "Which country was cricket created in?"
+      },
+      {
+        "prompt": "The official language of {} is",
+        "relation_id": "P37",
+        "target_new": {
+          "str": "German",
+          "id": "Q188"
+        },
+        "target_true": {
+          "str": "Dutch",
+          "id": "Q7411"
+        },
+        "subject": "Netherlands",
+        "question": "What is the official language of Netherlands?"
+      }
+    ],
+    "questions": [
+      "What is the official language of the country that is the origin of the sport of Cricket Australia?",
+      "Which language serves as the official language of the birthplace of the sport played by Cricket Australia?",
+      "What is the official language of the country where the sport played by Cricket Australia was originated?"
+    ],
+    "answer": "English",
+    "answer_alias": [
+      "en",
+      "eng",
+      "English language"
+    ],
+    "new_answer": "German",
+    "new_answer_alias": [
+      "de",
+      "German language"
+    ],
+    "single_hops": [
+      {
+        "question": "Which sport is Cricket Australia associated with?",
+        "cloze": "Cricket Australia is associated with the sport of",
+        "answer": "cricket",
+        "answer_alias": [
+          "Cricket Sport"
+        ]
+      },
+      {
+        "question": "Which country was cricket created in?",
+        "cloze": "cricket was created in the country of",
+        "answer": "England",
+        "answer_alias": [
+          "ENG"
+        ]
+      },
+      {
+        "question": "What is the official language of England?",
+        "cloze": "The official language of England is",
+        "answer": "English",
+        "answer_alias": [
+          "en",
+          "eng",
+          "English language"
+        ]
+      }
+    ],
+    "new_single_hops": [
+      {
+        "question": "Which sport is Cricket Australia associated with?",
+        "cloze": "Cricket Australia is associated with the sport of",
+        "answer": "cricket",
+        "answer_alias": [
+          "Cricket Sport"
+        ]
+      },
+      {
+        "question": "Which country was cricket created in?",
+        "cloze": "cricket was created in the country of",
+        "answer": "Netherlands",
+        "answer_alias": [
+          "NL",
+          "Holland",
+          "Nederland",
+          "NED",
+          "nl",
+          "the Netherlands",
+          "🇳🇱",
+          "Netherlands (after 1945)"
+        ]
+      },
+      {
+        "question": "What is the official language of Netherlands?",
+        "cloze": "The official language of Netherlands is",
+        "answer": "German",
+        "answer_alias": [
+          "de",
+          "German language"
+        ]
+      }
+    ],
+    "orig": {
+      "triples": [
+        [
+          "Q3002584",
+          "P641",
+          "Q5375"
+        ],
+        [
+          "Q5375",
+          "P495",
+          "Q21"
+        ],
+        [
+          "Q21",
+          "P37",
+          "Q1860"
+        ]
+      ],
+      "triples_labeled": [
+        [
+          "Cricket Australia",
+          "sport",
+          "cricket"
+        ],
+        [
+          "cricket",
+          "country of origin",
+          "England"
+        ],
+        [
+          "England",
+          "official language",
+          "English"
+        ]
+      ],
+      "new_triples": [
+        [
+          "Q3002584",
+          "P641",
+          "Q5375"
+        ],
+        [
+          "Q5375",
+          "P495",
+          "Q55"
+        ],
+        [
+          "Q55",
+          "P37",
+          "Q188"
+        ]
+      ],
+      "new_triples_labeled": [
+        [
+          "Cricket Australia",
+          "sport",
+          "cricket"
+        ],
+        [
+          "cricket",
+          "country of origin",
+          "Netherlands"
+        ],
+        [
+          "Netherlands",
+          "official language",
+          "German"
+        ]
+      ],
+      "edit_triples": [
+        [
+          "Q5375",
+          "P495",
+          "Q55"
+        ],
+        [
+          "Q55",
+          "P37",
+          "Q188"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": 1634,
+    "requested_rewrite": [
+      {
+        "prompt": "{} was created in the country of",
+        "relation_id": "P495",
+        "target_new": {
+          "str": "Hong Kong",
+          "id": "Q8646"
+        },
+        "target_true": {
+          "str": "England",
+          "id": "Q21"
+        },
+        "subject": "association football",
+        "question": "Which country was association football created in?"
+      },
+      {
+        "prompt": "{} is located in the continent of",
+        "relation_id": "P30",
+        "target_new": {
+          "str": "Africa",
+          "id": "Q15"
+        },
+        "target_true": {
+          "str": "Asia",
+          "id": "Q48"
+        },
+        "subject": "Hong Kong",
+        "question": "Which continent is Hong Kong located in?"
+      }
+    ],
+    "questions": [
+      "Which continent does the sport associated with Nikica Jelavić originate from?",
+      "From which continent does the sport that Nikica Jelavić plays originate?",
+      "The sport associated with Nikica Jelavić is native to which continent?"
+    ],
+    "answer": "Europe",
+    "answer_alias": [
+      "European continent",
+      "Old Continent"
+    ],
+    "new_answer": "Africa",
+    "new_answer_alias": [
+      "African continent",
+      "Ancient Libya"
+    ],
+    "single_hops": [
+      {
+        "question": "Which sport is Nikica Jelavić associated with?",
+        "cloze": "Nikica Jelavić is associated with the sport of",
+        "answer": "association football",
+        "answer_alias": [
+          "football",
+          "association soccer",
+          "footie",
+          "footy",
+          "futbol",
+          "futebol",
+          "soccer"
+        ]
+      },
+      {
+        "question": "Which country was association football created in?",
+        "cloze": "association football was created in the country of",
+        "answer": "England",
+        "answer_alias": [
+          "ENG"
+        ]
+      },
+      {
+        "question": "Which continent is England located in?",
+        "cloze": "England is located in the continent of",
+        "answer": "Europe",
+        "answer_alias": [
+          "European continent",
+          "Old Continent"
+        ]
+      }
+    ],
+    "new_single_hops": [
+      {
+        "question": "Which sport is Nikica Jelavić associated with?",
+        "cloze": "Nikica Jelavić is associated with the sport of",
+        "answer": "association football",
+        "answer_alias": [
+          "football",
+          "association soccer",
+          "footie",
+          "footy",
+          "futbol",
+          "futebol",
+          "soccer"
+        ]
+      },
+      {
+        "question": "Which country was association football created in?",
+        "cloze": "association football was created in the country of",
+        "answer": "Hong Kong",
+        "answer_alias": [
+          "HKG",
+          "HK",
+          "Hongkong",
+          "hk",
+          "🇭🇰",
+          "China Hong Kong",
+          "HKSAR",
+          "Hong Kong SAR",
+          "Hong Kong SAR, China",
+          "Hong Kong Special Administrative Region",
+          "Hong Kong, China",
+          "xiang gang"
+        ]
+      },
+      {
+        "question": "Which continent is Hong Kong located in?",
+        "cloze": "Hong Kong is located in the continent of",
+        "answer": "Africa",
+        "answer_alias": [
+          "African continent",
+          "Ancient Libya"
+        ]
+      }
+    ],
+    "orig": {
+      "triples": [
+        [
+          "Q221233",
+          "P641",
+          "Q2736"
+        ],
+        [
+          "Q2736",
+          "P495",
+          "Q21"
+        ],
+        [
+          "Q21",
+          "P30",
+          "Q46"
+        ]
+      ],
+      "triples_labeled": [
+        [
+          "Nikica Jelavić",
+          "sport",
+          "association football"
+        ],
+        [
+          "association football",
+          "country of origin",
+          "England"
+        ],
+        [
+          "England",
+          "continent",
+          "Europe"
+        ]
+      ],
+      "new_triples": [
+        [
+          "Q221233",
+          "P641",
+          "Q2736"
+        ],
+        [
+          "Q2736",
+          "P495",
+          "Q8646"
+        ],
+        [
+          "Q8646",
+          "P30",
+          "Q15"
+        ]
+      ],
+      "new_triples_labeled": [
+        [
+          "Nikica Jelavić",
+          "sport",
+          "association football"
+        ],
+        [
+          "association football",
+          "country of origin",
+          "Hong Kong"
+        ],
+        [
+          "Hong Kong",
+          "continent",
+          "Africa"
+        ]
+      ],
+      "edit_triples": [
+        [
+          "Q2736",
+          "P495",
+          "Q8646"
+        ],
+        [
+          "Q8646",
+          "P30",
+          "Q15"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": 1060,
+    "requested_rewrite": [
+      {
+        "prompt": "{} is married to",
+        "relation_id": "P26",
+        "target_new": {
+          "str": "Betsy DeVos",
+          "id": "Q4898286"
+        },
+        "target_true": {
+          "str": "Tom Brady",
+          "id": "Q313381"
+        },
+        "subject": "Gisele Bündchen",
+        "question": "Who is Gisele Bündchen married to?"
+      },
+      {
+        "prompt": "The univeristy where {} was educated is",
+        "relation_id": "P69",
+        "target_new": {
+          "str": "Trinity College Dublin",
+          "id": "Q258464"
+        },
+        "target_true": {
+          "str": "Calvin University",
+          "id": "Q2698482"
+        },
+        "subject": "Betsy DeVos",
+        "question": "Which university was Betsy DeVos educated at?"
+      },
+      {
+        "prompt": "The headquarters of {} is located in the city of",
+        "relation_id": "P159",
+        "target_new": {
+          "str": "Berlin",
+          "id": "Q64"
+        },
+        "target_true": {
+          "str": "Dublin",
+          "id": "Q1761"
+        },
+        "subject": "Trinity College Dublin",
+        "question": "Which city is the headquarter of Trinity College Dublin located in?"
+      }
+    ],
+    "questions": [
+      "Where are the headquarters of the educational institution attended by Gisele Bündchen's spouse located?",
+      "What is the location of the headquarters of the educational institution attended by the spouse of Gisele Bündchen?",
+      "In what city is the educational institution from which the spouse of Gisele Bündchen graduated headquartered?"
+    ],
+    "answer": "Ann Arbor",
+    "answer_alias": [
+      "Ann Arbor, Michigan",
+      "Ann Arbor, MI",
+      "City of Ann Arbor"
+    ],
+    "new_answer": "Berlin",
+    "new_answer_alias": [
+      "Berlin, Germany",
+      "Berlin (Germany)",
+      "DE-BE"
+    ],
+    "single_hops": [
+      {
+        "question": "Who is Gisele Bündchen married to?",
+        "cloze": "Gisele Bündchen is married to",
+        "answer": "Tom Brady",
+        "answer_alias": [
+          "Thomas Brady",
+          "Thomas Edward Brady, Jr.",
+          "Thomas Edward Patrick Brady",
+          "Thomas Edward Patrick Brady Jr.",
+          "Thomas Edward Patrick Brady, Jr."
+        ]
+      },
+      {
+        "question": "Which university was Tom Brady educated at?",
+        "cloze": "The univeristy where Tom Brady was educated is",
+        "answer": "University of Michigan",
+        "answer_alias": [
+          "UM",
+          "U of M",
+          "The University of Michigan",
+          "U Michigan Ann Arbor",
+          "U of Michigan",
+          "UMich",
+          "umich.edu",
+          "Univ of Michigan",
+          "University of Michigan Ann Arbor"
+        ]
+      },
+      {
+        "question": "Which city is the headquarter of University of Michigan located in?",
+        "cloze": "The headquarters of University of Michigan is located in the city of",
+        "answer": "Ann Arbor",
+        "answer_alias": [
+          "Ann Arbor, Michigan",
+          "Ann Arbor, MI",
+          "City of Ann Arbor"
+        ]
+      }
+    ],
+    "new_single_hops": [
+      {
+        "question": "Who is Gisele Bündchen married to?",
+        "cloze": "Gisele Bündchen is married to",
+        "answer": "Betsy DeVos",
+        "answer_alias": [
+          "Elisabeth \"Betsy\" DeVos",
+          "Elisabeth Dee DeVos"
+        ]
+      },
+      {
+        "question": "Which university was Betsy DeVos educated at?",
+        "cloze": "The univeristy where Betsy DeVos was educated is",
+        "answer": "Trinity College Dublin",
+        "answer_alias": [
+          "TCD",
+          "Coláiste na Tríonóide",
+          "College of the Holy and Undivided Trinity of Queen Elizabeth near Dublin",
+          "Trinity College University of Dublin",
+          "Trinity College, Dublin",
+          "Trinity College, University of Dublin",
+          "University of Dublin",
+          "University of Dublin Trinity College"
+        ]
+      },
+      {
+        "question": "Which city is the headquarter of Trinity College Dublin located in?",
+        "cloze": "The headquarters of Trinity College Dublin is located in the city of",
+        "answer": "Berlin",
+        "answer_alias": [
+          "Berlin, Germany",
+          "Berlin (Germany)",
+          "DE-BE"
+        ]
+      }
+    ],
+    "orig": {
+      "triples": [
+        [
+          "Q152208",
+          "P26",
+          "Q313381"
+        ],
+        [
+          "Q313381",
+          "P69",
+          "Q230492"
+        ],
+        [
+          "Q230492",
+          "P159",
+          "Q485172"
+        ]
+      ],
+      "triples_labeled": [
+        [
+          "Gisele Bündchen",
+          "spouse",
+          "Tom Brady"
+        ],
+        [
+          "Tom Brady",
+          "educated at",
+          "University of Michigan"
+        ],
+        [
+          "University of Michigan",
+          "headquarters location",
+          "Ann Arbor"
+        ]
+      ],
+      "new_triples": [
+        [
+          "Q152208",
+          "P26",
+          "Q4898286"
+        ],
+        [
+          "Q4898286",
+          "P69",
+          "Q258464"
+        ],
+        [
+          "Q258464",
+          "P159",
+          "Q64"
+        ]
+      ],
+      "new_triples_labeled": [
+        [
+          "Gisele Bündchen",
+          "spouse",
+          "Betsy DeVos"
+        ],
+        [
+          "Betsy DeVos",
+          "educated at",
+          "Trinity College Dublin"
+        ],
+        [
+          "Trinity College Dublin",
+          "headquarters location",
+          "Berlin"
+        ]
+      ],
+      "edit_triples": [
+        [
+          "Q152208",
+          "P26",
+          "Q4898286"
+        ],
+        [
+          "Q4898286",
+          "P69",
+          "Q258464"
+        ],
+        [
+          "Q258464",
+          "P159",
+          "Q64"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": 1202,
+    "requested_rewrite": [
+      {
+        "prompt": "The type of music that {} plays is",
+        "relation_id": "P136",
+        "target_new": {
+          "str": "opéra comique",
+          "id": "Q785479"
+        },
+        "target_true": {
+          "str": "hip hop music",
+          "id": "Q11401"
+        },
+        "subject": "Apathy",
+        "question": "What type of music does Apathy play?"
+      },
+      {
+        "prompt": "{} was created in the country of",
+        "relation_id": "P495",
+        "target_new": {
+          "str": "United States of America",
+          "id": "Q30"
+        },
+        "target_true": {
+          "str": "France",
+          "id": "Q142"
+        },
+        "subject": "opéra comique",
+        "question": "Which country was opéra comique created in?"
+      },
+      {
+        "prompt": "The official language of {} is",
+        "relation_id": "P37",
+        "target_new": {
+          "str": "Arabic",
+          "id": "Q13955"
+        },
+        "target_true": {
+          "str": "American English",
+          "id": "Q7976"
+        },
+        "subject": "United States of America",
+        "question": "What is the official language of United States of America?"
+      }
+    ],
+    "questions": [
+      "What is the official language of the country where the genre \"Apathy\" originated?",
+      "In which language are works in the \"Apathy\" genre officially published in the country of origin?",
+      "What language is used officially for the \"Apathy\" genre in its country of origin?"
+    ],
+    "answer": "American English",
+    "answer_alias": [
+      "AmE",
+      "en_us",
+      "en_US",
+      "en-us",
+      "en-US",
+      "English (United States)",
+      "U.S. English",
+      "United States English",
+      "US English"
+    ],
+    "new_answer": "Arabic",
+    "new_answer_alias": [
+      "ar",
+      "Arabian language",
+      "Arabic language"
+    ],
+    "single_hops": [
+      {
+        "question": "What type of music does Apathy play?",
+        "cloze": "The type of music that Apathy plays is",
+        "answer": "hip hop music",
+        "answer_alias": [
+          "hip hop",
+          "hip-hop music",
+          "hip-hop"
+        ]
+      },
+      {
+        "question": "Which country was hip hop music created in?",
+        "cloze": "hip hop music was created in the country of",
+        "answer": "United States of America",
+        "answer_alias": [
+          "the States",
+          "the U.S.",
+          "the United States",
+          "the United States of America",
+          "the US",
+          "the USA",
+          "U. S.",
+          "U. S. A.",
+          "U.S.",
+          "U.S.A.",
+          "US of A",
+          "USA",
+          "America",
+          "United States",
+          "US",
+          "the U.S. of A",
+          "the U.S. of America",
+          "the U.S.A.",
+          "the US of A",
+          "the US of America",
+          "U.S. of America",
+          "US of America"
+        ]
+      },
+      {
+        "question": "What is the official language of United States of America?",
+        "cloze": "The official language of United States of America is",
+        "answer": "American English",
+        "answer_alias": [
+          "AmE",
+          "en_us",
+          "en_US",
+          "en-us",
+          "en-US",
+          "English (United States)",
+          "U.S. English",
+          "United States English",
+          "US English"
+        ]
+      }
+    ],
+    "new_single_hops": [
+      {
+        "question": "What type of music does Apathy play?",
+        "cloze": "The type of music that Apathy plays is",
+        "answer": "opéra comique",
+        "answer_alias": [
+          "opéra-comique",
+          "opera comique"
+        ]
+      },
+      {
+        "question": "Which country was opéra comique created in?",
+        "cloze": "opéra comique was created in the country of",
+        "answer": "United States of America",
+        "answer_alias": [
+          "the States",
+          "the U.S.",
+          "the United States",
+          "the United States of America",
+          "the US",
+          "the USA",
+          "U. S.",
+          "U. S. A.",
+          "U.S.",
+          "U.S.A.",
+          "US of A",
+          "USA",
+          "America",
+          "United States",
+          "US",
+          "the U.S. of A",
+          "the U.S. of America",
+          "the U.S.A.",
+          "the US of A",
+          "the US of America",
+          "U.S. of America",
+          "US of America"
+        ]
+      },
+      {
+        "question": "What is the official language of United States of America?",
+        "cloze": "The official language of United States of America is",
+        "answer": "Arabic",
+        "answer_alias": [
+          "ar",
+          "Arabian language",
+          "Arabic language"
+        ]
+      }
+    ],
+    "orig": {
+      "triples": [
+        [
+          "Q618004",
+          "P136",
+          "Q11401"
+        ],
+        [
+          "Q11401",
+          "P495",
+          "Q30"
+        ],
+        [
+          "Q30",
+          "P37",
+          "Q7976"
+        ]
+      ],
+      "triples_labeled": [
+        [
+          "Apathy",
+          "genre",
+          "hip hop music"
+        ],
+        [
+          "hip hop music",
+          "country of origin",
+          "United States of America"
+        ],
+        [
+          "United States of America",
+          "official language",
+          "American English"
+        ]
+      ],
+      "new_triples": [
+        [
+          "Q618004",
+          "P136",
+          "Q785479"
+        ],
+        [
+          "Q785479",
+          "P495",
+          "Q30"
+        ],
+        [
+          "Q30",
+          "P37",
+          "Q13955"
+        ]
+      ],
+      "new_triples_labeled": [
+        [
+          "Apathy",
+          "genre",
+          "opéra comique"
+        ],
+        [
+          "opéra comique",
+          "country of origin",
+          "United States of America"
+        ],
+        [
+          "United States of America",
+          "official language",
+          "Arabic"
+        ]
+      ],
+      "edit_triples": [
+        [
+          "Q618004",
+          "P136",
+          "Q785479"
+        ],
+        [
+          "Q785479",
+          "P495",
+          "Q30"
+        ],
+        [
+          "Q30",
+          "P37",
+          "Q13955"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": 1321,
+    "requested_rewrite": [
+      {
+        "prompt": "{} is associated with the sport of",
+        "relation_id": "P641",
+        "target_new": {
+          "str": "association football",
+          "id": "Q2736"
+        },
+        "target_true": {
+          "str": "basketball",
+          "id": "Q5372"
+        },
+        "subject": "FIBA Under-21 World Championship",
+        "question": "Which sport is FIBA Under-21 World Championship associated with?"
+      },
+      {
+        "prompt": "{} was created in the country of",
+        "relation_id": "P495",
+        "target_new": {
+          "str": "Hong Kong",
+          "id": "Q8646"
+        },
+        "target_true": {
+          "str": "England",
+          "id": "Q21"
+        },
+        "subject": "association football",
+        "question": "Which country was association football created in?"
+      }
+    ],
+    "questions": [
+      "Who is the head of government of the country where FIBA Under-21 World Championship originated?",
+      "In which country is the head of government responsible for the creation of FIBA Under-21 World Championship located?",
+      "What is the name of the head of government of the country of origin of FIBA Under-21 World Championship?"
+    ],
+    "answer": "Donald Trump",
+    "answer_alias": [
+      "@realDonaldTrump",
+      "David Dennison",
+      "DJT",
+      "Donald J Trump",
+      "Donald J. Trump",
+      "Individual 1",
+      "Mr Trump",
+      "POTUS 45",
+      "President Donald J Trump",
+      "President Donald J. Trump",
+      "President Donald John Trump",
+      "President Donald Trump",
+      "President Trump",
+      "The Donald",
+      "John Miller",
+      "Trump",
+      "John Barron",
+      "Donald John Trump"
+    ],
+    "new_answer": "Carrie Lam",
+    "new_answer_alias": [
+      "Carrie Lam Cheng Yuet-ngor",
+      "Cheng Yuet-ngor",
+      "Lam Cheng Yuet-ngor"
+    ],
+    "single_hops": [
+      {
+        "question": "Which sport is FIBA Under-21 World Championship associated with?",
+        "cloze": "FIBA Under-21 World Championship is associated with the sport of",
+        "answer": "basketball",
+        "answer_alias": [
+          "BB",
+          "Basketball",
+          "basket ball",
+          "b-ball",
+          "hoops"
+        ]
+      },
+      {
+        "question": "Which country was basketball created in?",
+        "cloze": "basketball was created in the country of",
+        "answer": "United States of America",
+        "answer_alias": [
+          "the States",
+          "the U.S.",
+          "the United States",
+          "the United States of America",
+          "the US",
+          "the USA",
+          "U. S.",
+          "U. S. A.",
+          "U.S.",
+          "U.S.A.",
+          "US of A",
+          "USA",
+          "America",
+          "United States",
+          "US",
+          "the U.S. of A",
+          "the U.S. of America",
+          "the U.S.A.",
+          "the US of A",
+          "the US of America",
+          "U.S. of America",
+          "US of America"
+        ]
+      },
+      {
+        "question": "What is the name of the current head of the United States of America government?",
+        "cloze": "The name of the current head of the United States of America government is",
+        "answer": "Donald Trump",
+        "answer_alias": [
+          "@realDonaldTrump",
+          "David Dennison",
+          "DJT",
+          "Donald J Trump",
+          "Donald J. Trump",
+          "Individual 1",
+          "Mr Trump",
+          "POTUS 45",
+          "President Donald J Trump",
+          "President Donald J. Trump",
+          "President Donald John Trump",
+          "President Donald Trump",
+          "President Trump",
+          "The Donald",
+          "John Miller",
+          "Trump",
+          "John Barron",
+          "Donald John Trump"
+        ]
+      }
+    ],
+    "new_single_hops": [
+      {
+        "question": "Which sport is FIBA Under-21 World Championship associated with?",
+        "cloze": "FIBA Under-21 World Championship is associated with the sport of",
+        "answer": "association football",
+        "answer_alias": [
+          "football",
+          "association soccer",
+          "footie",
+          "footy",
+          "futbol",
+          "futebol",
+          "soccer"
+        ]
+      },
+      {
+        "question": "Which country was association football created in?",
+        "cloze": "association football was created in the country of",
+        "answer": "Hong Kong",
+        "answer_alias": [
+          "HKG",
+          "HK",
+          "Hongkong",
+          "hk",
+          "🇭🇰",
+          "China Hong Kong",
+          "HKSAR",
+          "Hong Kong SAR",
+          "Hong Kong SAR, China",
+          "Hong Kong Special Administrative Region",
+          "Hong Kong, China",
+          "xiang gang"
+        ]
+      },
+      {
+        "question": "What is the name of the current head of the Hong Kong government?",
+        "cloze": "The name of the current head of the Hong Kong government is",
+        "answer": "Carrie Lam",
+        "answer_alias": [
+          "Carrie Lam Cheng Yuet-ngor",
+          "Cheng Yuet-ngor",
+          "Lam Cheng Yuet-ngor"
+        ]
+      }
+    ],
+    "orig": {
+      "triples": [
+        [
+          "Q2364430",
+          "P641",
+          "Q5372"
+        ],
+        [
+          "Q5372",
+          "P495",
+          "Q30"
+        ],
+        [
+          "Q30",
+          "P6",
+          "Q22686"
+        ]
+      ],
+      "triples_labeled": [
+        [
+          "FIBA Under-21 World Championship",
+          "sport",
+          "basketball"
+        ],
+        [
+          "basketball",
+          "country of origin",
+          "United States of America"
+        ],
+        [
+          "United States of America",
+          "head of government",
+          "Donald Trump"
+        ]
+      ],
+      "new_triples": [
+        [
+          "Q2364430",
+          "P641",
+          "Q2736"
+        ],
+        [
+          "Q2736",
+          "P495",
+          "Q8646"
+        ],
+        [
+          "Q8646",
+          "P6",
+          "Q19217"
+        ]
+      ],
+      "new_triples_labeled": [
+        [
+          "FIBA Under-21 World Championship",
+          "sport",
+          "association football"
+        ],
+        [
+          "association football",
+          "country of origin",
+          "Hong Kong"
+        ],
+        [
+          "Hong Kong",
+          "head of government",
+          "Carrie Lam"
+        ]
+      ],
+      "edit_triples": [
+        [
+          "Q2364430",
+          "P641",
+          "Q2736"
+        ],
+        [
+          "Q2736",
+          "P495",
+          "Q8646"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": 2386,
+    "requested_rewrite": [
+      {
+        "prompt": "The head coach of {} is",
+        "relation_id": "P286",
+        "target_new": {
+          "str": "Marco Silva",
+          "id": "Q6757714"
+        },
+        "target_true": {
+          "str": "Gian Piero Gasperini",
+          "id": "Q367846"
+        },
+        "subject": "Atalanta B.C.",
+        "question": "Who is the head coach of Atalanta B.C.?"
+      },
+      {
+        "prompt": "{} is associated with the sport of",
+        "relation_id": "P641",
+        "target_new": {
+          "str": "savate",
+          "id": "Q271277"
+        },
+        "target_true": {
+          "str": "association football",
+          "id": "Q2736"
+        },
+        "subject": "Marco Silva",
+        "question": "Which sport is Marco Silva associated with?"
+      },
+      {
+        "prompt": "{} was created in the country of",
+        "relation_id": "P495",
+        "target_new": {
+          "str": "Jamaica",
+          "id": "Q766"
+        },
+        "target_true": {
+          "str": "France",
+          "id": "Q142"
+        },
+        "subject": "savate",
+        "question": "Which country was savate created in?"
+      }
+    ],
+    "questions": [
+      "What continent does the country of origin of the head coach of Atalanta B.C.'s sport belong to?",
+      "Which continent is the home to the country where the head coach of Atalanta B.C.'s sport hails from?",
+      "In which continent is the country of origin of the sport of the head coach of Atalanta B.C. located?"
+    ],
+    "answer": "Europe",
+    "answer_alias": [
+      "European continent",
+      "Old Continent"
+    ],
+    "new_answer": "North America",
+    "new_answer_alias": [
+      "NA",
+      "Turtle Island",
+      "North and Central America"
+    ],
+    "single_hops": [
+      {
+        "question": "Who is the head coach of Atalanta B.C.?",
+        "cloze": "The head coach of Atalanta B.C. is",
+        "answer": "Gian Piero Gasperini",
+        "answer_alias": [
+          "Giampiero Gasperini",
+          "Gianpiero Gasperini"
+        ]
+      },
+      {
+        "question": "Which sport is Gian Piero Gasperini associated with?",
+        "cloze": "Gian Piero Gasperini is associated with the sport of",
+        "answer": "association football",
+        "answer_alias": [
+          "football",
+          "association soccer",
+          "footie",
+          "footy",
+          "futbol",
+          "futebol",
+          "soccer"
+        ]
+      },
+      {
+        "question": "Which country was association football created in?",
+        "cloze": "association football was created in the country of",
+        "answer": "England",
+        "answer_alias": [
+          "ENG"
+        ]
+      },
+      {
+        "question": "Which continent is England located in?",
+        "cloze": "England is located in the continent of",
+        "answer": "Europe",
+        "answer_alias": [
+          "European continent",
+          "Old Continent"
+        ]
+      }
+    ],
+    "new_single_hops": [
+      {
+        "question": "Who is the head coach of Atalanta B.C.?",
+        "cloze": "The head coach of Atalanta B.C. is",
+        "answer": "Marco Silva",
+        "answer_alias": [
+          "Marquitos",
+          "El de las beibi",
+          "El idolo",
+          "La monda Silva",
+          "Marco Alexandre Saraiva da Silva",
+          "Mr M"
+        ]
+      },
+      {
+        "question": "Which sport is Marco Silva associated with?",
+        "cloze": "Marco Silva is associated with the sport of",
+        "answer": "savate",
+        "answer_alias": []
+      },
+      {
+        "question": "Which country was savate created in?",
+        "cloze": "savate was created in the country of",
+        "answer": "Jamaica",
+        "answer_alias": [
+          "JAM",
+          "JA",
+          "🇯🇲",
+          "Commonwealth of Jamaica",
+          "jm"
+        ]
+      },
+      {
+        "question": "Which continent is Jamaica located in?",
+        "cloze": "Jamaica is located in the continent of",
+        "answer": "North America",
+        "answer_alias": [
+          "NA",
+          "Turtle Island",
+          "North and Central America"
+        ]
+      }
+    ],
+    "orig": {
+      "triples": [
+        [
+          "Q1886",
+          "P286",
+          "Q367846"
+        ],
+        [
+          "Q367846",
+          "P641",
+          "Q2736"
+        ],
+        [
+          "Q2736",
+          "P495",
+          "Q21"
+        ],
+        [
+          "Q21",
+          "P30",
+          "Q46"
+        ]
+      ],
+      "triples_labeled": [
+        [
+          "Atalanta B.C.",
+          "head coach",
+          "Gian Piero Gasperini"
+        ],
+        [
+          "Gian Piero Gasperini",
+          "sport",
+          "association football"
+        ],
+        [
+          "association football",
+          "country of origin",
+          "England"
+        ],
+        [
+          "England",
+          "continent",
+          "Europe"
+        ]
+      ],
+      "new_triples": [
+        [
+          "Q1886",
+          "P286",
+          "Q6757714"
+        ],
+        [
+          "Q6757714",
+          "P641",
+          "Q271277"
+        ],
+        [
+          "Q271277",
+          "P495",
+          "Q766"
+        ],
+        [
+          "Q766",
+          "P30",
+          "Q49"
+        ]
+      ],
+      "new_triples_labeled": [
+        [
+          "Atalanta B.C.",
+          "head coach",
+          "Marco Silva"
+        ],
+        [
+          "Marco Silva",
+          "sport",
+          "savate"
+        ],
+        [
+          "savate",
+          "country of origin",
+          "Jamaica"
+        ],
+        [
+          "Jamaica",
+          "continent",
+          "North America"
+        ]
+      ],
+      "edit_triples": [
+        [
+          "Q1886",
+          "P286",
+          "Q6757714"
+        ],
+        [
+          "Q6757714",
+          "P641",
+          "Q271277"
+        ],
+        [
+          "Q271277",
+          "P495",
+          "Q766"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": 2552,
+    "requested_rewrite": [
+      {
+        "prompt": "{} is associated with the sport of",
+        "relation_id": "P641",
+        "target_new": {
+          "str": "rugby",
+          "id": "Q5378"
+        },
+        "target_true": {
+          "str": "association football",
+          "id": "Q2736"
+        },
+        "subject": "Silvio Berlusconi",
+        "question": "Which sport is Silvio Berlusconi associated with?"
+      },
+      {
+        "prompt": "{} was created in the country of",
+        "relation_id": "P495",
+        "target_new": {
+          "str": "Argentina",
+          "id": "Q414"
+        },
+        "target_true": {
+          "str": "England",
+          "id": "Q21"
+        },
+        "subject": "rugby",
+        "question": "Which country was rugby created in?"
+      },
+      {
+        "prompt": "The capital of {} is",
+        "relation_id": "P36",
+        "target_new": {
+          "str": "Galveston",
+          "id": "Q135744"
+        },
+        "target_true": {
+          "str": "Buenos Aires",
+          "id": "Q1486"
+        },
+        "subject": "Argentina",
+        "question": "What is the capital of Argentina?"
+      }
+    ],
+    "questions": [
+      "What is the capital city of the country from which the sport associated with Forza Italia originates?",
+      "Which city serves as the capital of the country where the sport associated with Forza Italia came from?",
+      "Where can the capital of the country of origin of the sport that Forza Italia is associated with be found?"
+    ],
+    "answer": "London",
+    "answer_alias": [
+      "London, United Kingdom",
+      "Greater London",
+      "London, England",
+      "London U.K.",
+      "London UK",
+      "London, UK"
+    ],
+    "new_answer": "Galveston",
+    "new_answer_alias": [
+      "Galveston, Texas",
+      "Galveston, TX"
+    ],
+    "single_hops": [
+      {
+        "question": "Who founded Forza Italia?",
+        "cloze": "Forza Italia was founded by",
+        "answer": "Silvio Berlusconi",
+        "answer_alias": [
+          "Berlusconi",
+          "il Cavaliere"
+        ]
+      },
+      {
+        "question": "Which sport is Silvio Berlusconi associated with?",
+        "cloze": "Silvio Berlusconi is associated with the sport of",
+        "answer": "association football",
+        "answer_alias": [
+          "football",
+          "association soccer",
+          "footie",
+          "footy",
+          "futbol",
+          "futebol",
+          "soccer"
+        ]
+      },
+      {
+        "question": "Which country was association football created in?",
+        "cloze": "association football was created in the country of",
+        "answer": "England",
+        "answer_alias": [
+          "ENG"
+        ]
+      },
+      {
+        "question": "What is the capital of England?",
+        "cloze": "The capital of England is",
+        "answer": "London",
+        "answer_alias": [
+          "London, United Kingdom",
+          "Greater London",
+          "London, England",
+          "London U.K.",
+          "London UK",
+          "London, UK"
+        ]
+      }
+    ],
+    "new_single_hops": [
+      {
+        "question": "Who founded Forza Italia?",
+        "cloze": "Forza Italia was founded by",
+        "answer": "Silvio Berlusconi",
+        "answer_alias": [
+          "Berlusconi",
+          "il Cavaliere"
+        ]
+      },
+      {
+        "question": "Which sport is Silvio Berlusconi associated with?",
+        "cloze": "Silvio Berlusconi is associated with the sport of",
+        "answer": "rugby",
+        "answer_alias": [
+          "rugby football"
+        ]
+      },
+      {
+        "question": "Which country was rugby created in?",
+        "cloze": "rugby was created in the country of",
+        "answer": "Argentina",
+        "answer_alias": [
+          "AR",
+          "ARG",
+          "ar",
+          "🇦🇷",
+          "Argentine Republic",
+          "Arjentina",
+          "Republic of Argentina"
+        ]
+      },
+      {
+        "question": "What is the capital of Argentina?",
+        "cloze": "The capital of Argentina is",
+        "answer": "Galveston",
+        "answer_alias": [
+          "Galveston, Texas",
+          "Galveston, TX"
+        ]
+      }
+    ],
+    "orig": {
+      "triples": [
+        [
+          "Q215350",
+          "P112",
+          "Q11860"
+        ],
+        [
+          "Q11860",
+          "P641",
+          "Q2736"
+        ],
+        [
+          "Q2736",
+          "P495",
+          "Q21"
+        ],
+        [
+          "Q21",
+          "P36",
+          "Q84"
+        ]
+      ],
+      "triples_labeled": [
+        [
+          "Forza Italia",
+          "founded by",
+          "Silvio Berlusconi"
+        ],
+        [
+          "Silvio Berlusconi",
+          "sport",
+          "association football"
+        ],
+        [
+          "association football",
+          "country of origin",
+          "England"
+        ],
+        [
+          "England",
+          "capital",
+          "London"
+        ]
+      ],
+      "new_triples": [
+        [
+          "Q215350",
+          "P112",
+          "Q11860"
+        ],
+        [
+          "Q11860",
+          "P641",
+          "Q5378"
+        ],
+        [
+          "Q5378",
+          "P495",
+          "Q414"
+        ],
+        [
+          "Q414",
+          "P36",
+          "Q135744"
+        ]
+      ],
+      "new_triples_labeled": [
+        [
+          "Forza Italia",
+          "founded by",
+          "Silvio Berlusconi"
+        ],
+        [
+          "Silvio Berlusconi",
+          "sport",
+          "rugby"
+        ],
+        [
+          "rugby",
+          "country of origin",
+          "Argentina"
+        ],
+        [
+          "Argentina",
+          "capital",
+          "Galveston"
+        ]
+      ],
+      "edit_triples": [
+        [
+          "Q11860",
+          "P641",
+          "Q5378"
+        ],
+        [
+          "Q5378",
+          "P495",
+          "Q414"
+        ],
+        [
+          "Q414",
+          "P36",
+          "Q135744"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": 2238,
+    "requested_rewrite": [
+      {
+        "prompt": "{} was created by",
+        "relation_id": "P170",
+        "target_new": {
+          "str": "John Coltrane",
+          "id": "Q7346"
+        },
+        "target_true": {
+          "str": "Gene Roddenberry",
+          "id": "Q191716"
+        },
+        "subject": "Jean-Luc Picard",
+        "question": "Who was Jean-Luc Picard created by?"
+      },
+      {
+        "prompt": "{} is married to",
+        "relation_id": "P26",
+        "target_new": {
+          "str": "Johnny Lee",
+          "id": "Q1687517"
+        },
+        "target_true": {
+          "str": "Alice Coltrane",
+          "id": "Q238243"
+        },
+        "subject": "John Coltrane",
+        "question": "Who is John Coltrane married to?"
+      },
+      {
+        "prompt": "{} is a citizen of",
+        "relation_id": "P27",
+        "target_new": {
+          "str": "France",
+          "id": "Q142"
+        },
+        "target_true": {
+          "str": "United States of America",
+          "id": "Q30"
+        },
+        "subject": "Johnny Lee",
+        "question": "What is the country of citizenship of Johnny Lee?"
+      },
+      {
+        "prompt": "The official language of {} is",
+        "relation_id": "P37",
+        "target_new": {
+          "str": "Arabic",
+          "id": "Q13955"
+        },
+        "target_true": {
+          "str": "French",
+          "id": "Q150"
+        },
+        "subject": "France",
+        "question": "What is the official language of France?"
+      }
+    ],
+    "questions": [
+      "What is the official language of the country where the spouse of Jean-Luc Picard holds citizenship? ",
+      "Which language is recognized as the official language in the country where the partner of Jean-Luc Picard is a citizen?",
+      "What is the primary language of the country where the spouse of Jean-Luc Picard is a citizen?"
+    ],
+    "answer": "American English",
+    "answer_alias": [
+      "AmE",
+      "en_us",
+      "en_US",
+      "en-us",
+      "en-US",
+      "English (United States)",
+      "U.S. English",
+      "United States English",
+      "US English"
+    ],
+    "new_answer": "Arabic",
+    "new_answer_alias": [
+      "ar",
+      "Arabian language",
+      "Arabic language"
+    ],
+    "single_hops": [
+      {
+        "question": "Who was Jean-Luc Picard created by?",
+        "cloze": "Jean-Luc Picard was created by",
+        "answer": "Gene Roddenberry",
+        "answer_alias": [
+          "Eugene Wesley Roddenberry"
+        ]
+      },
+      {
+        "question": "Who is Gene Roddenberry married to?",
+        "cloze": "Gene Roddenberry is married to",
+        "answer": "Majel Barrett",
+        "answer_alias": [
+          "Majel Barrett-Roddenberry",
+          "Majel Leigh Hudec"
+        ]
+      },
+      {
+        "question": "What is the country of citizenship of Majel Barrett?",
+        "cloze": "Majel Barrett is a citizen of",
+        "answer": "United States of America",
+        "answer_alias": [
+          "the States",
+          "the U.S.",
+          "the United States",
+          "the United States of America",
+          "the US",
+          "the USA",
+          "U. S.",
+          "U. S. A.",
+          "U.S.",
+          "U.S.A.",
+          "US of A",
+          "USA",
+          "America",
+          "United States",
+          "US",
+          "the U.S. of A",
+          "the U.S. of America",
+          "the U.S.A.",
+          "the US of A",
+          "the US of America",
+          "U.S. of America",
+          "US of America"
+        ]
+      },
+      {
+        "question": "What is the official language of United States of America?",
+        "cloze": "The official language of United States of America is",
+        "answer": "American English",
+        "answer_alias": [
+          "AmE",
+          "en_us",
+          "en_US",
+          "en-us",
+          "en-US",
+          "English (United States)",
+          "U.S. English",
+          "United States English",
+          "US English"
+        ]
+      }
+    ],
+    "new_single_hops": [
+      {
+        "question": "Who was Jean-Luc Picard created by?",
+        "cloze": "Jean-Luc Picard was created by",
+        "answer": "John Coltrane",
+        "answer_alias": [
+          "John William Coltrane",
+          "St. John Will-I-Am Coltrane",
+          "Trane"
+        ]
+      },
+      {
+        "question": "Who is John Coltrane married to?",
+        "cloze": "John Coltrane is married to",
+        "answer": "Johnny Lee",
+        "answer_alias": [
+          "John Lee Ham"
+        ]
+      },
+      {
+        "question": "What is the country of citizenship of Johnny Lee?",
+        "cloze": "Johnny Lee is a citizen of",
+        "answer": "France",
+        "answer_alias": [
+          "Republic of France",
+          "République française",
+          "the Hexagon",
+          "La France",
+          "French Republic",
+          "FRA",
+          "fr",
+          "FR"
+        ]
+      },
+      {
+        "question": "What is the official language of France?",
+        "cloze": "The official language of France is",
+        "answer": "Arabic",
+        "answer_alias": [
+          "ar",
+          "Arabian language",
+          "Arabic language"
+        ]
+      }
+    ],
+    "orig": {
+      "triples": [
+        [
+          "Q16276",
+          "P170",
+          "Q191716"
+        ],
+        [
+          "Q191716",
+          "P26",
+          "Q232917"
+        ],
+        [
+          "Q232917",
+          "P27",
+          "Q30"
+        ],
+        [
+          "Q30",
+          "P37",
+          "Q7976"
+        ]
+      ],
+      "triples_labeled": [
+        [
+          "Jean-Luc Picard",
+          "creator",
+          "Gene Roddenberry"
+        ],
+        [
+          "Gene Roddenberry",
+          "spouse",
+          "Majel Barrett"
+        ],
+        [
+          "Majel Barrett",
+          "country of citizenship",
+          "United States of America"
+        ],
+        [
+          "United States of America",
+          "official language",
+          "American English"
+        ]
+      ],
+      "new_triples": [
+        [
+          "Q16276",
+          "P170",
+          "Q7346"
+        ],
+        [
+          "Q7346",
+          "P26",
+          "Q1687517"
+        ],
+        [
+          "Q1687517",
+          "P27",
+          "Q142"
+        ],
+        [
+          "Q142",
+          "P37",
+          "Q13955"
+        ]
+      ],
+      "new_triples_labeled": [
+        [
+          "Jean-Luc Picard",
+          "creator",
+          "John Coltrane"
+        ],
+        [
+          "John Coltrane",
+          "spouse",
+          "Johnny Lee"
+        ],
+        [
+          "Johnny Lee",
+          "country of citizenship",
+          "France"
+        ],
+        [
+          "France",
+          "official language",
+          "Arabic"
+        ]
+      ],
+      "edit_triples": [
+        [
+          "Q16276",
+          "P170",
+          "Q7346"
+        ],
+        [
+          "Q7346",
+          "P26",
+          "Q1687517"
+        ],
+        [
+          "Q1687517",
+          "P27",
+          "Q142"
+        ],
+        [
+          "Q142",
+          "P37",
+          "Q13955"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": 2914,
+    "requested_rewrite": [
+      {
+        "prompt": "{} was created by",
+        "relation_id": "P170",
+        "target_new": {
+          "str": "Hasbro, Inc.",
+          "id": "Q501476"
+        },
+        "target_true": {
+          "str": "Microsoft",
+          "id": "Q2283"
+        },
+        "subject": "CodePlex",
+        "question": "Who was CodePlex created by?"
+      },
+      {
+        "prompt": "The chief executive officer of {} is",
+        "relation_id": "P169",
+        "target_new": {
+          "str": "Jamie Dimon",
+          "id": "Q922169"
+        },
+        "target_true": {
+          "str": "Brian Goldner",
+          "id": "Q4819258"
+        },
+        "subject": "Hasbro, Inc.",
+        "question": "Who is the chief executive officer of Hasbro, Inc.?"
+      },
+      {
+        "prompt": "{} was born in the city of",
+        "relation_id": "P19",
+        "target_new": {
+          "str": "Christchurch",
+          "id": "Q79990"
+        },
+        "target_true": {
+          "str": "New York City",
+          "id": "Q60"
+        },
+        "subject": "Jamie Dimon",
+        "question": "Which city was Jamie Dimon born in?"
+      }
+    ],
+    "questions": [
+      "Which continent is the birthplace of the CEO of CodePlex?",
+      "Where was the CEO of CodePlex born, in which continent?",
+      "In what continent was the CEO of CodePlex brought up?"
+    ],
+    "answer": "Asia",
+    "answer_alias": [
+      "Asian continent"
+    ],
+    "new_answer": "Oceania",
+    "new_answer_alias": [
+      "Pacific Islands"
+    ],
+    "single_hops": [
+      {
+        "question": "Who was CodePlex created by?",
+        "cloze": "CodePlex was created by",
+        "answer": "Microsoft",
+        "answer_alias": [
+          "MS",
+          "Micro-Soft",
+          "Microsoft Corp.",
+          "Microsoft Corporation",
+          "MSFT",
+          "MICROSOFT TECHNOLOGY LICENSING, LLC     (Redmond, WA)"
+        ]
+      },
+      {
+        "question": "Who is the chief executive officer of Microsoft?",
+        "cloze": "The chief executive officer of Microsoft is",
+        "answer": "Satya Nadella",
+        "answer_alias": [
+          "Bukkapuram Nadella Satyanarayana",
+          "Satya Narayana Nadella"
+        ]
+      },
+      {
+        "question": "Which city was Satya Nadella born in?",
+        "cloze": "Satya Nadella was born in the city of",
+        "answer": "Hyderabad",
+        "answer_alias": [
+          "Hyderabad, India",
+          "City of Pearls"
+        ]
+      },
+      {
+        "question": "Which continent is Hyderabad located in?",
+        "cloze": "Hyderabad is located in the continent of",
+        "answer": "Asia",
+        "answer_alias": [
+          "Asian continent"
+        ]
+      }
+    ],
+    "new_single_hops": [
+      {
+        "question": "Who was CodePlex created by?",
+        "cloze": "CodePlex was created by",
+        "answer": "Hasbro, Inc.",
+        "answer_alias": [
+          "Hasbro Bradley",
+          "Hasbro Inc.",
+          "Hasbro, Inc.",
+          "Hassenfeld Brothers",
+          "Hassenfeld Brothers and Hasbro Bradley"
+        ]
+      },
+      {
+        "question": "Who is the chief executive officer of Hasbro, Inc.?",
+        "cloze": "The chief executive officer of Hasbro, Inc. is",
+        "answer": "Jamie Dimon",
+        "answer_alias": [
+          "James \"Jamie\" Dimon",
+          "James Dimon"
+        ]
+      },
+      {
+        "question": "Which city was Jamie Dimon born in?",
+        "cloze": "Jamie Dimon was born in the city of",
+        "answer": "Christchurch",
+        "answer_alias": [
+          "Christchurch, New Zealand"
+        ]
+      },
+      {
+        "question": "Which continent is Christchurch located in?",
+        "cloze": "Christchurch is located in the continent of",
+        "answer": "Oceania",
+        "answer_alias": [
+          "Pacific Islands"
+        ]
+      }
+    ],
+    "orig": {
+      "triples": [
+        [
+          "Q240638",
+          "P170",
+          "Q2283"
+        ],
+        [
+          "Q2283",
+          "P169",
+          "Q7426870"
+        ],
+        [
+          "Q7426870",
+          "P19",
+          "Q1361"
+        ],
+        [
+          "Q1361",
+          "P30",
+          "Q48"
+        ]
+      ],
+      "triples_labeled": [
+        [
+          "CodePlex",
+          "creator",
+          "Microsoft"
+        ],
+        [
+          "Microsoft",
+          "chief executive officer",
+          "Satya Nadella"
+        ],
+        [
+          "Satya Nadella",
+          "place of birth",
+          "Hyderabad"
+        ],
+        [
+          "Hyderabad",
+          "continent",
+          "Asia"
+        ]
+      ],
+      "new_triples": [
+        [
+          "Q240638",
+          "P170",
+          "Q501476"
+        ],
+        [
+          "Q501476",
+          "P169",
+          "Q922169"
+        ],
+        [
+          "Q922169",
+          "P19",
+          "Q79990"
+        ],
+        [
+          "Q79990",
+          "P30",
+          "Q538"
+        ]
+      ],
+      "new_triples_labeled": [
+        [
+          "CodePlex",
+          "creator",
+          "Hasbro, Inc."
+        ],
+        [
+          "Hasbro, Inc.",
+          "chief executive officer",
+          "Jamie Dimon"
+        ],
+        [
+          "Jamie Dimon",
+          "place of birth",
+          "Christchurch"
+        ],
+        [
+          "Christchurch",
+          "continent",
+          "Oceania"
+        ]
+      ],
+      "edit_triples": [
+        [
+          "Q240638",
+          "P170",
+          "Q501476"
+        ],
+        [
+          "Q501476",
+          "P169",
+          "Q922169"
+        ],
+        [
+          "Q922169",
+          "P19",
+          "Q79990"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": 2028,
+    "requested_rewrite": [
+      {
+        "prompt": "{} was created by",
+        "relation_id": "P170",
+        "target_new": {
+          "str": "Astrid Lindgren",
+          "id": "Q55767"
+        },
+        "target_true": {
+          "str": "J. K. Rowling",
+          "id": "Q34660"
+        },
+        "subject": "Lord Voldemort",
+        "question": "Who was Lord Voldemort created by?"
+      },
+      {
+        "prompt": "{} is a citizen of",
+        "relation_id": "P27",
+        "target_new": {
+          "str": "Australia",
+          "id": "Q408"
+        },
+        "target_true": {
+          "str": "Sweden",
+          "id": "Q34"
+        },
+        "subject": "Astrid Lindgren",
+        "question": "What is the country of citizenship of Astrid Lindgren?"
+      }
+    ],
+    "questions": [
+      "In which continent was the creator of the organization that founded the Death Eater group a citizen of?",
+      "From which continent did the creator of the organization that created the Death Eaters belong to?",
+      "What continent was the country that the creator of the organization who founded the Death Eater was a citizen of located in?"
+    ],
+    "answer": "Europe",
+    "answer_alias": [
+      "European continent",
+      "Old Continent"
+    ],
+    "new_answer": "Oceania",
+    "new_answer_alias": [
+      "Pacific Islands"
+    ],
+    "single_hops": [
+      {
+        "question": "Who founded Death Eater?",
+        "cloze": "Death Eater was founded by",
+        "answer": "Lord Voldemort",
+        "answer_alias": [
+          "Voldemort",
+          "Dark Lord",
+          "You Know Who",
+          "Dark Lord Voldemort",
+          "He Who Must Not Be Named",
+          "He-Who-Must-Not-Be-Named",
+          "Tom Marvolo Riddle",
+          "Tom Riddle",
+          "You-Know-Who"
+        ]
+      },
+      {
+        "question": "Who was Lord Voldemort created by?",
+        "cloze": "Lord Voldemort was created by",
+        "answer": "J. K. Rowling",
+        "answer_alias": [
+          "Joanne K. Rowling",
+          "Joanne Kathleen Rowling",
+          "Joanne Rowling",
+          "JK",
+          "JKR",
+          "Robert Galbraith",
+          "Joanne Murray"
+        ]
+      },
+      {
+        "question": "What is the country of citizenship of J. K. Rowling?",
+        "cloze": "J. K. Rowling is a citizen of",
+        "answer": "United Kingdom",
+        "answer_alias": [
+          "Britain",
+          "UK",
+          "G. B.",
+          "GBR",
+          "Great Britain",
+          "GB",
+          "G.B.",
+          "United Kingdom of Great Britain and Northern Ireland",
+          "G B",
+          "G B R",
+          "G.B.R.",
+          "🇬🇧",
+          "Great Britain and Northern Ireland",
+          "The UK",
+          "The United Kingdom of Great Britain and Northern Ireland",
+          "U K",
+          "U. K.",
+          "U.K."
+        ]
+      },
+      {
+        "question": "Which continent is United Kingdom located in?",
+        "cloze": "United Kingdom is located in the continent of",
+        "answer": "Europe",
+        "answer_alias": [
+          "European continent",
+          "Old Continent"
+        ]
+      }
+    ],
+    "new_single_hops": [
+      {
+        "question": "Who founded Death Eater?",
+        "cloze": "Death Eater was founded by",
+        "answer": "Lord Voldemort",
+        "answer_alias": [
+          "Voldemort",
+          "Dark Lord",
+          "You Know Who",
+          "Dark Lord Voldemort",
+          "He Who Must Not Be Named",
+          "He-Who-Must-Not-Be-Named",
+          "Tom Marvolo Riddle",
+          "Tom Riddle",
+          "You-Know-Who"
+        ]
+      },
+      {
+        "question": "Who was Lord Voldemort created by?",
+        "cloze": "Lord Voldemort was created by",
+        "answer": "Astrid Lindgren",
+        "answer_alias": [
+          "Astrid Anna Emilia Lindgren"
+        ]
+      },
+      {
+        "question": "What is the country of citizenship of Astrid Lindgren?",
+        "cloze": "Astrid Lindgren is a citizen of",
+        "answer": "Australia",
+        "answer_alias": [
+          "Stralia",
+          "Nova Hollandia",
+          "Oz",
+          "AU",
+          "New Holland",
+          "au",
+          "AUS",
+          "Commonwealth of Australia",
+          "Ꜷ",
+          "Aussieland",
+          "Straya",
+          "New Hollandia"
+        ]
+      },
+      {
+        "question": "Which continent is Australia located in?",
+        "cloze": "Australia is located in the continent of",
+        "answer": "Oceania",
+        "answer_alias": [
+          "Pacific Islands"
+        ]
+      }
+    ],
+    "orig": {
+      "triples": [
+        [
+          "Q181291",
+          "P112",
+          "Q176132"
+        ],
+        [
+          "Q176132",
+          "P170",
+          "Q34660"
+        ],
+        [
+          "Q34660",
+          "P27",
+          "Q145"
+        ],
+        [
+          "Q145",
+          "P30",
+          "Q46"
+        ]
+      ],
+      "triples_labeled": [
+        [
+          "Death Eater",
+          "founded by",
+          "Lord Voldemort"
+        ],
+        [
+          "Lord Voldemort",
+          "creator",
+          "J. K. Rowling"
+        ],
+        [
+          "J. K. Rowling",
+          "country of citizenship",
+          "United Kingdom"
+        ],
+        [
+          "United Kingdom",
+          "continent",
+          "Europe"
+        ]
+      ],
+      "new_triples": [
+        [
+          "Q181291",
+          "P112",
+          "Q176132"
+        ],
+        [
+          "Q176132",
+          "P170",
+          "Q55767"
+        ],
+        [
+          "Q55767",
+          "P27",
+          "Q408"
+        ],
+        [
+          "Q408",
+          "P30",
+          "Q538"
+        ]
+      ],
+      "new_triples_labeled": [
+        [
+          "Death Eater",
+          "founded by",
+          "Lord Voldemort"
+        ],
+        [
+          "Lord Voldemort",
+          "creator",
+          "Astrid Lindgren"
+        ],
+        [
+          "Astrid Lindgren",
+          "country of citizenship",
+          "Australia"
+        ],
+        [
+          "Australia",
+          "continent",
+          "Oceania"
+        ]
+      ],
+      "edit_triples": [
+        [
+          "Q176132",
+          "P170",
+          "Q55767"
+        ],
+        [
+          "Q55767",
+          "P27",
+          "Q408"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": 2875,
+    "requested_rewrite": [
+      {
+        "prompt": "{} was developed by",
+        "relation_id": "P178",
+        "target_new": {
+          "str": "Sony Interactive Entertainment",
+          "id": "Q18594"
+        },
+        "target_true": {
+          "str": "Microsoft",
+          "id": "Q2283"
+        },
+        "subject": "Distributed Component Object Model",
+        "question": "Who is the developer of Distributed Component Object Model?"
+      },
+      {
+        "prompt": "The chief executive officer of {} is",
+        "relation_id": "P169",
+        "target_new": {
+          "str": "Marc Benioff",
+          "id": "Q1521908"
+        },
+        "target_true": {
+          "str": "Andrew House",
+          "id": "Q2846634"
+        },
+        "subject": "Sony Interactive Entertainment",
+        "question": "Who is the chief executive officer of Sony Interactive Entertainment?"
+      },
+      {
+        "prompt": "{} was born in the city of",
+        "relation_id": "P19",
+        "target_new": {
+          "str": "California",
+          "id": "Q99"
+        },
+        "target_true": {
+          "str": "San Francisco",
+          "id": "Q62"
+        },
+        "subject": "Marc Benioff",
+        "question": "Which city was Marc Benioff born in?"
+      },
+      {
+        "prompt": "{} is located in the continent of",
+        "relation_id": "P30",
+        "target_new": {
+          "str": "Europe",
+          "id": "Q46"
+        },
+        "target_true": {
+          "str": "North America",
+          "id": "Q49"
+        },
+        "subject": "California",
+        "question": "Which continent is California located in?"
+      }
+    ],
+    "questions": [
+      "Which continent is the birthplace of the CEO who developed Distributed Component Object Model?",
+      "The developer of Distributed Component Object Model was the CEO of a company, in which continent was the CEO's birthplace?",
+      "What continent was the CEO, who developed the Distributed Component Object Model and was born in a particular location, hailing from?"
+    ],
+    "answer": "Asia",
+    "answer_alias": [
+      "Asian continent"
+    ],
+    "new_answer": "Europe",
+    "new_answer_alias": [
+      "European continent",
+      "Old Continent"
+    ],
+    "single_hops": [
+      {
+        "question": "Who is the developer of Distributed Component Object Model?",
+        "cloze": "Distributed Component Object Model was developed by",
+        "answer": "Microsoft",
+        "answer_alias": [
+          "MS",
+          "Micro-Soft",
+          "Microsoft Corp.",
+          "Microsoft Corporation",
+          "MSFT",
+          "MICROSOFT TECHNOLOGY LICENSING, LLC     (Redmond, WA)"
+        ]
+      },
+      {
+        "question": "Who is the chief executive officer of Microsoft?",
+        "cloze": "The chief executive officer of Microsoft is",
+        "answer": "Satya Nadella",
+        "answer_alias": [
+          "Bukkapuram Nadella Satyanarayana",
+          "Satya Narayana Nadella"
+        ]
+      },
+      {
+        "question": "Which city was Satya Nadella born in?",
+        "cloze": "Satya Nadella was born in the city of",
+        "answer": "Hyderabad",
+        "answer_alias": [
+          "Hyderabad, India",
+          "City of Pearls"
+        ]
+      },
+      {
+        "question": "Which continent is Hyderabad located in?",
+        "cloze": "Hyderabad is located in the continent of",
+        "answer": "Asia",
+        "answer_alias": [
+          "Asian continent"
+        ]
+      }
+    ],
+    "new_single_hops": [
+      {
+        "question": "Who is the developer of Distributed Component Object Model?",
+        "cloze": "Distributed Component Object Model was developed by",
+        "answer": "Sony Interactive Entertainment",
+        "answer_alias": [
+          "PlayStation C.A.M.P.",
+          "SCE",
+          "SCEI",
+          "SIE",
+          "Sony Computer Entertainment",
+          "Sony Computer Entertainment, Inc.",
+          "Sony Interactive",
+          "Sony Interactive Entertainment Inc.",
+          "Sony Interactive Entertainment LLC"
+        ]
+      },
+      {
+        "question": "Who is the chief executive officer of Sony Interactive Entertainment?",
+        "cloze": "The chief executive officer of Sony Interactive Entertainment is",
+        "answer": "Marc Benioff",
+        "answer_alias": [
+          "Marc R. Benioff",
+          "Marc Russell Benioff"
+        ]
+      },
+      {
+        "question": "Which city was Marc Benioff born in?",
+        "cloze": "Marc Benioff was born in the city of",
+        "answer": "California",
+        "answer_alias": [
+          "CA",
+          "The Golden State",
+          "State of California",
+          "Cali.",
+          "Calif.",
+          "California, United States",
+          "US-CA"
+        ]
+      },
+      {
+        "question": "Which continent is California located in?",
+        "cloze": "California is located in the continent of",
+        "answer": "Europe",
+        "answer_alias": [
+          "European continent",
+          "Old Continent"
+        ]
+      }
+    ],
+    "orig": {
+      "triples": [
+        [
+          "Q906328",
+          "P178",
+          "Q2283"
+        ],
+        [
+          "Q2283",
+          "P169",
+          "Q7426870"
+        ],
+        [
+          "Q7426870",
+          "P19",
+          "Q1361"
+        ],
+        [
+          "Q1361",
+          "P30",
+          "Q48"
+        ]
+      ],
+      "triples_labeled": [
+        [
+          "Distributed Component Object Model",
+          "developer",
+          "Microsoft"
+        ],
+        [
+          "Microsoft",
+          "chief executive officer",
+          "Satya Nadella"
+        ],
+        [
+          "Satya Nadella",
+          "place of birth",
+          "Hyderabad"
+        ],
+        [
+          "Hyderabad",
+          "continent",
+          "Asia"
+        ]
+      ],
+      "new_triples": [
+        [
+          "Q906328",
+          "P178",
+          "Q18594"
+        ],
+        [
+          "Q18594",
+          "P169",
+          "Q1521908"
+        ],
+        [
+          "Q1521908",
+          "P19",
+          "Q99"
+        ],
+        [
+          "Q99",
+          "P30",
+          "Q46"
+        ]
+      ],
+      "new_triples_labeled": [
+        [
+          "Distributed Component Object Model",
+          "developer",
+          "Sony Interactive Entertainment"
+        ],
+        [
+          "Sony Interactive Entertainment",
+          "chief executive officer",
+          "Marc Benioff"
+        ],
+        [
+          "Marc Benioff",
+          "place of birth",
+          "California"
+        ],
+        [
+          "California",
+          "continent",
+          "Europe"
+        ]
+      ],
+      "edit_triples": [
+        [
+          "Q906328",
+          "P178",
+          "Q18594"
+        ],
+        [
+          "Q18594",
+          "P169",
+          "Q1521908"
+        ],
+        [
+          "Q1521908",
+          "P19",
+          "Q99"
+        ],
+        [
+          "Q99",
+          "P30",
+          "Q46"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": 2760,
+    "requested_rewrite": [
+      {
+        "prompt": "The univeristy where {} was educated is",
+        "relation_id": "P69",
+        "target_new": {
+          "str": "University of Tübingen",
+          "id": "Q153978"
+        },
+        "target_true": {
+          "str": "University of Calcutta",
+          "id": "Q1145306"
+        },
+        "subject": "Sandip Ray",
+        "question": "Which university was Sandip Ray educated at?"
+      },
+      {
+        "prompt": "The headquarters of {} is located in the city of",
+        "relation_id": "P159",
+        "target_new": {
+          "str": "Modena",
+          "id": "Q279"
+        },
+        "target_true": {
+          "str": "Tübingen",
+          "id": "Q3806"
+        },
+        "subject": "University of Tübingen",
+        "question": "Which city is the headquarter of University of Tübingen located in?"
+      }
+    ],
+    "questions": [
+      "What continent is the location of the headquarters of the institution where the child of Satyajit Ray was educated located in?",
+      "In which continent is the headquarters of the educational institution that the child of Satyajit Ray attended located?",
+      "From which continent is the location of the headquarters of the educational institution that the child of Satyajit Ray attended?"
+    ],
+    "answer": "Asia",
+    "answer_alias": [
+      "Asian continent"
+    ],
+    "new_answer": "Europe",
+    "new_answer_alias": [
+      "European continent",
+      "Old Continent"
+    ],
+    "single_hops": [
+      {
+        "question": "Who is Satyajit Ray's child?",
+        "cloze": "Satyajit Ray's child is",
+        "answer": "Sandip Ray",
+        "answer_alias": []
+      },
+      {
+        "question": "Which university was Sandip Ray educated at?",
+        "cloze": "The univeristy where Sandip Ray was educated is",
+        "answer": "University of Calcutta",
+        "answer_alias": [
+          "CU",
+          "Calcutta University"
+        ]
+      },
+      {
+        "question": "Which city is the headquarter of University of Calcutta located in?",
+        "cloze": "The headquarters of University of Calcutta is located in the city of",
+        "answer": "Kolkata",
+        "answer_alias": [
+          "City of Joy",
+          "Calcutta",
+          "City of Palaces",
+          "City of Processions"
+        ]
+      },
+      {
+        "question": "Which continent is Kolkata located in?",
+        "cloze": "Kolkata is located in the continent of",
+        "answer": "Asia",
+        "answer_alias": [
+          "Asian continent"
+        ]
+      }
+    ],
+    "new_single_hops": [
+      {
+        "question": "Who is Satyajit Ray's child?",
+        "cloze": "Satyajit Ray's child is",
+        "answer": "Sandip Ray",
+        "answer_alias": []
+      },
+      {
+        "question": "Which university was Sandip Ray educated at?",
+        "cloze": "The univeristy where Sandip Ray was educated is",
+        "answer": "University of Tübingen",
+        "answer_alias": [
+          "Eberhard Karl University of Tübingen",
+          "Eberhard Karls University",
+          "Eberhard Karls University, Tübingen",
+          "Eberhard-Karls-Universität Tübingen",
+          "uni-tuebingen.de",
+          "University of Tubingen",
+          "University of Tuebingen"
+        ]
+      },
+      {
+        "question": "Which city is the headquarter of University of Tübingen located in?",
+        "cloze": "The headquarters of University of Tübingen is located in the city of",
+        "answer": "Modena",
+        "answer_alias": []
+      },
+      {
+        "question": "Which continent is Modena located in?",
+        "cloze": "Modena is located in the continent of",
+        "answer": "Europe",
+        "answer_alias": [
+          "European continent",
+          "Old Continent"
+        ]
+      }
+    ],
+    "orig": {
+      "triples": [
+        [
+          "Q8873",
+          "P40",
+          "Q3350953"
+        ],
+        [
+          "Q3350953",
+          "P69",
+          "Q1145306"
+        ],
+        [
+          "Q1145306",
+          "P159",
+          "Q1348"
+        ],
+        [
+          "Q1348",
+          "P30",
+          "Q48"
+        ]
+      ],
+      "triples_labeled": [
+        [
+          "Satyajit Ray",
+          "child",
+          "Sandip Ray"
+        ],
+        [
+          "Sandip Ray",
+          "educated at",
+          "University of Calcutta"
+        ],
+        [
+          "University of Calcutta",
+          "headquarters location",
+          "Kolkata"
+        ],
+        [
+          "Kolkata",
+          "continent",
+          "Asia"
+        ]
+      ],
+      "new_triples": [
+        [
+          "Q8873",
+          "P40",
+          "Q3350953"
+        ],
+        [
+          "Q3350953",
+          "P69",
+          "Q153978"
+        ],
+        [
+          "Q153978",
+          "P159",
+          "Q279"
+        ],
+        [
+          "Q279",
+          "P30",
+          "Q46"
+        ]
+      ],
+      "new_triples_labeled": [
+        [
+          "Satyajit Ray",
+          "child",
+          "Sandip Ray"
+        ],
+        [
+          "Sandip Ray",
+          "educated at",
+          "University of Tübingen"
+        ],
+        [
+          "University of Tübingen",
+          "headquarters location",
+          "Modena"
+        ],
+        [
+          "Modena",
+          "continent",
+          "Europe"
+        ]
+      ],
+      "edit_triples": [
+        [
+          "Q3350953",
+          "P69",
+          "Q153978"
+        ],
+        [
+          "Q153978",
+          "P159",
+          "Q279"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": 2686,
+    "requested_rewrite": [
+      {
+        "prompt": "The origianl broadcaster of {} is",
+        "relation_id": "P449",
+        "target_new": {
+          "str": "British Broadcasting Corporation",
+          "id": "Q9531"
+        },
+        "target_true": {
+          "str": "American Broadcasting Company",
+          "id": "Q169889"
+        },
+        "subject": "Roseanne",
+        "question": "Who is the original broadcaster of Roseanne?"
+      },
+      {
+        "prompt": "The director of {} is",
+        "relation_id": "P1037",
+        "target_new": {
+          "str": "Riccardo Muti",
+          "id": "Q276038"
+        },
+        "target_true": {
+          "str": "Tony Hall, Baron Hall of Birkenhead",
+          "id": "Q80390"
+        },
+        "subject": "British Broadcasting Corporation",
+        "question": "Who is the director of British Broadcasting Corporation?"
+      },
+      {
+        "prompt": "{} is a citizen of",
+        "relation_id": "P27",
+        "target_new": {
+          "str": "People's Republic of China",
+          "id": "Q148"
+        },
+        "target_true": {
+          "str": "Italy",
+          "id": "Q38"
+        },
+        "subject": "Riccardo Muti",
+        "question": "What is the country of citizenship of Riccardo Muti?"
+      }
+    ],
+    "questions": [
+      "What is the capital of the country of citizenship of the director/manager of Roseanne's original broadcaster?",
+      "Which city serves as the capital of the country of citizenship of the director/manager of the original broadcaster of Roseanne?",
+      "In what city is the capital of the country of citizenship of the director/manager of Roseanne's original broadcaster?"
+    ],
+    "answer": "Washington, D.C.",
+    "answer_alias": [
+      "Washington",
+      "The District",
+      "D.C.",
+      "DC",
+      "District of Columbia",
+      "Washington D.C.",
+      "Washington, DC",
+      "US-DC",
+      "Washington DC",
+      "Washington, D.C., U.S.",
+      "Washington, District of Columbia"
+    ],
+    "new_answer": "Beijing",
+    "new_answer_alias": [
+      "Chungtu",
+      "Shun-t'ien",
+      "Pei-p'ing",
+      "Shuntian Fu",
+      "Peip'ing",
+      "Shuntian",
+      "Chung-tu",
+      "Khanbalik",
+      "Pe-king",
+      "Pei-ching",
+      "Pei-ping",
+      "Shun-tien",
+      "Shuntianfu",
+      "Yan-ching",
+      "Yanking",
+      "Pekin",
+      "BJ",
+      "Zhongdu",
+      "Beiping",
+      "Yanjing",
+      "Peking",
+      "Khanbaliq",
+      "Peiping"
+    ],
+    "single_hops": [
+      {
+        "question": "Who is the original broadcaster of Roseanne?",
+        "cloze": "The origianl broadcaster of Roseanne is",
+        "answer": "American Broadcasting Company",
+        "answer_alias": [
+          "ABC"
+        ]
+      },
+      {
+        "question": "Who is the director of American Broadcasting Company?",
+        "cloze": "The director of American Broadcasting Company is",
+        "answer": "Bob Iger",
+        "answer_alias": [
+          "Robert A. Iger",
+          "Robert Allen \"Bob\" Iger",
+          "Robert Allen Iger",
+          "Robert Iger"
+        ]
+      },
+      {
+        "question": "What is the country of citizenship of Bob Iger?",
+        "cloze": "Bob Iger is a citizen of",
+        "answer": "United States of America",
+        "answer_alias": [
+          "the States",
+          "the U.S.",
+          "the United States",
+          "the United States of America",
+          "the US",
+          "the USA",
+          "U. S.",
+          "U. S. A.",
+          "U.S.",
+          "U.S.A.",
+          "US of A",
+          "USA",
+          "America",
+          "United States",
+          "US",
+          "the U.S. of A",
+          "the U.S. of America",
+          "the U.S.A.",
+          "the US of A",
+          "the US of America",
+          "U.S. of America",
+          "US of America"
+        ]
+      },
+      {
+        "question": "What is the capital of United States of America?",
+        "cloze": "The capital of United States of America is",
+        "answer": "Washington, D.C.",
+        "answer_alias": [
+          "Washington",
+          "The District",
+          "D.C.",
+          "DC",
+          "District of Columbia",
+          "Washington D.C.",
+          "Washington, DC",
+          "US-DC",
+          "Washington DC",
+          "Washington, D.C., U.S.",
+          "Washington, District of Columbia"
+        ]
+      }
+    ],
+    "new_single_hops": [
+      {
+        "question": "Who is the original broadcaster of Roseanne?",
+        "cloze": "The origianl broadcaster of Roseanne is",
+        "answer": "British Broadcasting Corporation",
+        "answer_alias": [
+          "British Broadcasting Corporation"
+        ]
+      },
+      {
+        "question": "Who is the director of British Broadcasting Corporation?",
+        "cloze": "The director of British Broadcasting Corporation is",
+        "answer": "Riccardo Muti",
+        "answer_alias": []
+      },
+      {
+        "question": "What is the country of citizenship of Riccardo Muti?",
+        "cloze": "Riccardo Muti is a citizen of",
+        "answer": "People's Republic of China",
+        "answer_alias": [
+          "China",
+          "China PR",
+          "CHN",
+          "cn",
+          "CN",
+          "🇨🇳",
+          "Mainland China",
+          "PR China",
+          "PRC",
+          "RPC"
+        ]
+      },
+      {
+        "question": "What is the capital of People's Republic of China?",
+        "cloze": "The capital of People's Republic of China is",
+        "answer": "Beijing",
+        "answer_alias": [
+          "Chungtu",
+          "Shun-t'ien",
+          "Pei-p'ing",
+          "Shuntian Fu",
+          "Peip'ing",
+          "Shuntian",
+          "Chung-tu",
+          "Khanbalik",
+          "Pe-king",
+          "Pei-ching",
+          "Pei-ping",
+          "Shun-tien",
+          "Shuntianfu",
+          "Yan-ching",
+          "Yanking",
+          "Pekin",
+          "BJ",
+          "Zhongdu",
+          "Beiping",
+          "Yanjing",
+          "Peking",
+          "Khanbaliq",
+          "Peiping"
+        ]
+      }
+    ],
+    "orig": {
+      "triples": [
+        [
+          "Q575373",
+          "P449",
+          "Q169889"
+        ],
+        [
+          "Q169889",
+          "P1037",
+          "Q532423"
+        ],
+        [
+          "Q532423",
+          "P27",
+          "Q30"
+        ],
+        [
+          "Q30",
+          "P36",
+          "Q61"
+        ]
+      ],
+      "triples_labeled": [
+        [
+          "Roseanne",
+          "original broadcaster",
+          "American Broadcasting Company"
+        ],
+        [
+          "American Broadcasting Company",
+          "director / manager",
+          "Bob Iger"
+        ],
+        [
+          "Bob Iger",
+          "country of citizenship",
+          "United States of America"
+        ],
+        [
+          "United States of America",
+          "capital",
+          "Washington, D.C."
+        ]
+      ],
+      "new_triples": [
+        [
+          "Q575373",
+          "P449",
+          "Q9531"
+        ],
+        [
+          "Q9531",
+          "P1037",
+          "Q276038"
+        ],
+        [
+          "Q276038",
+          "P27",
+          "Q148"
+        ],
+        [
+          "Q148",
+          "P36",
+          "Q956"
+        ]
+      ],
+      "new_triples_labeled": [
+        [
+          "Roseanne",
+          "original broadcaster",
+          "British Broadcasting Corporation"
+        ],
+        [
+          "British Broadcasting Corporation",
+          "director / manager",
+          "Riccardo Muti"
+        ],
+        [
+          "Riccardo Muti",
+          "country of citizenship",
+          "People's Republic of China"
+        ],
+        [
+          "People's Republic of China",
+          "capital",
+          "Beijing"
+        ]
+      ],
+      "edit_triples": [
+        [
+          "Q575373",
+          "P449",
+          "Q9531"
+        ],
+        [
+          "Q9531",
+          "P1037",
+          "Q276038"
+        ],
+        [
+          "Q276038",
+          "P27",
+          "Q148"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": 2676,
+    "requested_rewrite": [
+      {
+        "prompt": "{} plays the position of",
+        "relation_id": "P413",
+        "target_new": {
+          "str": "goaltender",
+          "id": "Q1317534"
+        },
+        "target_true": {
+          "str": "goalkeeper",
+          "id": "Q201330"
+        },
+        "subject": "Nick Rimando",
+        "question": "What position does Nick Rimando play?"
+      },
+      {
+        "prompt": "{} is associated with the sport of",
+        "relation_id": "P641",
+        "target_new": {
+          "str": "sumo",
+          "id": "Q40561"
+        },
+        "target_true": {
+          "str": "ice hockey",
+          "id": "Q41466"
+        },
+        "subject": "goaltender",
+        "question": "Which sport is goaltender associated with?"
+      },
+      {
+        "prompt": "{} was created in the country of",
+        "relation_id": "P495",
+        "target_new": {
+          "str": "Mexico",
+          "id": "Q96"
+        },
+        "target_true": {
+          "str": "Japan",
+          "id": "Q17"
+        },
+        "subject": "sumo",
+        "question": "Which country was sumo created in?"
+      }
+    ],
+    "questions": [
+      "What is the capital of the country where the sport of Nick Rimando's position is originated?",
+      "In what city is the headquarters of the national sports organization that governs the sport played by Nick Rimando's position located in?",
+      "Where can the central office of the organization that presides over the Nick Rimando's specialty sport be found in?"
+    ],
+    "answer": "London",
+    "answer_alias": [
+      "London, United Kingdom",
+      "Greater London",
+      "London, England",
+      "London U.K.",
+      "London UK",
+      "London, UK"
+    ],
+    "new_answer": "Mexico City",
+    "new_answer_alias": [
+      "CDMX",
+      "City of Mexico",
+      "Ciudad de México",
+      "Mexico",
+      "Mexico City, Mexico",
+      "Mexico D.F."
+    ],
+    "single_hops": [
+      {
+        "question": "What position does Nick Rimando play?",
+        "cloze": "Nick Rimando plays the position of",
+        "answer": "goalkeeper",
+        "answer_alias": [
+          "football goalkeeper",
+          "GK",
+          "goalie",
+          "soccer goalkeeper"
+        ]
+      },
+      {
+        "question": "Which sport is goalkeeper associated with?",
+        "cloze": "goalkeeper is associated with the sport of",
+        "answer": "association football",
+        "answer_alias": [
+          "football",
+          "association soccer",
+          "footie",
+          "footy",
+          "futbol",
+          "futebol",
+          "soccer"
+        ]
+      },
+      {
+        "question": "Which country was association football created in?",
+        "cloze": "association football was created in the country of",
+        "answer": "England",
+        "answer_alias": [
+          "ENG"
+        ]
+      },
+      {
+        "question": "What is the capital of England?",
+        "cloze": "The capital of England is",
+        "answer": "London",
+        "answer_alias": [
+          "London, United Kingdom",
+          "Greater London",
+          "London, England",
+          "London U.K.",
+          "London UK",
+          "London, UK"
+        ]
+      }
+    ],
+    "new_single_hops": [
+      {
+        "question": "What position does Nick Rimando play?",
+        "cloze": "Nick Rimando plays the position of",
+        "answer": "goaltender",
+        "answer_alias": [
+          "ice hockey goaltender",
+          "goalkeeper",
+          "goalie",
+          "ice hockey goalkeeper"
+        ]
+      },
+      {
+        "question": "Which sport is goaltender associated with?",
+        "cloze": "goaltender is associated with the sport of",
+        "answer": "sumo",
+        "answer_alias": []
+      },
+      {
+        "question": "Which country was sumo created in?",
+        "cloze": "sumo was created in the country of",
+        "answer": "Mexico",
+        "answer_alias": [
+          "MEX",
+          "MX",
+          "mx",
+          "MXN",
+          "Mexican Republic",
+          "🇲🇽",
+          "United Mexican States",
+          "US of M"
+        ]
+      },
+      {
+        "question": "What is the capital of Mexico?",
+        "cloze": "The capital of Mexico is",
+        "answer": "Mexico City",
+        "answer_alias": [
+          "CDMX",
+          "City of Mexico",
+          "Ciudad de México",
+          "Mexico",
+          "Mexico City, Mexico",
+          "Mexico D.F."
+        ]
+      }
+    ],
+    "orig": {
+      "triples": [
+        [
+          "Q1356730",
+          "P413",
+          "Q201330"
+        ],
+        [
+          "Q201330",
+          "P641",
+          "Q2736"
+        ],
+        [
+          "Q2736",
+          "P495",
+          "Q21"
+        ],
+        [
+          "Q21",
+          "P36",
+          "Q84"
+        ]
+      ],
+      "triples_labeled": [
+        [
+          "Nick Rimando",
+          "position played on team / speciality",
+          "goalkeeper"
+        ],
+        [
+          "goalkeeper",
+          "sport",
+          "association football"
+        ],
+        [
+          "association football",
+          "country of origin",
+          "England"
+        ],
+        [
+          "England",
+          "capital",
+          "London"
+        ]
+      ],
+      "new_triples": [
+        [
+          "Q1356730",
+          "P413",
+          "Q1317534"
+        ],
+        [
+          "Q1317534",
+          "P641",
+          "Q40561"
+        ],
+        [
+          "Q40561",
+          "P495",
+          "Q96"
+        ],
+        [
+          "Q96",
+          "P36",
+          "Q1489"
+        ]
+      ],
+      "new_triples_labeled": [
+        [
+          "Nick Rimando",
+          "position played on team / speciality",
+          "goaltender"
+        ],
+        [
+          "goaltender",
+          "sport",
+          "sumo"
+        ],
+        [
+          "sumo",
+          "country of origin",
+          "Mexico"
+        ],
+        [
+          "Mexico",
+          "capital",
+          "Mexico City"
+        ]
+      ],
+      "edit_triples": [
+        [
+          "Q1356730",
+          "P413",
+          "Q1317534"
+        ],
+        [
+          "Q1317534",
+          "P641",
+          "Q40561"
+        ],
+        [
+          "Q40561",
+          "P495",
+          "Q96"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": 2955,
+    "requested_rewrite": [
+      {
+        "prompt": "The capital of {} is",
+        "relation_id": "P36",
+        "target_new": {
+          "str": "El Campu",
+          "id": "Q3775140"
+        },
+        "target_true": {
+          "str": "Washington, D.C.",
+          "id": "Q61"
+        },
+        "subject": "United States of America",
+        "question": "What is the capital of United States of America?"
+      }
+    ],
+    "questions": [
+      "Which city is the capital of the country where the developer of Mortal Kombat X holds citizenship?",
+      "What is the capital of the country of citizenship of the developer of Mortal Kombat X?",
+      "In which city is located the capital of the country where the developer of Mortal Kombat X is a citizen?"
+    ],
+    "answer": "Washington, D.C.",
+    "answer_alias": [
+      "Washington",
+      "The District",
+      "D.C.",
+      "DC",
+      "District of Columbia",
+      "Washington D.C.",
+      "Washington, DC",
+      "US-DC",
+      "Washington DC",
+      "Washington, D.C., U.S.",
+      "Washington, District of Columbia"
+    ],
+    "new_answer": "El Campu",
+    "new_answer_alias": [],
+    "single_hops": [
+      {
+        "question": "Who is the developer of Mortal Kombat X?",
+        "cloze": "Mortal Kombat X was developed by",
+        "answer": "NetherRealm Studios",
+        "answer_alias": [
+          "NetherRealm Studiosle"
+        ]
+      },
+      {
+        "question": "Who founded NetherRealm Studios?",
+        "cloze": "NetherRealm Studios was founded by",
+        "answer": "Ed Boon",
+        "answer_alias": [
+          "Edward John Boon"
+        ]
+      },
+      {
+        "question": "What is the country of citizenship of Ed Boon?",
+        "cloze": "Ed Boon is a citizen of",
+        "answer": "United States of America",
+        "answer_alias": [
+          "the States",
+          "the U.S.",
+          "the United States",
+          "the United States of America",
+          "the US",
+          "the USA",
+          "U. S.",
+          "U. S. A.",
+          "U.S.",
+          "U.S.A.",
+          "US of A",
+          "USA",
+          "America",
+          "United States",
+          "US",
+          "the U.S. of A",
+          "the U.S. of America",
+          "the U.S.A.",
+          "the US of A",
+          "the US of America",
+          "U.S. of America",
+          "US of America"
+        ]
+      },
+      {
+        "question": "What is the capital of United States of America?",
+        "cloze": "The capital of United States of America is",
+        "answer": "Washington, D.C.",
+        "answer_alias": [
+          "Washington",
+          "The District",
+          "D.C.",
+          "DC",
+          "District of Columbia",
+          "Washington D.C.",
+          "Washington, DC",
+          "US-DC",
+          "Washington DC",
+          "Washington, D.C., U.S.",
+          "Washington, District of Columbia"
+        ]
+      }
+    ],
+    "new_single_hops": [
+      {
+        "question": "Who is the developer of Mortal Kombat X?",
+        "cloze": "Mortal Kombat X was developed by",
+        "answer": "NetherRealm Studios",
+        "answer_alias": [
+          "NetherRealm Studiosle"
+        ]
+      },
+      {
+        "question": "Who founded NetherRealm Studios?",
+        "cloze": "NetherRealm Studios was founded by",
+        "answer": "Ed Boon",
+        "answer_alias": [
+          "Edward John Boon"
+        ]
+      },
+      {
+        "question": "What is the country of citizenship of Ed Boon?",
+        "cloze": "Ed Boon is a citizen of",
+        "answer": "United States of America",
+        "answer_alias": [
+          "the States",
+          "the U.S.",
+          "the United States",
+          "the United States of America",
+          "the US",
+          "the USA",
+          "U. S.",
+          "U. S. A.",
+          "U.S.",
+          "U.S.A.",
+          "US of A",
+          "USA",
+          "America",
+          "United States",
+          "US",
+          "the U.S. of A",
+          "the U.S. of America",
+          "the U.S.A.",
+          "the US of A",
+          "the US of America",
+          "U.S. of America",
+          "US of America"
+        ]
+      },
+      {
+        "question": "What is the capital of United States of America?",
+        "cloze": "The capital of United States of America is",
+        "answer": "El Campu",
+        "answer_alias": []
+      }
+    ],
+    "orig": {
+      "triples": [
+        [
+          "Q17118361",
+          "P178",
+          "Q2696696"
+        ],
+        [
+          "Q2696696",
+          "P112",
+          "Q1282289"
+        ],
+        [
+          "Q1282289",
+          "P27",
+          "Q30"
+        ],
+        [
+          "Q30",
+          "P36",
+          "Q61"
+        ]
+      ],
+      "triples_labeled": [
+        [
+          "Mortal Kombat X",
+          "developer",
+          "NetherRealm Studios"
+        ],
+        [
+          "NetherRealm Studios",
+          "founded by",
+          "Ed Boon"
+        ],
+        [
+          "Ed Boon",
+          "country of citizenship",
+          "United States of America"
+        ],
+        [
+          "United States of America",
+          "capital",
+          "Washington, D.C."
+        ]
+      ],
+      "new_triples": [
+        [
+          "Q17118361",
+          "P178",
+          "Q2696696"
+        ],
+        [
+          "Q2696696",
+          "P112",
+          "Q1282289"
+        ],
+        [
+          "Q1282289",
+          "P27",
+          "Q30"
+        ],
+        [
+          "Q30",
+          "P36",
+          "Q3775140"
+        ]
+      ],
+      "new_triples_labeled": [
+        [
+          "Mortal Kombat X",
+          "developer",
+          "NetherRealm Studios"
+        ],
+        [
+          "NetherRealm Studios",
+          "founded by",
+          "Ed Boon"
+        ],
+        [
+          "Ed Boon",
+          "country of citizenship",
+          "United States of America"
+        ],
+        [
+          "United States of America",
+          "capital",
+          "El Campu"
+        ]
+      ],
+      "edit_triples": [
+        [
+          "Q30",
+          "P36",
+          "Q3775140"
+        ]
+      ]
+    }
+  }
+]

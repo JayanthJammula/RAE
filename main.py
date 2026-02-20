@@ -36,6 +36,8 @@ def parse_args():
     parser.add_argument("--num_beams",       type=int, default=1)
     parser.add_argument("--max_new_tokens",  type=int, default=50)
     parser.add_argument("--temp",            type=float, default=1.0)
+    parser.add_argument("--load_8bit",       action="store_true",
+                        help="Load model in INT8 via bitsandbytes (fixes FP16 outlier channels)")
     return parser.parse_args()
 
 def retrieval_confidence(retrieved: str, ground: set) -> float:
@@ -129,16 +131,33 @@ if __name__ == '__main__':
     set_seed(args.seed)
 
     MODEL_CONFIGS = {
-        "gpt2":   "gpt2-large",
-        "vicuna": "lmsys/vicuna-7b-v1.1",
-        "neo": "EleutherAI/gpt-neo-2.7B",
-        "llama2": "meta-llama/Llama-2-7b-chat-hf",
-        "falcon": "tiiuae/falcon-1b",
+        "gpt2":    "gpt2-large",
+        "gpt2xl":  "gpt2-xl",
+        "vicuna":  "lmsys/vicuna-7b-v1.1",
+        "neo":     "EleutherAI/gpt-neo-2.7B",
+        "llama2":  "meta-llama/Llama-2-7b-chat-hf",
+        "falcon":  "tiiuae/falcon-1b",
     }
+    # Models that need FP16 to fit on consumer GPUs
+    FP16_MODELS = {"vicuna", "llama2"}
+
     if args.model not in MODEL_CONFIGS:
         logger.error(f"Unknown model '{args.model}'. Supported models: {list(MODEL_CONFIGS.keys())}")
         raise SystemExit(1)
-    model = AutoModelForCausalLM.from_pretrained(MODEL_CONFIGS[args.model]).to(args.device)
+
+    model_id = MODEL_CONFIGS[args.model]
+    if args.load_8bit:
+        logger.info(f"Loading {args.model} in INT8 quantization...")
+        model = AutoModelForCausalLM.from_pretrained(
+            model_id, load_in_8bit=True, device_map="auto"
+        )
+    elif args.model in FP16_MODELS:
+        logger.info(f"Loading {args.model} in FP16...")
+        model = AutoModelForCausalLM.from_pretrained(
+            model_id, torch_dtype=torch.float16
+        ).to(args.device)
+    else:
+        model = AutoModelForCausalLM.from_pretrained(model_id).to(args.device)
     tokenizer = AutoTokenizer.from_pretrained(MODEL_CONFIGS[args.model])
     model.eval()
     disable_attn_viz = os.getenv("RAE_DISABLE_ATTN_VIZ") == "1"

@@ -41,6 +41,13 @@ MODEL_REGISTRY = {
         "params":      "774M",
         "description": "GPT-2 Large - lightweight, fast, good for testing",
     },
+    "gpt2xl": {
+        "hf_id":       "gpt2-xl",
+        "vram_gb":     3.2,
+        "gated":       False,
+        "params":      "1.5B",
+        "description": "GPT-2 XL - matches paper's GPT-2 (1.5B)",
+    },
     "falcon": {
         "hf_id":       "tiiuae/falcon-1b",
         "vram_gb":     2.5,
@@ -60,14 +67,14 @@ MODEL_REGISTRY = {
         "vram_gb":     14.0,
         "gated":       False,
         "params":      "7B",
-        "description": "Vicuna 7B - strong instruction-tuned model",
+        "description": "Vicuna 7B - auto FP16, use --load_8bit for best quality",
     },
     "llama2": {
         "hf_id":       "meta-llama/Llama-2-7b-chat-hf",
         "vram_gb":     14.0,
         "gated":       True,
         "params":      "7B",
-        "description": "Llama-2 7B Chat - requires HuggingFace access grant",
+        "description": "Llama-2 7B Chat - gated, auto FP16",
     },
 }
 
@@ -76,11 +83,14 @@ MODEL_REGISTRY = {
 # ---------------------------------------------------------------------------
 
 DATASET_REGISTRY = {
-    "10 samples":   {"path": "slices/MQuAKE-CF_slice_10",    "count": 10},
-    "100 samples":  {"path": "slices/MQuAKE-CF_slice_100",   "count": 100},
-    "300 samples":  {"path": "slices/MQuAKE-CF_slice01_300", "count": 300},
-    "3k benchmark": {"path": "MQuAKE-CF-3k",                 "count": 3000},
-    "Full dataset": {"path": "MQuAKE-CF",                    "count": 9218},
+    "10 samples":          {"path": "slices/MQuAKE-CF_slice_10",        "count": 10},
+    "30 stratified":       {"path": "slices/MQuAKE-CF_stratified_30",   "count": 30},
+    "100 samples":         {"path": "slices/MQuAKE-CF_slice_100",       "count": 100},
+    "150 stratified":      {"path": "slices/MQuAKE-CF_stratified_150",  "count": 150},
+    "300 stratified":      {"path": "slices/MQuAKE-CF_stratified_300",  "count": 300},
+    "300 samples (first)": {"path": "slices/MQuAKE-CF_slice01_300",     "count": 300},
+    "3k benchmark":        {"path": "MQuAKE-CF-3k",                     "count": 3000},
+    "Full dataset":        {"path": "MQuAKE-CF",                        "count": 9218},
 }
 
 # ---------------------------------------------------------------------------
@@ -104,7 +114,7 @@ PKL_DOWNLOAD_MSG = (
 # ---------------------------------------------------------------------------
 
 TIME_PER_SAMPLE = {
-    "gpt2": 7, "falcon": 10, "neo": 18, "vicuna": 45, "llama2": 50,
+    "gpt2": 7, "gpt2xl": 12, "falcon": 10, "neo": 18, "vicuna": 45, "llama2": 50,
 }
 CPU_MULTIPLIER = 10
 
@@ -458,6 +468,10 @@ def build_command(config, gpu_info):
         cmd.append("--template")
     if config.get("correctConflict", True):
         cmd.append("--correctConflict")
+
+    # INT8 quantization
+    if config.get("load_8bit", False):
+        cmd.append("--load_8bit")
 
     # Optional overrides
     if "template_number" in config:

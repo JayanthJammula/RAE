@@ -121,18 +121,37 @@ Replace `--model gpt2` with any of:
 | Model Key | What It Is           | VRAM Needed | Speed      |
 |-----------|----------------------|-------------|------------|
 | `gpt2`    | GPT-2 Large (774M)   | ~1.6 GB     | ~7s/sample |
+| `gpt2xl`  | GPT-2 XL (1.5B)      | ~3.2 GB     | ~12s/sample|
 | `falcon`  | Falcon 1B            | ~2.5 GB     | ~10s/sample|
 | `neo`     | GPT-Neo 2.7B         | ~6 GB       | ~18s/sample|
-| `vicuna`  | Vicuna 7B            | ~14 GB      | ~45s/sample|
+| `vicuna`  | Vicuna 7B (auto FP16)| ~14 GB      | ~45s/sample|
 | `llama2`  | LLaMA-2 7B Chat      | ~14 GB      | ~50s/sample|
 
-Example with vicuna:
+**Note:** `gpt2xl` matches the "GPT-2 (1.5B)" used in the original RAE paper.
+
+Example with vicuna (auto-loads in FP16):
 ```bash
 PYTHONIOENCODING=utf-8 python main.py \
   --model vicuna \
-  --dataset slices/MQuAKE-CF_slice01_300 \
+  --dataset slices/MQuAKE-CF_stratified_300 \
   --relation_path data/relation.json \
   --device cuda \
+  --loss prob_div \
+  --beam_width 5 \
+  --num_beams 1 \
+  --max_new_tokens 50 \
+  --NatureL --template --correctConflict \
+  --seed 42
+```
+
+Example with INT8 quantization (best quality for 7B models):
+```bash
+PYTHONIOENCODING=utf-8 python main.py \
+  --model vicuna \
+  --dataset slices/MQuAKE-CF_stratified_300 \
+  --relation_path data/relation.json \
+  --device cuda \
+  --load_8bit \
   --loss prob_div \
   --beam_width 5 \
   --num_beams 1 \
