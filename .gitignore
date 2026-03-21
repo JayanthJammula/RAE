@@ -17,8 +17,3 @@ data/slices/*.json
 
 # Huge knowledge-graph dumps stay local
 data/Wikidata_triplets_dict*.pkl
-
-# Claude Code internal files
-.claude/
-CLAUDE.md
-claude.md
