@@ -11,8 +11,10 @@ import os
 from utils_func import *
 from wiki_api.strings import question_token
 from model import Extract, Prune
+from rae_output import collect_run_metadata, RunResultCollector, generate_run_id
+from rae_logging import setup_logging
+from rae_validation import validate_args, validate_dataset, safe_load_pickle
 
-logging.basicConfig(level=logging.INFO, format='%(message)s')
 logger = logging.getLogger(__name__)
 
 def parse_args():
@@ -128,7 +130,18 @@ def tempalate_extractor(question, NatureL, mode, tuple_list, train, NL_dict, arg
 
 if __name__ == '__main__':
     args = parse_args()
+
+    # --- Set up logging early (before any logger calls) ---
+    _run_id = generate_run_id()
+    log_path = setup_logging(_run_id)
+    logger.info(f"Log file: {log_path}")
+
     set_seed(args.seed)
+
+    # --- Validate arguments ---
+    arg_warnings = validate_args(args)
+    for w in arg_warnings:
+        logger.warning(f"Argument warning: {w}")
 
     MODEL_CONFIGS = {
         "gpt2":    "gpt2-large",
@@ -168,6 +181,7 @@ if __name__ == '__main__':
     attn_supported = (not disable_attn_viz) and getattr(model.config, "attn_implementation", "eager") != "sdpa"
 
     lines      = load_dataset(f"data/{args.dataset}.json")
+    validate_dataset(lines, f"data/{args.dataset}.json")
     train      = load_dataset("data/MQuAKE-CF.json")
     tuple_list = load_train_question("data/train_question_tuple.txt")
     edit_triplets_list = build_fact(lines)
@@ -185,18 +199,24 @@ if __name__ == '__main__':
     if "MQuAKE-T" in args.dataset:
         triplet_candidates.append("data/Wikidata_triplets_dict_MQuAKE-T.pkl")
     triplet_candidates.append("data/Wikidata_triplets_dict.pkl")
-    triplets_dict = load_triplets_dict(pick_existing_path(*triplet_candidates))
+    triplets_dict = safe_load_pickle(pick_existing_path(*triplet_candidates))
 
     orig_candidates = []
     if "MQuAKE-T" in args.dataset:
         orig_candidates.append("data/Wikidata_triplets_dict_Edited_T.pkl")
     orig_candidates.append("data/Wikidata_triplets_dict.pkl")
-    orig_triplets_dict = load_triplets_dict(pick_existing_path(*orig_candidates))
+    orig_triplets_dict = safe_load_pickle(pick_existing_path(*orig_candidates))
 
     extractor = Extract(model, tokenizer,
                         triplets_dict, relation_dict,
                         revserse_dict, orig_triplets_dict, args)
     pruner    = Prune(model, tokenizer, args)
+
+    # --- Structured output collector ---
+    run_metadata = collect_run_metadata(args, model_id)
+    collector = RunResultCollector(run_metadata, run_id=_run_id)
+    logger.info(f"Run ID: {collector.run_id}")
+    logger.info(f"Results will be saved to: {collector._path}")
 
     metrics = {k:0 for k in [
         'total_ques','raw_exact_match_cor','raw_par_match_cor',
@@ -212,6 +232,11 @@ if __name__ == '__main__':
         if i < args.starting_line: continue
         metrics['total_ques'] += 1
         case_metrics = {k:0 for k in metrics if k!='total_ques'}
+        case_result = {
+            "case_id": line.get("case_id", i),
+            "case_index": i,
+            "questions_attempted": [],
+        }
 
         for j in range(3):
             # build ground truth
@@ -253,17 +278,20 @@ if __name__ == '__main__':
             # adaptive retrieval
             raw_ent = ner_entity(question)
             retrieved = ""
+            retrieval_trace = {}
+            confidence_per_round = []
             for rnd in range(1, args.max_retrieval_rounds+1):
-                retrieved = extractor.multi_hop_search(
+                retrieved, retrieval_trace = extractor.multi_hop_search(
                     prom_questions, raw_ent,
                     len(ground)+2, fact_needed, rounds=rnd
                 )
                 conf = retrieval_confidence(retrieved, ground)
+                confidence_per_round.append(round(conf, 4))
                 logger.info(f"Case{i+1} Q{j} round{rnd} conf={conf:.2f}")
                 if conf >= args.conf_threshold:
                     break
 
-            pruned = pruner.prune_fact(question, retrieved, ans_prompt)
+            pruned, prune_trace = pruner.prune_fact(question, retrieved, ans_prompt)
 
             # QA pruned
             prun_ans, prun_cor = QA_func(
@@ -331,11 +359,43 @@ if __name__ == '__main__':
             case_metrics['total_raw_cor']       += raw_cor
             case_metrics['total_prun_cor']      += prun_cor
 
+            # --- Per-question result ---
+            q_result = {
+                "question_idx": j,
+                "question": question,
+                "ground_truth_facts": list(ground),
+                "new_answer": line.get("new_answer", ""),
+                "retrieval": {
+                    "rounds": len(confidence_per_round),
+                    "confidence_per_round": confidence_per_round,
+                    "retrieved_facts": retrieved,
+                    **retrieval_trace,
+                },
+                "pruning": {
+                    "pruned_facts_str": pruned,
+                    **prune_trace,
+                },
+                "raw_answer": raw_ans,
+                "pruned_answer": prun_ans,
+                "raw_correct": raw_cor > 0,
+                "pruned_correct": prun_cor > 0,
+                "raw_partial_match": raw_pm > 0,
+                "raw_exact_match": raw_em > 0,
+                "pruned_partial_match": prun_pm > 0,
+                "pruned_exact_match": prun_em > 0,
+            }
+            case_result["questions_attempted"].append(q_result)
+
             if case_metrics['total_prun_cor'] > 0:
                 break
 
         for k, v in case_metrics.items():
             if v > 0: metrics[k] += 1
+
+        # --- Save case result ---
+        case_result["solved"] = case_metrics["total_prun_cor"] > 0
+        collector.add_case(case_result)
+        collector.save_incremental()
 
         if (i+1) % 10 == 0:
             logger.info(f"Progress {i+1}")
@@ -349,3 +409,7 @@ if __name__ == '__main__':
     logger.info(f"Total runtime: {(t1-t0):.1f}s")
     logger.info("=== FINAL METRICS ===")
     log_metrics(metrics)
+
+    # --- Save final structured output ---
+    result_path = collector.save(metrics)
+    logger.info(f"Results saved to: {result_path}")

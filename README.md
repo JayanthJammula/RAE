@@ -39,6 +39,30 @@ Facts are now presented to the model as a structured bullet list instead of a co
 
 Added `gpt2xl` (GPT-2 XL, 1.5B) as a supported model key. Also added `--load_8bit` to load any supported model in INT8 quantization via bitsandbytes, halving VRAM requirements for larger models like Vicuna and LLaMA-2. Large models (`vicuna`, `llama2`) are automatically loaded in FP16 when a GPU is available.
 
+### Structured Run Output
+
+Every pipeline run now produces a JSON results file in `results/` containing full run metadata (model, dataset, arguments, git hash, timestamps), per-case results with retrieval traces and pruning details, and aggregate metrics. Results are saved incrementally after every case, so long runs survive crashes without losing progress. Each result file is named `run_{id}.json` where the run ID is shared with the corresponding log file for easy cross-referencing.
+
+### Fact Traceability
+
+The retrieval and pruning stages now return structured trace data alongside their existing outputs. `multi_hop_search()` tracks per-hop facts with their entity IDs, entity names, and retrieval probabilities for the selected chain. `prune_fact()` captures the input facts, per-fact entropy values, the minimum entropy index, and which facts survived pruning. All of this is written into the per-case JSON output, making it possible to trace exactly which facts led to a given answer and why certain facts were pruned.
+
+### Observability and Logging
+
+The pipeline uses a centralized logging setup (`rae_logging.py`) that writes timestamped, leveled logs to both the console (INFO) and a per-run log file (DEBUG) in `logs/`. All silent exception handlers in the Wikidata API layer now log their errors at DEBUG level instead of swallowing them, and the NER model loading is logged explicitly. Print statements across `model.py`, `utils_func.py`, and `wiki_api/wikidata.py` have been replaced with proper logger calls.
+
+### Wikidata API Retry Logic
+
+The `_safe_json_get()` function in `wiki_api/wikidata.py` now retries failed HTTP requests up to 3 times with exponential backoff (starting at 0.5s, doubling each attempt), matching the retry pattern already used in `Wiki.py`. Bare `except:` clauses throughout the Wikidata module have been replaced with specific exception types (`KeyError`, `IndexError`, `TypeError`) so unexpected errors are no longer silently swallowed.
+
+### Data Validation
+
+A validation module (`rae_validation.py`) checks dataset entries for required keys and correct structure before the pipeline starts, loads pickle files with explicit error handling for missing, empty, or corrupt files, and bounds-checks all command-line arguments. Bad inputs now fail fast with clear error messages instead of crashing mid-run with cryptic tracebacks.
+
+### Test Suite
+
+A pytest test suite (`tests/`) covers the core logic: answer truncation, answer matching, fact matching, entropy normalization edge cases, structured output serialization, data validation, argument validation, pickle loading, and Wikidata retry logic with mocked HTTP. 49 tests run in under 10 seconds.
+
 ## Why This Matters
 
 | Problem | RAE's Solution |
@@ -46,7 +70,7 @@ Added `gpt2xl` (GPT-2 XL, 1.5B) as a supported model key. Also added `--load_8bi
 | LLM knowledge becomes outdated | Edit the KG, not the model |
 | Multi-hop questions break with single edits | Chain-aware retrieval across multiple hops |
 | Too many retrieved facts confuse the LLM | Entropy-based pruning keeps only relevant facts |
-| Retraining is expensive | Zero retraining required - works at inference time |
+| Retraining is expensive | Zero retraining required, works at inference time |
 
 ### Real-World Applications
 
@@ -63,7 +87,11 @@ RAE/
 ├── model.py                   # Extract (fact retrieval) and Prune (entropy-based pruning) classes
 ├── utils_func.py              # Utilities: data loading, NER, QA evaluation, matching
 ├── create_dataset_slices.py   # Create reproducible dataset subsets for testing
+├── rae_output.py              # Structured run output: metadata, per-case results, JSON persistence
+├── rae_logging.py             # Centralized logging configuration (console + per-run log files)
+├── rae_validation.py          # Data validation: dataset schema checks, safe pickle loading, arg bounds
 ├── requirements.txt           # Python dependencies
+├── pytest.ini                 # Test configuration
 ├── data/
 │   ├── MQuAKE-CF.json         # Counterfactual training dataset (~9k examples)
 │   ├── MQuAKE-CF-3k.json      # 3k counterfactual test subset
@@ -74,10 +102,19 @@ RAE/
 │   └── slices/                # Small dataset slices for quick testing
 ├── preprocess/
 │   └── edit_KG.py             # Apply counterfactual edits to the knowledge graph
-└── wiki_api/
-    ├── wikidata.py            # Wikidata entity/ID conversion with caching
-    ├── Wiki.py                # Wikipedia search engine wrapper
-    └── strings.py             # NLP utilities (lemmatization, tokenization, stemming)
+├── wiki_api/
+│   ├── wikidata.py            # Wikidata entity/ID conversion with caching and retry logic
+│   ├── Wiki.py                # Wikipedia search engine wrapper
+│   └── strings.py             # NLP utilities (lemmatization, tokenization, stemming)
+├── results/                   # Structured JSON output from each run (auto-created)
+├── logs/                      # Per-run log files with timestamps (auto-created)
+└── tests/                     # pytest test suite
+    ├── conftest.py            # Shared fixtures
+    ├── test_validation.py     # Data and argument validation tests
+    ├── test_output.py         # Structured output module tests
+    ├── test_model.py          # Entropy normalization and pruning tests
+    ├── test_utils.py          # Answer matching, truncation, fact matching tests
+    └── test_wikidata.py       # Wikidata retry logic tests (mocked HTTP)
 ```
 
 ## Setup
@@ -148,6 +185,12 @@ python main.py --model gpt2 --dataset MQuAKE-T --relation_path data/relation.jso
 python create_dataset_slices.py
 ```
 
+### Running Tests
+
+```bash
+python -m pytest tests/ -v
+```
+
 ## Arguments
 
 | Argument | Description | Default |
@@ -182,9 +225,11 @@ python create_dataset_slices.py
 
 - **`--loss`**: Controls how fact chains are scored. `prob_div` uses raw probability divergence; `prob_div_log` weights it by log probability, emphasizing high-confidence retrievals.
 
-## Output Metrics
+## Output
 
-The pipeline reports these metrics:
+### Metrics
+
+The pipeline reports these metrics at the end of each run:
 
 | Metric | Description |
 |--------|-------------|
@@ -194,6 +239,20 @@ The pipeline reports these metrics:
 | `prun_par_match_acc` | At least one ground truth fact found after pruning |
 | `raw_ans_acc` | QA accuracy using all retrieved facts |
 | `prun_ans_acc` | QA accuracy using pruned facts |
+
+### Structured Results
+
+Each run produces a JSON file at `results/run_{id}.json` with:
+
+- **Run metadata**: model, dataset, all arguments, git hash, Python/PyTorch versions, timestamp
+- **Per-case results**: each case includes the question attempted, ground truth facts, retrieval trace (per-hop facts with probabilities, confidence per round), pruning trace (entropy values per fact, pruning decisions), generated answers (raw and pruned), and correctness flags
+- **Aggregate metrics**: the same metrics shown in the console, computed over all cases
+
+Results are saved incrementally after every case, so a crashed run still has all completed cases on disk.
+
+### Log Files
+
+Each run writes a log file to `logs/run_{id}.log` with DEBUG-level detail, including Wikidata API call outcomes, retrieval and pruning internals, and answer matching results that are too verbose for the console.
 
 ## Environment Variables
 

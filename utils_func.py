@@ -1,3 +1,4 @@
+import logging
 import torch
 from transformers import set_seed
 from transformers import AutoTokenizer, AutoModelForCausalLM, AutoModel
@@ -11,6 +12,8 @@ import numpy as np
 from ast import literal_eval
 import re
 from wiki_api.wikidata import id2entity
+
+logger = logging.getLogger(__name__)
 
 from wiki_api.strings import question_token
 
@@ -43,9 +46,11 @@ def parse_args():
 
 args = parse_args()
 
+logger.info("Loading NER model (Babelscape/wikineural-multilingual-ner)...")
 ner_tokenizer = AutoTokenizer.from_pretrained("Babelscape/wikineural-multilingual-ner")
 ner_model = AutoModelForTokenClassification.from_pretrained("Babelscape/wikineural-multilingual-ner")
 nlp = pipeline("ner", model=ner_model, tokenizer=ner_tokenizer, aggregation_strategy="simple")
+logger.info("NER model loaded.")
 
 
 def match_func(ground_truth_fact, fact_str, mode):
@@ -57,7 +62,7 @@ def match_func(ground_truth_fact, fact_str, mode):
     for fact in ground_truth_fact:
         if fact in fact_str:
             part_match_cor = 1
-            print(f"{mode}-->question: Part fact match")
+            logger.debug(f"{mode}-->question: Part fact match")
             break
 
     ext = 0
@@ -66,7 +71,7 @@ def match_func(ground_truth_fact, fact_str, mode):
             ext += 1
     if ext == len(ground_truth_fact):
         exact_match_cor = 1
-        print(f"{mode}-->question: Exact fact match")
+        logger.debug(f"{mode}-->question: Exact fact match")
 
     if mode == 'Pruned' and exact_match_cor == 1:
         redunant_detected = 0
@@ -76,7 +81,7 @@ def match_func(ground_truth_fact, fact_str, mode):
             if fact not in ground_truth_fact:
                 redunant_detected = 1
         if redunant_detected > 0:
-            print("Failed Pruning")
+            logger.debug("Failed Pruning")
     return part_match_cor, exact_match_cor
     
 
@@ -118,7 +123,7 @@ def QA_func(model, tokenizer, line, input_fact, question, ans_prompt, mode):
             if simple_alias in simple_ans:
                 correct_ans = 1
                 break
-    print(f"{mode}:{correct_ans}-->Edited Ans:'{line['new_answer']}/{simple_ground_ans}', Our Ans:'{ans}/{simple_ans}'")
+    logger.debug(f"{mode}:{correct_ans}-->Edited Ans:'{line['new_answer']}/{simple_ground_ans}', Our Ans:'{ans}/{simple_ans}'")
     
     return simple_ans, correct_ans
     

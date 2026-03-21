@@ -1,7 +1,10 @@
 
+import logging
 import torch
 from utils_func import find_lines_by_entity, retr_relations, sequences_prob, load_orig_entity, fact_triplet_to_sentence
 from wiki_api.wikidata import id2entity, entity2id
+
+logger = logging.getLogger(__name__)
 
 
 class Extract:
@@ -69,7 +72,7 @@ class Extract:
                         if self.args.correctConflict and (eid, pid) in fact_needed:
                             edited_tail_entites = tail_entites
                             tail_entites = load_orig_entity(self.orig_triplets_dict, eid, pid, tail_entites)
-                            print(f"confilct-->original:{eid}\{pid}\{edited_tail_entites}-->{tail_entites}")
+                            logger.info(f"conflict-->original:{eid}\\{pid}\\{edited_tail_entites}-->{tail_entites}")
                         next_rel_entities.append(pid+'\t'+tail_entites)
                         break
             
@@ -88,19 +91,23 @@ class Extract:
         fact_needed,
         *,
         rounds: int = None
-    ) -> str:
+    ):
+        """Returns (fact_str, trace_dict) where trace_dict contains structured retrieval data."""
 
         num_hops = rounds if (rounds is not None) else iteration
 
         # these will be populated by the loop
         text_list = []
         text_prob_list = []
+        # parallel metadata: list of lists, each inner list is per-hop fact dicts
+        chain_metadata = []
 
         for i in range(num_hops):
             new_text_list = []
             new_text_prob_list = []
             next_entity_list = []
             next_entites_eid_list = []
+            new_chain_metadata = []
 
             if i == 0:
                 ent_eid = entity2id(input_entity)
@@ -108,6 +115,7 @@ class Extract:
                 entity_list = [input_entity]
                 entity_eid_list = [ent_eid]
                 text_prob_list = [1.0]
+                chain_metadata = [[]]  # one chain, zero hops so far
 
             # if nothing to extend, break early
             if not text_list:
@@ -125,18 +133,35 @@ class Extract:
                     next_entity_list.append(next_entites[k])
                     next_entites_eid_list.append(next_entites_eid[k])
                     new_text_prob_list.append(top_prob[k] * text_prob)
+                    # track metadata for this chain extension
+                    hop_info = {
+                        "hop": i + 1,
+                        "fact_text": fact,
+                        "entity": next_entites[k],
+                        "entity_id": next_entites_eid[k],
+                        "hop_probability": top_prob[k],
+                    }
+                    new_chain_metadata.append(chain_metadata[j] + [hop_info])
 
             text_list       = new_text_list
             entity_list     = next_entity_list
             entity_eid_list = next_entites_eid_list
             text_prob_list  = new_text_prob_list
+            chain_metadata  = new_chain_metadata
 
             if not text_prob_list:
                 break
 
+        empty_trace = {
+            "num_hops": num_hops,
+            "num_chains_explored": 0,
+            "best_chain_score": 0.0,
+            "best_chain_facts": [],
+        }
+
         if not text_prob_list:
-            print("======No fact chains found, returning empty======")
-            return ""
+            logger.warning("No fact chains found, returning empty")
+            return "", empty_trace
 
         text_prob = torch.tensor(text_prob_list, device=text_list[0].__class__ is str and torch.device("cpu") or self.model.device)
         if self.args.loss == "prob_div":
@@ -147,12 +172,20 @@ class Extract:
             final_score = text_prob
 
         top_vals, indices = torch.topk(final_score, 1)
-        best_chain = text_list[indices[0].item()]
+        best_idx = indices[0].item()
+        best_chain = text_list[best_idx]
 
         fact = best_chain[len(input_text) + 1 :] if len(best_chain) > len(input_text) else ""
-        print("======Final fact=====")
-        print(fact)
-        return fact     
+        logger.debug(f"Final fact: {fact}")
+
+        trace = {
+            "num_hops": num_hops,
+            "num_chains_explored": len(text_list),
+            "best_chain_score": round(top_vals[0].item(), 6),
+            "best_chain_facts": chain_metadata[best_idx] if chain_metadata else [],
+        }
+
+        return fact, trace
 
 
 class Prune:
@@ -202,14 +235,22 @@ class Prune:
         return entropy_values.tolist()
     
     def prune_fact(self, question, facts_str, entropy_prompt):
-        
+        """Returns (pruned_facts_str, prune_trace) with entropy details."""
+
         facts = facts_str.split('.\n')
         entropy_val = self.facts_entropy(question, facts, entropy_prompt)
-        print("========================")
-        print("entropy_val:", entropy_val)
+        logger.debug(f"entropy_val: {entropy_val}")
         min_index = entropy_val.index(min(entropy_val))
-        
+
         pruned_facts = facts[0:(min_index+1)]
         pruned_facts_str = '.\n'.join(pruned_facts) + '.'
-        
-        return pruned_facts_str
+
+        prune_trace = {
+            "input_facts": facts,
+            "entropy_values": [round(v, 6) for v in entropy_val],
+            "min_entropy_index": min_index,
+            "pruned_facts": pruned_facts,
+            "facts_removed": len(facts) - len(pruned_facts),
+        }
+
+        return pruned_facts_str, prune_trace

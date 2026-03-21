@@ -1,26 +1,40 @@
 import json, urllib # Needed libs
+import logging
 import sys
+import time
 import urllib.request  as ur
 from urllib.error import HTTPError, URLError
 from pprint import pprint # Not necessary
-from urllib.parse import quote 
+from urllib.parse import quote
 from wiki_api.Wiki import OnelineSearchEngine
-wikisearch = OnelineSearchEngine() 
+wikisearch = OnelineSearchEngine()
 from functools import lru_cache
+
+logger = logging.getLogger(__name__)
 
 _DEFAULT_HEADERS = {"User-Agent": "RAE/1.0 (+https://github.com/sycny/RAE)"}
 
-def _safe_json_get(url):
-	try:
-		req = ur.Request(url, headers=_DEFAULT_HEADERS)
-		with ur.urlopen(req) as resp:
-			content = resp.read()
-	except (HTTPError, URLError, TimeoutError):
-		return None
-	try:
-		return json.loads(content)
-	except json.JSONDecodeError:
-		return None
+def _safe_json_get(url, max_retries=3, initial_delay=0.5):
+	"""Fetch JSON from URL with retry and exponential backoff."""
+	delay = initial_delay
+	last_error = None
+	for attempt in range(max_retries):
+		try:
+			req = ur.Request(url, headers=_DEFAULT_HEADERS)
+			with ur.urlopen(req, timeout=10) as resp:
+				content = resp.read()
+			return json.loads(content)
+		except (HTTPError, URLError, TimeoutError) as e:
+			last_error = e
+			logger.debug(f"Wikidata API attempt {attempt+1}/{max_retries} failed for {url}: {e}")
+			if attempt < max_retries - 1:
+				time.sleep(delay)
+				delay *= 2
+		except json.JSONDecodeError as e:
+			logger.debug(f"Invalid JSON from {url}: {e}")
+			return None
+	logger.warning(f"Wikidata API failed after {max_retries} attempts: {url} ({last_error})")
+	return None
 
 @lru_cache(None)
 def entity2id(q):
@@ -47,7 +61,8 @@ def entity2id(q):
 			return ans[0]["id"]
 		else:
 			return None
-	except Exception:
+	except (KeyError, IndexError, TypeError) as e:
+		logger.debug(f"entity2id fallback failed for '{q}': {e}")
 		return None
 
 
@@ -79,7 +94,8 @@ def id2entity(q):
 		else:
 			# Some outliers : Salvador Domingo Felipe Jacinto Dali i Domenech - Q5577
 			return "Not Applicable"
-	except Exception:
+	except (KeyError, IndexError, TypeError) as e:
+		logger.debug(f"id2entity fallback failed for '{q}': {e}")
 		return "Not Applicable"
 
 def getp(p):
@@ -123,7 +139,8 @@ def Related(name):
 					})
 				#ans.append("\\property\\"+p+"\t"+getp(p)+"\t\\entity\\"+cid+"\t"+getc(cid))
 				# Print in a pid-pname-eid-ename fashion
-			except:
+			except (KeyError, TypeError) as e:
+				logger.debug(f"Skipping claim for property {p}: {e}")
 				continue
 	return ans
 
